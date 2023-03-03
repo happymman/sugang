@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UserRepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UserRepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/happyman.sugang.domain.html">happyman.sugang.domain</a> &gt; UserRepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.305s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">save()</td>
+<td class="success">0.305s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>10:52:25.192 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [UserRepositoryTest]: using SpringBootContextLoader
+10:52:25.195 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [happyman.sugang.domain.UserRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:52:25.195 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [happyman.sugang.domain.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:52:25.206 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [UserRepositoryTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+10:52:25.242 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/heenamkang/dev/spring/sugang/build/classes/java/main/happyman/sugang/SugangApplication.class]
+10:52:25.243 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration happyman.sugang.SugangApplication for test class happyman.sugang.domain.UserRepositoryTest
+10:52:25.289 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [UserRepositoryTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+10:52:25.289 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [UserRepositoryTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.3)
+
+2023-03-03T10:52:25.421+09:00  INFO 946 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : Starting UserRepositoryTest using Java 17.0.5 with PID 946 (started by heenamkang in /Users/heenamkang/dev/spring/sugang)
+2023-03-03T10:52:25.422+09:00  INFO 946 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : The following 1 profile is active: &quot;test&quot;
+2023-03-03T10:52:26.102+09:00  INFO 946 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : Started UserRepositoryTest in 0.791 seconds (process running for 1.297)
+2023-03-03T10:52:26.115+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Creating new transaction with name [happyman.sugang.domain.UserRepositoryTest.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2023-03-03T10:52:26.116+09:00  INFO 946 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-03T10:52:26.168+09:00  INFO 946 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/~/test user=SA
+2023-03-03T10:52:26.170+09:00  INFO 946 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-03T10:52:26.173+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Acquired Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA] for JDBC transaction
+2023-03-03T10:52:26.174+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Switching JDBC Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA] to manual commit
+2023-03-03T10:52:26.358+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.save      : ==&gt;  Preparing: insert into admin (admin_id, password) values (?, ?)
+2023-03-03T10:52:26.371+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.save      : ==&gt; Parameters: 2018003125(Integer), 1(String)
+2023-03-03T10:52:26.372+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.save      : &lt;==    Updates: 1
+2023-03-03T10:52:26.373+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : ==&gt;  Preparing: select admin_id, password from admin where admin_id = ?
+2023-03-03T10:52:26.373+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : ==&gt; Parameters: 2018003125(Integer)
+2023-03-03T10:52:26.384+09:00 TRACE 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : &lt;==    Columns: ADMIN_ID, PASSWORD
+2023-03-03T10:52:26.384+09:00 TRACE 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : &lt;==        Row: 2018003125, 1
+2023-03-03T10:52:26.385+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : &lt;==      Total: 1
+2023-03-03T10:52:26.413+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
+2023-03-03T10:52:26.413+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA]
+2023-03-03T10:52:26.414+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA] after transaction
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 3. 3. 오전 10:52:26</p>
+</div>
+</div>
+</body>
+</html>
