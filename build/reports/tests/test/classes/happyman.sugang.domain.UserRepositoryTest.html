@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.305s</div>
+<div class="counter">0.451s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,8 +78,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">save()</td>
-<td class="success">0.305s</td>
+<td class="success">학생_회원가입()</td>
+<td class="success">0.451s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,14 +87,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>10:52:25.192 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [UserRepositoryTest]: using SpringBootContextLoader
-10:52:25.195 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [happyman.sugang.domain.UserRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-10:52:25.195 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [happyman.sugang.domain.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-10:52:25.206 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [UserRepositoryTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-10:52:25.242 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/heenamkang/dev/spring/sugang/build/classes/java/main/happyman/sugang/SugangApplication.class]
-10:52:25.243 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration happyman.sugang.SugangApplication for test class happyman.sugang.domain.UserRepositoryTest
-10:52:25.289 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [UserRepositoryTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-10:52:25.289 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [UserRepositoryTest], class annotated with @DirtiesContext [false] with mode [null]
+<pre>19:06:51.000 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [UserRepositoryTest]: using SpringBootContextLoader
+19:06:51.004 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [happyman.sugang.domain.UserRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+19:06:51.005 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [happyman.sugang.domain.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:06:51.022 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [UserRepositoryTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+19:06:51.076 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/heenamkang/dev/spring/sugang/build/classes/java/main/happyman/sugang/SugangApplication.class]
+19:06:51.077 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration happyman.sugang.SugangApplication for test class happyman.sugang.domain.UserRepositoryTest
+19:06:51.138 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [UserRepositoryTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+19:06:51.139 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [UserRepositoryTest], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,26 +104,22 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.3)
 
-2023-03-03T10:52:25.421+09:00  INFO 946 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : Starting UserRepositoryTest using Java 17.0.5 with PID 946 (started by heenamkang in /Users/heenamkang/dev/spring/sugang)
-2023-03-03T10:52:25.422+09:00  INFO 946 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : The following 1 profile is active: &quot;test&quot;
-2023-03-03T10:52:26.102+09:00  INFO 946 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : Started UserRepositoryTest in 0.791 seconds (process running for 1.297)
-2023-03-03T10:52:26.115+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Creating new transaction with name [happyman.sugang.domain.UserRepositoryTest.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
-2023-03-03T10:52:26.116+09:00  INFO 946 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-03-03T10:52:26.168+09:00  INFO 946 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/~/test user=SA
-2023-03-03T10:52:26.170+09:00  INFO 946 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-03-03T10:52:26.173+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Acquired Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA] for JDBC transaction
-2023-03-03T10:52:26.174+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Switching JDBC Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA] to manual commit
-2023-03-03T10:52:26.358+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.save      : ==&gt;  Preparing: insert into admin (admin_id, password) values (?, ?)
-2023-03-03T10:52:26.371+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.save      : ==&gt; Parameters: 2018003125(Integer), 1(String)
-2023-03-03T10:52:26.372+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.save      : &lt;==    Updates: 1
-2023-03-03T10:52:26.373+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : ==&gt;  Preparing: select admin_id, password from admin where admin_id = ?
-2023-03-03T10:52:26.373+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : ==&gt; Parameters: 2018003125(Integer)
-2023-03-03T10:52:26.384+09:00 TRACE 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : &lt;==    Columns: ADMIN_ID, PASSWORD
-2023-03-03T10:52:26.384+09:00 TRACE 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : &lt;==        Row: 2018003125, 1
-2023-03-03T10:52:26.385+09:00 DEBUG 946 --- [    Test worker] h.sugang.repository.UserMapper.findById  : &lt;==      Total: 1
-2023-03-03T10:52:26.413+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
-2023-03-03T10:52:26.413+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA]
-2023-03-03T10:52:26.414+09:00 DEBUG 946 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@319618119 wrapping conn0: url=jdbc:h2:tcp://localhost/~/test user=SA] after transaction
+2023-03-10T19:06:51.324+09:00  INFO 59667 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : Starting UserRepositoryTest using Java 17.0.5 with PID 59667 (started by heenamkang in /Users/heenamkang/dev/spring/sugang)
+2023-03-10T19:06:51.325+09:00  INFO 59667 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : The following 1 profile is active: &quot;test&quot;
+2023-03-10T19:06:52.355+09:00  INFO 59667 --- [    Test worker] h.sugang.domain.UserRepositoryTest       : Started UserRepositoryTest in 1.183 seconds (process running for 2.11)
+2023-03-10T19:06:52.631+09:00 DEBUG 59667 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2023-03-10T19:06:52.631+09:00  INFO 59667 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-10T19:06:52.706+09:00  INFO 59667 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/~/test user=SA
+2023-03-10T19:06:52.707+09:00  INFO 59667 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-10T19:06:52.713+09:00 DEBUG 59667 --- [    Test worker] h.s.repository.UserMapper.saveStudent    : ==&gt;  Preparing: insert into student (student_id, password, major_id, student_name, sex, year, state) values (?, ?, ?, ?, ?, ?, ?)
+2023-03-10T19:06:52.731+09:00 DEBUG 59667 --- [    Test worker] h.s.repository.UserMapper.saveStudent    : ==&gt; Parameters: 2016049907(Integer), 2(String), 2(Integer), 강희남(String), male(String), 4(Integer), 재학(String)
+2023-03-10T19:06:52.756+09:00 DEBUG 59667 --- [    Test worker] h.s.repository.UserMapper.saveStudent    : &lt;==    Updates: 1
+2023-03-10T19:06:52.759+09:00 DEBUG 59667 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2023-03-10T19:06:52.759+09:00 DEBUG 59667 --- [    Test worker] h.s.repository.UserMapper.findStudent    : ==&gt;  Preparing: select student_id as id, password, major_id, student_name, sex, year, state from student where student_id = ?
+2023-03-10T19:06:52.760+09:00 DEBUG 59667 --- [    Test worker] h.s.repository.UserMapper.findStudent    : ==&gt; Parameters: 2016049907(Integer)
+2023-03-10T19:06:52.776+09:00 TRACE 59667 --- [    Test worker] h.s.repository.UserMapper.findStudent    : &lt;==    Columns: ID, PASSWORD, MAJOR_ID, STUDENT_NAME, SEX, YEAR, STATE
+2023-03-10T19:06:52.776+09:00 TRACE 59667 --- [    Test worker] h.s.repository.UserMapper.findStudent    : &lt;==        Row: 2016049907, 2, 2, 강희남, male, 4, 재학
+2023-03-10T19:06:52.778+09:00 DEBUG 59667 --- [    Test worker] h.s.repository.UserMapper.findStudent    : &lt;==      Total: 1
 </pre>
 </span>
 </div>
@@ -135,7 +131,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 3. 3. 오전 10:52:26</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 3. 10. 오후 7:06:52</p>
 </div>
 </div>
 </body>

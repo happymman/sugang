@@ -1,10 +1,15 @@
 package happyman.sugang.service;
 
+import happyman.sugang.domain.Admin;
+import happyman.sugang.domain.Student;
 import happyman.sugang.domain.User;
 
 import java.util.Optional;
 
 public interface UserService {
-    User save(User user);
-    Optional<User> findById(Integer id);
+    Admin saveAdmin(Admin admin);
+    Optional<Admin> findAdmin(Integer id);
+
+    Student saveStudent(Student student);
+    Optional<Student> findStudent(Integer id);
 }
