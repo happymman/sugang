@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="happyman.sugang.repository.AdminMapper">
+    <insert id="createCourse" keyProperty="course_id">
+        insert into course (course_id, course_name, credit, year)
+                values (#{courseId}, #{courseName}, #{credit}, #{year})
+    </insert>
+
+    <select id="findCourseByName" resultType="Course">
+        select course_id, course_name, credit, year
+        from course
+        where course_name like #{name}
+    </select>
+
+    <insert id="createClass" useGeneratedKeys="true" keyProperty="classId">
+        insert into class (course_id, lecturer_id, room_id, person_register, person_max, opened, begin, end)
+                values (#{courseId}, #{lecturerId}, #{roomId}, #{personRegister}, #{personMax}, #{opened}, #{begin}, #{end})
+    </insert>
+
+    <!-- from테이블 where조건에 맞는 row에서 admin_id와 password를 가져와서 / resultType 객체생성, 멤버변수중 이름이 일치하는것에 삽입한다 -->
+    <select id="findClass" resultType="ClassInfo">
+        select cl.course_id, cl.lecturer_id, cl.room_id, cl.person_register, cl.person_max, cl.opened, cl.begin, cl.end, co.course_name, co.credit, co.year
+        from class as cl
+        join course as co on cl.course_id = co.course_id
+        <where>
+            <if test="name != null">
+                and co.course_name like #{name}
+            </if>
+            <if test="courseId != null">
+                and co.course_id = #{courseId}
+            </if>
+        </where>
+    </select>
+<!--    <insert id="saveStudent" keyProperty="student_id">-->
+<!--        insert into student (student_id, password, major_id, student_name, sex, year, state)-->
+<!--                values (#{id}, #{password}, #{majorId}, #{studentName}, #{sex}, #{year}, #{state})-->
+<!--    </insert>-->
+
+<!--    <select id="findStudent" resultType="Student">-->
+<!--        select student_id as id, password, major_id, student_name, sex, year, state-->
+<!--        from student-->
+<!--        where student_id = #{id}-->
+<!--    </select>-->
+
+</mapper>

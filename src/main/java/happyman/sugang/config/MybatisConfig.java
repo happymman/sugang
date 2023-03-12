@@ -1,25 +1,32 @@
 package happyman.sugang.config;
 
-import happyman.sugang.repository.MybatisUserRepository;
-import happyman.sugang.repository.UserMapper;
-import happyman.sugang.repository.UserRepository;
-import happyman.sugang.service.UserService;
-import happyman.sugang.service.UserServiceV1;
+import happyman.sugang.repository.*;
+import happyman.sugang.service.HomeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
 public class MybatisConfig {
+//    @Autowired
+//    public MybatisConfig(HomeMapper homeMapper, AdminMapper adminMapper) {
+//        this.homeMapper = homeMapper;
+//        this.adminMapper = adminMapper;
+//    }
 
-    private final UserMapper userMapper;
+//    private final HomeMapper homeMapper;
+    private final AdminMapper adminMapper;
+
+//    @Bean
+//    public HomeService homeService(){return new HomeServiceV1(homeRepository());}
+
+//    @Bean
+//    public HomeRepository homeRepository(){return new MybatisHomeRepository(homeMapper);
+//    }
 
     @Bean
-    public UserService userService(){return new UserServiceV1(userRepository());}
-
-    @Bean
-    public UserRepository userRepository(){return new MybatisUserRepository(userMapper);
+    public AdminRepository adminRepository(){return new MybatisAdminRepository(adminMapper);
     }
-
 }

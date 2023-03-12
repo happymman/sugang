@@ -5,43 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a944df3a-a4f8-418f-a0ac-29c905d5ac16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/ClassInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisAdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/AdminMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/happyman/sugang/domain/AdminRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6/gc.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/config/MybatisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/config/MybatisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/UserServiceV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/UserServiceV1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/domain/UserRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/domain/UserRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/happyman.sugang.domain.UserRepositoryTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/happyman.sugang.domain.UserRepositoryTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisUserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/UserServiceV1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/domain/UserRepositoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/happyman.sugang.domain.UserRepositoryTest.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/happyman.sugang.domain.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/happyman.sugang.domain.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-happyman.sugang.domain.UserRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-happyman.sugang.domain.UserRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-happyman.sugang.domain.UserRepositoryTest.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisConfig.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisUserRepository.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SugangApplication.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserMapper.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisConfig.class.uniqueId5" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisConfig.class.uniqueId5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisUserRepository.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserMapper.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserRepository.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserService.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserServiceV1.class.uniqueId6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/UserRepositoryTest.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/config/MybatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/config/MybatisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/UserServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/UserServiceV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/happyman/sugang/domain/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/happyman/sugang/domain/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisHomeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/HomeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/HomeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/HomeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/UserServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/HomeServiceV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/HomeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/happyman/sugang/domain/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/happyman/sugang/domain/HomeRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,8 +137,10 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/heenamkang/dev/spring/sugang",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "copyright",
     "spring.configuration.checksum": "4920f109394b6641014548e27f7940c1"
   }
@@ -121,6 +151,7 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="happyman.sugang.domain" />
+      <recent name="happyman.sugang.repository" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,8 +161,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.UserRepositoryTest.학생_회원가입">
-    <configuration name="UserRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.AdminRepositoryTest.수업_개설">
+    <configuration name="AdminRepositoryTest.과목_개설" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -144,7 +175,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;happyman.sugang.domain.UserRepositoryTest&quot;" />
+            <option value="&quot;happyman.sugang.domain.AdminRepositoryTest.과목_개설&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -154,7 +185,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserRepositoryTest.관리자_회원가입" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AdminRepositoryTest.수업_개설" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -167,7 +198,53 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;happyman.sugang.domain.UserRepositoryTest.관리자_회원가입&quot;" />
+            <option value="&quot;happyman.sugang.domain.AdminRepositoryTest.수업_개설&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="HomeRepositoryTest.관리자_회원가입" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;happyman.sugang.domain.HomeRepositoryTest.관리자_회원가입&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="HomeRepositoryTest.학생_회원가입" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;happyman.sugang.domain.HomeRepositoryTest.학생_회원가입&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -214,29 +291,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;happyman.sugang.domain.UserRepositoryTest.학생_회원가입&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserRepositoryTest.save" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;happyman.sugang.domain.UserRepositoryTest.save&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -262,10 +316,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AdminRepositoryTest.수업_개설" />
+        <item itemvalue="Gradle.AdminRepositoryTest.과목_개설" />
+        <item itemvalue="Gradle.HomeRepositoryTest.학생_회원가입" />
+        <item itemvalue="Gradle.HomeRepositoryTest.관리자_회원가입" />
         <item itemvalue="Gradle.UserRepositoryTest.학생_회원가입" />
-        <item itemvalue="Gradle.UserRepositoryTest.관리자_회원가입" />
-        <item itemvalue="Gradle.UserRepositoryTest" />
-        <item itemvalue="Gradle.UserRepositoryTest.save" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +336,7 @@
       <workItem from="1677841394099" duration="132000" />
       <workItem from="1677841929305" duration="627000" />
       <workItem from="1677842600722" duration="28182000" />
-      <workItem from="1678093214864" duration="21756000" />
+      <workItem from="1678093214864" duration="52668000" />
     </task>
     <servers />
   </component>

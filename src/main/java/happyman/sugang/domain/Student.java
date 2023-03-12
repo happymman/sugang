@@ -1,10 +1,12 @@
 package happyman.sugang.domain;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class Student extends User{
     private Integer majorId;
     private String studentName;

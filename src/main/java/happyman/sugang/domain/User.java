@@ -2,8 +2,6 @@ package happyman.sugang.domain;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
 public class User {
     private Integer id;
