@@ -1,19 +1,18 @@
 package happyman.sugang.domain;
 
-import happyman.sugang.repository.HomeRepository;
+import happyman.sugang.repository.StudentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 //@Transactional //이게 없었다?
 @SpringBootTest
-class HomeRepositoryTest {
+class StudentRepositoryTest {
 
     @Autowired
-    HomeRepository homeRepository;
+    StudentRepository studentRepository;
 
     @Test
     void 관리자_회원가입() {
@@ -22,10 +21,10 @@ class HomeRepositoryTest {
         Admin admin = new Admin(2018003125, "1");
 
         //when
-        Admin savedAdmin = homeRepository.createAdmin(admin);
+        Admin savedAdmin = studentRepository.createAdmin(admin);
 
         //then
-        Admin findAdmin = homeRepository.findAdmin(admin.getId()).get();
+        Admin findAdmin = studentRepository.findAdmin(admin.getId()).get();
         assertThat(findAdmin).isEqualTo(savedAdmin); //isEqualTo(객체) : 객체 print값이 동일한지 검사
 
     }
@@ -37,10 +36,10 @@ class HomeRepositoryTest {
         System.out.println(student);
 
         //when
-        Student savedStudent = homeRepository.createStudent(student);
+        Student savedStudent = studentRepository.createStudent(student);
 
         //then
-        Student findStudent = homeRepository.findStudent(student.getId()).get();
+        Student findStudent = studentRepository.findStudent(student.getId()).get();
         assertThat(findStudent).isEqualTo(savedStudent); //isEqualTo(객체) : 객체 print값이 동일한지 검사
     }
 }

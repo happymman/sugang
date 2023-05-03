@@ -47,6 +47,9 @@ public class StudentController {
     //@GetMapping(/registrations)
     //신청내역
 
+    //@Delete student/registrations(수강취소)
+    //cancelRegistration() :
+
     //@GetMapping(/timetables)
     //학생 시간표 조회
 }
