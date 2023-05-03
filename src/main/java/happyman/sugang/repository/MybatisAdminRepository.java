@@ -5,6 +5,7 @@ import happyman.sugang.domain.Course;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -18,8 +19,8 @@ public class MybatisAdminRepository implements AdminRepository {
         return classInfo;
     }
     @Override
-    public Optional<ClassInfo> findClass(String name, String courseId) {
-        return adminMapper.findClass(name, courseId);
+    public List<ClassInfo> findClasses(String name, String courseId) {
+        return adminMapper.findClasses(name, courseId);
     }
 
     @Override

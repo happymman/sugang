@@ -14,15 +14,17 @@
     </select>
 
     <insert id="createClass" useGeneratedKeys="true" keyProperty="classId">
-        insert into class (course_id, lecturer_id, room_id, person_register, person_max, opened, begin, end)
-                values (#{courseId}, #{lecturerId}, #{roomId}, #{personRegister}, #{personMax}, #{opened}, #{begin}, #{end})
+        insert into class (course_id, class_no, lecturer_id, room_id, person_register, person_max, opened, begin, end)
+                values (#{courseId}, #{classNo}, #{lecturerId}, #{roomId}, #{personRegister}, #{personMax}, #{opened}, #{begin}, #{end})
     </insert>
 
     <!-- from테이블 where조건에 맞는 row에서 admin_id와 password를 가져와서 / resultType 객체생성, 멤버변수중 이름이 일치하는것에 삽입한다 -->
-    <select id="findClass" resultType="ClassInfo">
-        select cl.course_id, cl.lecturer_id, cl.room_id, cl.person_register, cl.person_max, cl.opened, cl.begin, cl.end, co.course_name, co.credit, co.year
+    <select id="findClasses" resultType="ClassInfo">
+        select cl.class_id, cl.course_id, cl.class_no, cl.lecturer_id, cl.room_id, cl.person_register, cl.person_max, cl.opened, cl.begin, cl.end, co.course_name, co.credit, co.year, r.building_name, r.room_name, l.lecturer_name
         from class as cl
         join course as co on cl.course_id = co.course_id
+                                 join room as r on cl.room_id = r.room_id
+                                                       join lecturer as l on cl.lecturer_id = l.lecturer_id
         <where>
             <if test="name != null">
                 and co.course_name like #{name}

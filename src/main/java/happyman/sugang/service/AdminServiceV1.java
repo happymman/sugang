@@ -10,7 +10,7 @@
 //
 //@RequiredArgsConstructor
 ////@Service
-//public class UserServiceV1 implements UserService{
+//public class AdminServiceV1 implements AdminService{
 //    private final UserRepository userRepository;
 //
 //    @Override

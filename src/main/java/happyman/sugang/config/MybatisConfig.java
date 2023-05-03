@@ -1,9 +1,7 @@
 package happyman.sugang.config;
 
 import happyman.sugang.repository.*;
-import happyman.sugang.service.HomeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
