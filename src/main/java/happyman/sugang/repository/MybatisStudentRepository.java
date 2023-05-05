@@ -1,50 +1,77 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.Admin;
-import happyman.sugang.domain.Student;
+import happyman.sugang.domain.ClassDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.Set;
 
 @Repository
 @RequiredArgsConstructor
 public class MybatisStudentRepository implements StudentRepository {
     private final StudentMapper studentMapper;
 
-//    @Override
-//    public Admin createAdmin(Admin admin) {
-//        studentMapper.createAdmin(admin);
-//        return admin;
-//    }
-
     @Override
-    public Optional<Admin> findAdmin(Integer id) {
-        return studentMapper.findAdmin(id);
+    public Set<Integer> findCourseNotAllowed(Integer idx) {
+        return studentMapper.findCourseNotAllowed(idx);
     }
 
-//    @Override
-//    public Student createStudent(Student student) {
-//        studentMapper.createStudent(student);
-//        return student;
-//    }
-
     @Override
-    public Optional<Student> findStudent(Integer id) {
-        return studentMapper.findStudent(id);
+    public Integer getStudentCredit(Integer idx) {
+        return studentMapper.getStudentCredit(idx);
     }
 
-    //    - 학생 재수강 불과 과목 조회(findStudent재수강불가과목) - 상황 : 학생 로그인
-//    - 학생 수강학점조회(getStudentCredit)(in Registration) - 상황 : 학생 로그인
+    @Override
+    public List<ClassDto> findClassesByNameAndCourseId(String name, String courseId) {
+        return studentMapper.findClassesByNameAndCourseId(name, courseId);
+    }
+
+    @Override
+    public Integer getClassRegisterMax(Integer idx) {
+        return studentMapper.getClassRegisterMax(idx);
+    }
+
+    @Override
+    public void updateClassRegister(Integer idx, Integer updateParam) {
+        studentMapper.updateClassRegister(idx, updateParam);
+    }
+
+    @Override
+    public List<ClassDto> findRegistrations(Integer idx) {
+        return studentMapper.findRegistrations(idx);
+    }
+
+    @Override
+    public void deleteRegistration(Integer studentIdx, Integer classIdx) {
+        studentMapper.deleteRegistration(studentIdx, classIdx);
+    }
+
+    @Override
+    public List<ClassDto> getClassOfTimetable(Integer idx) {
+        return studentMapper.getClassOfTimetable(idx);
+    }
+
+////    @Override
+////    public Admin createAdmin(Admin admin) {
+////        studentMapper.createAdmin(admin);
+////        return admin;
+////    }
 //
-//    - 수업 복수조회 by이름, 학수번호(findClassesByNameAndCourseId)
-//    - 현재 시간표 중복 검사(isNotTimeTableDuplicate) - 상황 : 수강신청
-//    - 수업 정원 만원검사(getClassFull) - 상황 : 수강신청 → lock 활용
-//    - 수업 정원변경(updateClassRegister) - 상황 : 수강신청
+//    @Override
+//    public Optional<Admin> findAdmin(Integer id) {
+//        return studentMapper.findAdmin(id);
+//    }
 //
-//    - 신청내역 복수조회(findRegistrations)
-//    - 수강 취소(deleteClass)
+////    @Override
+////    public Student createStudent(Student student) {
+////        studentMapper.createStudent(student);
+////        return student;
+////    }
 //
-//    - 시간표 조회(findTimetable)
+//    @Override
+//    public Optional<Student> findStudent(Integer id) {
+//        return studentMapper.findStudent(id);
+//    }
 
 }

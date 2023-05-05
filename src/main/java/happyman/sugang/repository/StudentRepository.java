@@ -1,20 +1,17 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.Admin;
 import happyman.sugang.domain.ClassDto;
-import happyman.sugang.domain.Student;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 public interface StudentRepository {
 
-    Admin createAdmin(Admin user);
-    Optional<Admin> findAdmin(Integer id);
-
-    Student createStudent(Student student);
-    Optional<Student> findStudent(Integer id);
+//    Admin createAdmin(Admin user);
+//    Optional<Admin> findAdmin(Integer id);
+//
+//    Student createStudent(Student student);
+//    Optional<Student> findStudent(Integer id);
 
 //    - 학생 재수강 불과 과목 조회(findCourseNotAllowed) - 상황 : 학생 로그인
 //    - 학생 수강학점조회(getStudentCredit)(in Registration) - 상황 : 학생 로그인
@@ -40,7 +37,7 @@ public interface StudentRepository {
     void updateClassRegister(Integer idx, Integer updateParam);
 
     List<ClassDto> findRegistrations(Integer idx);
-    void deleteRegistration(Integer idx);
+    void deleteRegistration(Integer studentIdx, Integer classIdx);
 
     List<ClassDto> getClassOfTimetable(Integer idx);
 }

@@ -31,12 +31,12 @@ public interface AdminRepository {
 //  - 학생 전담강사 조회(findStudentLecturer)
 //  - 학생 시간표 조회(findStudentTimetable)
 
-    Optional<Admin> findAdminById(String id);
+    Optional<AdminDto> findAdminById(String id);
 
-    Admin createAdmin(Admin admin);
+    AdminDto createAdmin(AdminDto admin);
 
-    List<Admin> findAdmins();
-    Optional<Admin> findAdminByIdx(Integer idx);
+    List<AdminDto> findAdmins();
+    Optional<AdminDto> findAdminByIdx(Integer idx);
     void deleteAdmin(Integer idx);
     Integer getRoomOccupancy(Integer idx);
 
@@ -44,10 +44,10 @@ public interface AdminRepository {
     void deleteClass(Integer idx);
     List<ClassDto> findClassesByNameAndCourseId(String name, String courseId);
 
-    Student createStudent(Student student);
-    List<Student> findStudentsByName(String name);
+    StudentDto createStudent(StudentDto student);
+    List<StudentDto> findStudentsByName(String name);
     void updateStudentStatus(Integer studentIdx, String status);
-    Optional<Lecturer> findStudentLecturer(Integer studentIdx);
+    Optional<LecturerDto> findStudentLecturer(Integer studentIdx);
 
-    List<Student> findStudentRegistrations(Integer idx);
+    List<StudentDto> findStudentRegistrations(Integer idx);
 }

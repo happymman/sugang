@@ -2,7 +2,6 @@ package happyman.sugang.repository;
 
 import happyman.sugang.domain.*;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,12 +16,12 @@ public interface AdminMapper { //매퍼.xml의 sql을 실행하고 결과를 ret
 //    Optional<Course> findCourseByName(String name);
 
 //////////////////////////////////////////////////////////////////
-    Optional<Admin> findAdminById(String id);
+    Optional<AdminDto> findAdminById(String id);
 
-    void createAdmin(Admin admin);
+    void createAdmin(AdminDto admin);
 
-    List<Admin> findAdmins();
-    Optional<Admin> findAdminByIdx(Integer idx);
+    List<AdminDto> findAdmins();
+    Optional<AdminDto> findAdminByIdx(Integer idx);
     void deleteAdmin(Integer idx);
     Integer getRoomOccupancy(Integer idx);
 
@@ -31,10 +30,10 @@ public interface AdminMapper { //매퍼.xml의 sql을 실행하고 결과를 ret
 
     List<ClassDto> findClassesByNameAndCourseId(String name, String courseId);
 
-    void createStudent(Student student);
-    List<Student> findStudentsByName(String name);
+    void createStudent(StudentDto student);
+    List<StudentDto> findStudentsByName(String name);
     void updateStudentStatus(Integer idx, String status);
-    Optional<Lecturer> findStudentLecturer(Integer studentIdx);
+    Optional<LecturerDto> findStudentLecturer(Integer studentIdx);
 
-    List<Student> findStudentRegistrations(Integer idx);
+    List<StudentDto> findStudentRegistrations(Integer idx);
 }

@@ -1,19 +1,19 @@
 package happyman.sugang.service;
 
-import happyman.sugang.domain.Admin;
-import happyman.sugang.domain.Student;
+import happyman.sugang.domain.AdminDto;
+import happyman.sugang.domain.StudentDto;
 
 import java.util.Optional;
 
 public interface AdminService {
-    Admin saveAdmin(Admin admin); //registerAdmin으로 변경
+    AdminDto saveAdmin(AdminDto admin); //registerAdmin으로 변경
 
-    Optional<Admin> findAdmin(Integer id);
+    Optional<AdminDto> findAdmin(Integer id);
 
-    Student saveStudent(Student student);//registerStudent로 변경
+    StudentDto saveStudent(StudentDto student);//registerStudent로 변경
 
     //학생 복수 조회
-    Optional<Student> findStudent(Integer id);
+    Optional<StudentDto> findStudent(Integer id);
 
     //login 로그인
 

@@ -85,7 +85,7 @@
         where course_name like #{name}
     </select>
 
-    <insert id="createStudent" useGeneratedKeys="true" keyProperty="classIdx">
+    <insert id="createStudent" useGeneratedKeys="true" keyProperty="studentIdx">
         insert into student (major_idx, student_id, student_pwd, student_name, student_year, student_sex, student_year)
                 values (#{major_idx}, #{student_id}, #{student_pwd}, #{student_name}, #{student_year}, #{student_sex}, #{student_year})
     </insert>
@@ -111,7 +111,7 @@
     </select>
 
     <select id="findStudentRegistrations" resultType="Class">
-        select cl.class_no, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
+        select co.course_id, co.course_name, co.course_credit, co.course_year, cl.class_idx, cl.class_no, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, r.room_idx, r.room_building_name, r.room_name, l.lecturer_idx, l.lecturer_name
         from course co
         join class cl on co.course_idx = cl.course_idx
         join lecturer l on cl.lecturer_idx = l.lecturer_idx

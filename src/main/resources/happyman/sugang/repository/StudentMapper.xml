@@ -104,6 +104,4 @@
             and cl.class_begin != null
             and cl.class_end != null
     </select>
-
-
 </mapper>
