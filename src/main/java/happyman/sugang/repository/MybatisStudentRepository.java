@@ -12,22 +12,22 @@ import java.util.Optional;
 public class MybatisStudentRepository implements StudentRepository {
     private final StudentMapper studentMapper;
 
-    @Override
-    public Admin createAdmin(Admin admin) {
-        studentMapper.createAdmin(admin);
-        return admin;
-    }
+//    @Override
+//    public Admin createAdmin(Admin admin) {
+//        studentMapper.createAdmin(admin);
+//        return admin;
+//    }
 
     @Override
     public Optional<Admin> findAdmin(Integer id) {
         return studentMapper.findAdmin(id);
     }
 
-    @Override
-    public Student createStudent(Student student) {
-        studentMapper.createStudent(student);
-        return student;
-    }
+//    @Override
+//    public Student createStudent(Student student) {
+//        studentMapper.createStudent(student);
+//        return student;
+//    }
 
     @Override
     public Optional<Student> findStudent(Integer id) {

@@ -32,20 +32,20 @@ class AdminRepositoryTest {
     @Test
     void 수업_개설() {
         //given
-        ClassInfo classInfo1 = new ClassInfo("CIE3022", "환경공학", 3, 3, 12750,2001001001, 109,0,40,2022,"월 15시30분","월 17시30분", "IT / BT", 305, "조병완");
-        ClassInfo classInfo2 = new ClassInfo("CIE3022", "환경공학", 3, 3, 12751,2002002002, 110,0,40,2022,"화 15시30분","화 17시30분", "IT / BT", 306, "강수강");
+        ClassDto classDto1 = new ClassDto("CIE3022", "환경공학", 3, 3, 12750,2001001001, 109,0,40,2022,"월 15시30분","월 17시30분", "IT / BT", 305, "조병완");
+        ClassDto classDto2 = new ClassDto("CIE3022", "환경공학", 3, 3, 12751,2002002002, 110,0,40,2022,"화 15시30분","화 17시30분", "IT / BT", 306, "강수강");
 
         //when
-        adminRepository.createClass(classInfo1);
-        adminRepository.createClass(classInfo2);
+        adminRepository.createClass(classDto1);
+        adminRepository.createClass(classDto2);
 
         //then
-        test("환경공학", null, classInfo1, classInfo2);
-        test(null, "CIE3022", classInfo1, classInfo2);
+        test("환경공학", null, classDto1, classDto2);
+        test(null, "CIE3022", classDto1, classDto2);
 
     }
-    void test(String courseName, String courseId, ClassInfo... classes){
-        List<ClassInfo> result = adminRepository.findClasses(courseName, courseId);
+    void test(String courseName, String courseId, ClassDto... classes){
+        List<ClassDto> result = adminRepository.findClasses(courseName, courseId);
         assertThat(result).containsExactly(classes); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
     }
 

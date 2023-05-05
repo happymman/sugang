@@ -1,7 +1,6 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.ClassInfo;
-import happyman.sugang.domain.Course;
+import happyman.sugang.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -13,53 +12,93 @@ import java.util.Optional;
 public class MybatisAdminRepository implements AdminRepository {
     private final AdminMapper adminMapper;
 
-    @Override
-    public ClassInfo createClass(ClassInfo classInfo) {
-        adminMapper.createClass(classInfo);
-        return classInfo;
-    }
-    @Override
-    public List<ClassInfo> findClasses(String name, String courseId) {
-        return adminMapper.findClasses(name, courseId);
-    }
-
-    @Override
-    public Course createCourse(Course course) {
-        adminMapper.createCourse(course);
-        return course;
-    }
-
-    @Override
-    public Optional<Course> findCourseByName(String name) {
-        return adminMapper.findCourseByName(name);
-    }
-
-
 //    @Override
-//    public Student createStudent(Student student) {
-//        homeMapper.createStudent(student);
-//        return student;
+//    public List<ClassDto> findClasses(String name, String courseId) {
+//        return adminMapper.findClasses(name, courseId);
 //    }
 //
 //    @Override
-//    public Optional<Student> findStudent(Integer id) {
-//        return homeMapper.findStudent(id);
+//    public Course createCourse(Course course) {
+//        adminMapper.createCourse(course);
+//        return course;
 //    }
+//
+//    @Override
+//    public Optional<Course> findCourseByName(String name) {
+//        return adminMapper.findCourseByName(name);
+//    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    @Override
+    public Optional<Admin> findAdminById(String id) {
+        return adminMapper.findAdminById(id);
+    }
 
-//  - 관리자 단수조회 by Id(findAdminById) - 목적 : 로그인
-//  - 관리자 생성(createAdmin)
-//  - 관리자 복수조회(findAdmins)
-//  - 관리자 단수조회 by Idx(findAdminByIdx) - 목적 : 관리자별 서비스 제공
-//  - 관리자 삭제(deleteAdmin)
+    @Override
+    public Admin createAdmin(Admin admin) {
+        adminMapper.createAdmin(admin);
+        return admin;
+    }
 
-//  - 강의실 수용인원 검사(isRoomEnough) - 목적 : 수업 개설
-//  - 수업 생성(createClass) - 목적 : 수업 개설
-//  - 수업 삭제(deleteClass) - 목적 : 수업 폐강
+    @Override
+    public List<Admin> findAdmins() {
+        return adminMapper.findAdmins();
+    }
 
-//  - 학생 생성(createStudent)
-//  - 학생 복수조회 byName(findStudentsByName)
-//  - 학생 학적변경(updateStudentStatus)
-//  - 학생 전담강사 조회(findStudentLecturer)
-//  - 학생 시간표 조회(findStudentTimetable)
+    @Override
+    public Optional<Admin> findAdminByIdx(Integer idx) {
+        return adminMapper.findAdminByIdx(idx);
+    }
+
+    @Override
+    public void deleteAdmin(Integer idx) {
+        adminMapper.deleteAdmin(idx);
+    }
+
+    @Override
+    public Integer getRoomOccupancy(Integer idx) {
+        return adminMapper.getRoomOccupancy(idx);
+    }
+
+    @Override
+    public ClassDto createClass(ClassDto classDto) {
+        adminMapper.createClass(classDto);
+        return classDto;
+    }
+
+    @Override
+    public void deleteClass(Integer idx) {
+        adminMapper.deleteClass(idx);
+    }
+
+    @Override
+    public List<ClassDto> findClassesByNameAndCourseId(String name, String courseId){
+        return adminMapper.findClassesByNameAndCourseId(name, courseId);
+    }
+
+    @Override
+    public Student createStudent(Student student) {
+        adminMapper.createStudent(student);
+        return student;
+    }
+
+    @Override
+    public List<Student> findStudentsByName(String name) {
+        return adminMapper.findStudentsByName(name);
+    }
+
+    @Override
+    public void updateStudentStatus(Integer idx, String status) {
+        adminMapper.updateStudentStatus(idx, status);
+    }
+
+    @Override
+    public Optional<Lecturer> findStudentLecturer(Integer studentIdx) {
+        return adminMapper.findStudentLecturer(studentIdx);
+    }
+
+    @Override
+    public List<Student> findStudentRegistrations(Integer idx) {
+        return adminMapper.findStudentRegistrations(idx);
+    }
 }

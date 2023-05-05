@@ -4,7 +4,7 @@ import lombok.*;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ClassInfo extends Course{
+public class ClassDto extends Course{
     //course table
 
     //class table
@@ -25,9 +25,9 @@ public class ClassInfo extends Course{
     //lecturer table
     String lecturerName;
 
-    public ClassInfo(){}
+    public ClassDto(){}
 
-    public ClassInfo(String courseId, String courseName, Integer credit, Integer year, Integer classNo,Integer lecturerId, Integer roomId, Integer personRegister, Integer personMax, Integer opened, String begin, String end, String buildingName, Integer roomName, String lecturerName) {
+    public ClassDto(String courseId, String courseName, Integer credit, Integer year, Integer classNo, Integer lecturerId, Integer roomId, Integer personRegister, Integer personMax, Integer opened, String begin, String end, String buildingName, Integer roomName, String lecturerName) {
         super(courseId, courseName, credit, year);
         this.classNo = classNo;
         this.lecturerId = lecturerId;

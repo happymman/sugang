@@ -2,38 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="happyman.sugang.repository.AdminMapper">
-    <insert id="createCourse" keyProperty="course_id">
-        insert into course (course_id, course_name, credit, year)
-                values (#{courseId}, #{courseName}, #{credit}, #{year})
-    </insert>
+<!--    <insert id="createCourse" keyProperty="course_id">-->
+<!--        insert into course (course_id, course_name, credit, year)-->
+<!--                values (#{courseId}, #{courseName}, #{credit}, #{year})-->
+<!--    </insert> -> 삭제 -->
 
-    <select id="findCourseByName" resultType="Course">
-        select course_id, course_name, credit, year
-        from course
-        where course_name like #{name}
-    </select>
+<!--    <select id="findCourseByName" resultType="Course">-->
+<!--        select course_id, course_name, credit, year-->
+<!--        from course-->
+<!--        where course_name like #{name}-->
+<!--    </select> -> 삭제 -->
 
-    <insert id="createClass" useGeneratedKeys="true" keyProperty="classId">
-        insert into class (course_id, class_no, lecturer_id, room_id, person_register, person_max, opened, begin, end)
-                values (#{courseId}, #{classNo}, #{lecturerId}, #{roomId}, #{personRegister}, #{personMax}, #{opened}, #{begin}, #{end})
-    </insert>
-
-    <!-- from테이블 where조건에 맞는 row에서 admin_id와 password를 가져와서 / resultType 객체생성, 멤버변수중 이름이 일치하는것에 삽입한다 -->
-    <select id="findClasses" resultType="ClassInfo">
-        select cl.class_id, cl.course_id, cl.class_no, cl.lecturer_id, cl.room_id, cl.person_register, cl.person_max, cl.opened, cl.begin, cl.end, co.course_name, co.credit, co.year, r.building_name, r.room_name, l.lecturer_name
-        from class as cl
-        join course as co on cl.course_id = co.course_id
-                                 join room as r on cl.room_id = r.room_id
-                                                       join lecturer as l on cl.lecturer_id = l.lecturer_id
-        <where>
-            <if test="name != null">
-                and co.course_name like #{name}
-            </if>
-            <if test="courseId != null">
-                and co.course_id = #{courseId}
-            </if>
-        </where>
-    </select>
 <!--    <insert id="saveStudent" keyProperty="student_id">-->
 <!--        insert into student (student_id, password, major_id, student_name, sex, year, state)-->
 <!--                values (#{id}, #{password}, #{majorId}, #{studentName}, #{sex}, #{year}, #{state})-->
@@ -44,5 +23,99 @@
 <!--        from student-->
 <!--        where student_id = #{id}-->
 <!--    </select>-->
+    <select id="findAdminById" resultType="Admin">
+        select *
+        from admin
+        where admin_id = #{name}
+    </select>
 
+    <insert id="createAdmin" useGeneratedKeys="true" keyProperty="adminIdx">
+        insert into admin (admin_id, admin_pwd)
+                values (#{adminId}, #{adminPwd})
+    </insert>
+
+    <select id="findAdmins" resultType="Admin">
+        select *
+        from admin
+    </select>
+
+    <select id="findAdminByIdx" resultType="Admin">
+        select *
+        from admin
+        where admin_idx = #{idx}
+    </select>
+
+    <delete id="deleteAdmin">
+        delete from admin where admin_idx = #{idx}
+    </delete>
+
+    <select id="getRoomOccupancy" resultType="Room">
+        select room_occupany
+        from room
+        where room_idx = #{idx}
+    </select>
+
+    <insert id="createClass" useGeneratedKeys="true" keyProperty="classIdx">
+        insert into class (course_idx, lecturer_idx, room_idx, class_no, class_register, class_max, class_opened, class_begin, class_end)
+                values (#{courseIdx}, #{lecturerIdx}, #{roomIdx}, #{classNo}, #{classRegister}, #{classMax}, #{classOpened}, #{classBegin}, #{classEnd})
+    </insert>
+
+    <delete id="deleteClass">
+        delete from class where class_idx = #{idx}
+    </delete>
+
+    <select id="findClassByNameAndCourseId" resultType="ClassDto">
+        select cl.class_no, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
+        from course co
+        join class cl on co.course_idx = cl.course_idx
+        join lecturer l on cl.lecturer_idx = l.lecturer_idx
+        join room r on cl.room_idx = r.room_idx
+        join registration rg on cl.class_idx = rg.class_idx
+        join student s on rg.student_idx = s.student_idx
+        <where>
+            <if test="name != null and name !=''">
+                and co.course_name like concat('%',#{name},'%')
+            </if>
+            <if test="courseId != null and courseId !=''">
+                and co.course_id like concat('%',#{courseId},'%')
+            </if>
+        </where>
+        where course_name like #{name}
+    </select>
+
+    <insert id="createStudent" useGeneratedKeys="true" keyProperty="classIdx">
+        insert into student (major_idx, student_id, student_pwd, student_name, student_year, student_sex, student_year)
+                values (#{major_idx}, #{student_id}, #{student_pwd}, #{student_name}, #{student_year}, #{student_sex}, #{student_year})
+    </insert>
+
+    <select id="findStudentsByName" resultType="Student">
+        select *
+        from student
+        where student_name = #{name}
+    </select>
+
+    <update id="updateStudentStatus">
+        update student
+        set student_state = #{state}
+        where student_idx = #{idx}
+    </update>
+
+    <select id="findStudentLecturer" resultType="LecturerDto">
+        select m.major_name, l.lecturer_name
+        from student s
+        join lecturer l on s.lecturer_idx = l.lecturer_idx
+        join major m on l.major_idx = m.major_idx
+        where s.student_idx = #{idx}
+    </select>
+
+    <select id="findStudentRegistrations" resultType="Class">
+        select cl.class_no, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
+        from course co
+        join class cl on co.course_idx = cl.course_idx
+        join lecturer l on cl.lecturer_idx = l.lecturer_idx
+        join room r on cl.room_idx = r.room_idx
+        join registration rg on cl.class_idx = rg.class_idx
+        join student s on rg.student_idx = s.student_idx
+        where S.student_name = #{idx}
+    </select>
 </mapper>
