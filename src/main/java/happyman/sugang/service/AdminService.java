@@ -29,7 +29,7 @@ public interface AdminService {
 
     //isRoomEnough() 강의실 수용가능 검사
     //showClasses 수강편람
-    //closeClass() 수업 폐강
+    //closeClass() 수업 폐강 - 조건 : 해당수업 수강신청 인원X
 
     //registerStudent() 학생 등록
     //showStudedents() 학생 복수조회

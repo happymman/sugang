@@ -61,7 +61,9 @@
     </insert>
 
     <delete id="deleteClass">
-        delete from class where class_idx = #{idx}
+        delete
+        from class
+        where class_idx = #{idx}
     </delete>
 
     <select id="findClassByNameAndCourseId" resultType="ClassDto">

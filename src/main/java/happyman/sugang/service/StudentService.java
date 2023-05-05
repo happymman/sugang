@@ -14,8 +14,8 @@ public interface StudentService {
 
     //login
 //    - 학생 수강학점 가져와서 model에 저장(Query)
-//    - B이상 과목의 course_idx 가져와서 model에 저장(Query)
-//    - 학생 시간표 가져와서 model에 저장(Query) ex)월 10시 30분 -> 1101(요일,시각,정각vs30분)(DB에 String 저장할때 기준)
+//    - B이상 과목의 course_idx가 담긴 Set<Integer>을 model에 저장(Query)
+//    - (보류) 학생 시간표 가져와서 model에 저장(Query) ex)월 10시 30분 -> 1101(요일,시각,정각vs30분)(DB에 String 저장할때 기준)
 
     //showClasses 수강편람
     //applyClass 수강신청
