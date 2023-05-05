@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Data
 public class AdminDto{
+    private Integer adminIdx;
     private String adminId;
     private String adminPwd;
 

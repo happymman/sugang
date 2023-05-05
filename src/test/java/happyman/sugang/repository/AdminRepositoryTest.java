@@ -1,5 +1,7 @@
-package happyman.sugang.domain;
+package happyman.sugang.repository;
 
+import happyman.sugang.domain.AdminDto;
+import happyman.sugang.domain.ClassDto;
 import happyman.sugang.repository.AdminRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@Transactional //이게 없었다?
 @SpringBootTest
 class AdminRepositoryTest {
 
@@ -30,6 +31,19 @@ class AdminRepositoryTest {
 //    }
 
     @Test
+    void 관리자_생성() {
+        //given
+        AdminDto admin = new AdminDto("id", "pwd");
+
+        //when
+        adminRepository.createAdmin(admin);
+
+        //then
+        AdminDto findAdmin = adminRepository.findAdminById(admin.getAdminId()).get();
+        assertThat(findAdmin).isEqualTo(admin);
+    }
+
+    @Test
     void 수업_개설() {
         //given
         ClassDto classDto1 = new ClassDto(1, 12750, 0,40,2022,"월 15시30분","월 17시30분", 109, 123);
@@ -42,10 +56,9 @@ class AdminRepositoryTest {
         //then
         test("환경공학", null, classDto1, classDto2);
         test(null, "CIE3022", classDto1, classDto2);
-
     }
     void test(String courseName, String courseId, ClassDto... classes){
-        List<ClassDto> result = adminRepository.findClasses(courseName, courseId);
+        List<ClassDto> result = adminRepository.findClassesByNameAndCourseId(courseName, courseId);
         assertThat(result).containsExactly(classes); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
     }
 
@@ -75,3 +88,5 @@ class AdminRepositoryTest {
 //        assertThat(findStudent).isEqualTo(savedStudent); //isEqualTo(객체) : 객체 print값이 동일한지 검사
 //    }
 }
+
+

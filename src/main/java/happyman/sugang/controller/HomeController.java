@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private AdminService adminService;
-
-    @Autowired
-    private StudentService studentService;
+//    @Autowired
+//    private AdminService adminService;
+//
+//    @Autowired
+//    private StudentService studentService;
 
     //상황 : 처음 사이트접속, 로그인 관련 상황 변동시(로그인, 로그인 실패, 로그아웃 / 탈퇴)
     // 1.home화면 2.login화면으로 이동

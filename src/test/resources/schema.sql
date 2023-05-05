@@ -483,3 +483,4 @@ insert into room values(room_idx, room_building_name, room_occupancy, room_name)
 (197   ,'사회과학관'   ,84,11),
 (198   ,'사회과학관'   ,50,12),
 (199   ,'사회과학관'   ,40,13);
+

@@ -1,4 +1,4 @@
-package happyman.sugang.domain;
+package happyman.sugang.repository;
 
 import happyman.sugang.repository.StudentRepository;
 import org.junit.jupiter.api.Test;

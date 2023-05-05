@@ -15,7 +15,7 @@ public interface AdminRepository {
 //  - 관리자 단수조회 by Id(findAdminById) - 목적 : 로그인
 
 //  - 관리자 생성(createAdmin)
-//  - 관리자 전조회(findAdmins)
+//  - 관리자 전체조회(findAdmins)
 //  - 관리자 단수조회 by Idx(findAdminByIdx) - 목적 : 관리자별 서비스 제공
 //  - 관리자 삭제(deleteAdmin)
 
