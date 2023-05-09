@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class LecturerDto {
-    private Integer lecturerName;
-    private Integer majorName;
+    private String lecturerName;
+    private String majorName;
 
     public LecturerDto(){}
-    public LecturerDto(Integer lecturerName, Integer majorName) {
+    public LecturerDto(String lecturerName, String majorName) {
         this.lecturerName = lecturerName;
         this.majorName = majorName;
     }

@@ -2,28 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="happyman.sugang.repository.StudentMapper">
-<!--    <insert id="createAdmin" keyProperty="admin_id">-->
-<!--        insert into admin (admin_id, password)-->
-<!--                values (#{id}, #{password})-->
-<!--    </insert>-->
-
-<!--    &lt;!&ndash; from테이블 where조건에 맞는 row에서 admin_id와 password를 가져와서 / resultType 객체생성, 멤버변수중 이름이 일치하는것에 삽입한다 &ndash;&gt;-->
-<!--    <select id="findAdmin" resultType="Admin">-->
-<!--        select admin_id as id, password-->
-<!--        from admin-->
-<!--        where admin_id = #{id}-->
-<!--    </select>-->
-
-<!--    <insert id="createStudent" keyProperty="student_id">-->
-<!--        insert into student (student_id, password, major_id, student_name, sex, year, state)-->
-<!--                values (#{id}, #{password}, #{majorId}, #{studentName}, #{sex}, #{year}, #{state})-->
-<!--    </insert>-->
-
-<!--    <select id="findStudent" resultType="Student">-->
-<!--        select student_id as id, password, major_id, student_name, sex, year, state-->
-<!--        from student-->
-<!--        where student_id = #{id}-->
-<!--    </select>-->
 
     <select id="findCourseNotAllowed" resultType="Integer">
         select co.course_idx
@@ -31,13 +9,14 @@
         join grade g on co.course_idx = g.course_idx
         join student s on g.student_idx = s.student_idx
         where g.grade_grade >= 3.0
+            and student_idx = #{studentIdx}
     </select>
 
     <select id="getStudentCredit" resultType="Integer">
         select sum(co.course_credit)
         from registration r
-        join class cl on r.class_idx = cl.class_idx
-        join course co on cl.course_idx = co.course_idx
+                 join class cl on r.class_idx = cl.class_idx
+                 join course co on cl.course_idx = co.course_idx
         where r.student_idx = #{idx}
     </select>
 
@@ -49,8 +28,6 @@
         join class cl on co.course_idx = cl.course_idx
         join lecturer l on cl.lecturer_idx = l.lecturer_idx
         join room r on cl.room_idx = r.room_idx
-        join registration rg on cl.class_idx = rg.class_idx
-        join student s on rg.student_idx = s.student_idx
         <where>
             <if test="name != null and name !=''">
                 and co.course_name like concat('%',#{name},'%')
@@ -59,7 +36,6 @@
                 and co.course_id like concat('%',#{courseId},'%')
             </if>
         </where>
-        where course_name like #{name}
     </select>
 
     <select id="getClassRegisterMax" resultType="ClassDto">
@@ -100,8 +76,8 @@
                  join room r on cl.room_idx = r.room_idx
                  join registration rg on cl.class_idx = rg.class_idx
                  join student s on rg.student_idx = s.student_idx
-        where S.student_name = #{idx}
-            and cl.class_begin != null
-            and cl.class_end != null
+        where S.student_idx = #{idx}
+            and cl.class_begin is not null
+            and cl.class_end is not null
     </select>
 </mapper>

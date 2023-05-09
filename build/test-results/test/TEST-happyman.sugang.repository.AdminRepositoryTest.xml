@@ -1,134 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="happyman.sugang.repository.AdminRepositoryTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-05-05T13:31:00" hostname="heenamkangs-MacBook-Air.local" time="0.472">
+<testsuite name="happyman.sugang.repository.AdminRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-06T11:56:06" hostname="heenamkangs-MacBook-Air.local" time="0.464">
   <properties/>
-  <testcase name="관리자_생성()" classname="happyman.sugang.repository.AdminRepositoryTest" time="0.472">
-    <failure message="org.mybatis.spring.MyBatisSystemException" type="org.mybatis.spring.MyBatisSystemException">org.mybatis.spring.MyBatisSystemException
-	at app//org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:97)
-	at app//org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
-	at app/jdk.proxy3/jdk.proxy3.$Proxy63.selectOne(Unknown Source)
-	at app//org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160)
-	at app//org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
-	at app//org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
-	at app//org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
-	at app/jdk.proxy3/jdk.proxy3.$Proxy66.findAdminById(Unknown Source)
-	at app//happyman.sugang.repository.MybatisAdminRepository.findAdminById(MybatisAdminRepository.java:34)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
-	at app//org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
-	at app//org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at app//org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at app//org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
-	at app//org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
-	at app//org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at app//org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
-	at app//org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
-	at app//happyman.sugang.repository.MybatisAdminRepository$$SpringCGLIB$$0.findAdminById(&lt;generated&gt;)
-	at app//happyman.sugang.repository.AdminRepositoryTest.관리자_생성(AdminRepositoryTest.java:42)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
-	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
-	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base@17.0.5/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base@17.0.5/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
-	at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:80)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base@17.0.5/java.lang.reflect.Method.invoke(Method.java:568)
-	at app//org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
-	... 106 more
-</failure>
-  </testcase>
-  <system-out><![CDATA[22:30:58.957 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [AdminRepositoryTest]: using SpringBootContextLoader
-22:30:58.960 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [happyman.sugang.repository.AdminRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-22:30:58.960 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [happyman.sugang.repository.AdminRepositoryTest]: AdminRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-22:30:58.972 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [AdminRepositoryTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-22:30:59.044 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/heenamkang/dev/spring/sugang/build/classes/java/main/happyman/sugang/SugangApplication.class]
-22:30:59.045 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration happyman.sugang.SugangApplication for test class happyman.sugang.repository.AdminRepositoryTest
-22:30:59.090 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [AdminRepositoryTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-22:30:59.091 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [AdminRepositoryTest], class annotated with @DirtiesContext [false] with mode [null]
+  <testcase name="학생_등록()" classname="happyman.sugang.repository.AdminRepositoryTest" time="0.464"/>
+  <system-out><![CDATA[20:56:03.547 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [AdminRepositoryTest]: using SpringBootContextLoader
+20:56:03.552 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [happyman.sugang.repository.AdminRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+20:56:03.552 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [happyman.sugang.repository.AdminRepositoryTest]: AdminRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:56:03.567 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [AdminRepositoryTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+20:56:03.668 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/heenamkang/dev/spring/sugang/build/classes/java/main/happyman/sugang/SugangApplication.class]
+20:56:03.670 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration happyman.sugang.SugangApplication for test class happyman.sugang.repository.AdminRepositoryTest
+20:56:03.822 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [AdminRepositoryTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+20:56:03.823 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [AdminRepositoryTest], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -138,25 +19,24 @@ Caused by: org.apache.ibatis.exceptions.TooManyResultsException: Expected one re
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.3)
 
-2023-05-05T22:30:59.278+09:00  INFO 63790 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : Starting AdminRepositoryTest using Java 17.0.5 with PID 63790 (started by heenamkang in /Users/heenamkang/dev/spring/sugang)
-2023-05-05T22:30:59.279+09:00 DEBUG 63790 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : Running with Spring Boot v3.0.3, Spring v6.0.5
-2023-05-05T22:30:59.280+09:00  INFO 63790 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : The following 1 profile is active: "test"
-2023-05-05T22:30:59.764+09:00 DEBUG 63790 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2023-05-05T22:30:59.766+09:00  INFO 63790 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-05-05T22:31:00.211+09:00  INFO 63790 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d05f453
-2023-05-05T22:31:00.212+09:00  INFO 63790 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-05-05T22:31:00.642+09:00  INFO 63790 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : Started AdminRepositoryTest in 1.518 seconds (process running for 2.824)
-2023-05-05T22:31:00.978+09:00 DEBUG 63790 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2023-05-05T22:31:00.980+09:00 DEBUG 63790 --- [    Test worker] h.s.repository.AdminMapper.createAdmin   : ==>  Preparing: insert into admin (admin_id, admin_pwd) values (?, ?)
-2023-05-05T22:31:00.996+09:00 DEBUG 63790 --- [    Test worker] h.s.repository.AdminMapper.createAdmin   : ==> Parameters: id(String), pwd(String)
-2023-05-05T22:31:01.074+09:00 DEBUG 63790 --- [    Test worker] h.s.repository.AdminMapper.createAdmin   : <==    Updates: 1
-2023-05-05T22:31:01.082+09:00 DEBUG 63790 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2023-05-05T22:31:01.082+09:00 DEBUG 63790 --- [    Test worker] h.s.r.AdminMapper.findAdminById          : ==>  Preparing: select * from admin where admin_id = ?
-2023-05-05T22:31:01.082+09:00 DEBUG 63790 --- [    Test worker] h.s.r.AdminMapper.findAdminById          : ==> Parameters: id(String)
-2023-05-05T22:31:01.113+09:00 TRACE 63790 --- [    Test worker] h.s.r.AdminMapper.findAdminById          : <==    Columns: admin_idx, admin_id, admin_pwd
-2023-05-05T22:31:01.113+09:00 TRACE 63790 --- [    Test worker] h.s.r.AdminMapper.findAdminById          : <==        Row: 1, id, pwd
-2023-05-05T22:31:01.114+09:00 TRACE 63790 --- [    Test worker] h.s.r.AdminMapper.findAdminById          : <==        Row: 2, id, pwd
-2023-05-05T22:31:01.115+09:00 DEBUG 63790 --- [    Test worker] h.s.r.AdminMapper.findAdminById          : <==      Total: 2
+2023-05-06T20:56:04.082+09:00  INFO 1411 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : Starting AdminRepositoryTest using Java 17.0.5 with PID 1411 (started by heenamkang in /Users/heenamkang/dev/spring/sugang)
+2023-05-06T20:56:04.085+09:00 DEBUG 1411 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : Running with Spring Boot v3.0.3, Spring v6.0.5
+2023-05-06T20:56:04.086+09:00  INFO 1411 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : The following 1 profile is active: "test"
+2023-05-06T20:56:05.085+09:00 DEBUG 1411 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2023-05-06T20:56:05.086+09:00  INFO 1411 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-06T20:56:05.479+09:00  INFO 1411 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f2b90fc
+2023-05-06T20:56:05.480+09:00  INFO 1411 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-06T20:56:06.048+09:00  INFO 1411 --- [    Test worker] h.sugang.repository.AdminRepositoryTest  : Started AdminRepositoryTest in 2.152 seconds (process running for 3.358)
+2023-05-06T20:56:06.396+09:00 DEBUG 1411 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2023-05-06T20:56:06.398+09:00 DEBUG 1411 --- [    Test worker] h.s.r.AdminMapper.createStudent          : ==>  Preparing: insert into student (major_idx, lecturer_idx, student_id, student_pwd, student_name, student_year, student_sex, student_state) values (?, ?, ?, ?, ?, ?, ?, ?)
+2023-05-06T20:56:06.425+09:00 DEBUG 1411 --- [    Test worker] h.s.r.AdminMapper.createStudent          : ==> Parameters: 1(Integer), 2(Integer), 2016049907(String), pwd(String), 강희남(String), 4(Integer), male(String), 재학(String)
+2023-05-06T20:56:06.439+09:00 DEBUG 1411 --- [    Test worker] h.s.r.AdminMapper.createStudent          : <==    Updates: 1
+2023-05-06T20:56:06.452+09:00 DEBUG 1411 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2023-05-06T20:56:06.452+09:00 DEBUG 1411 --- [    Test worker] h.s.r.AdminMapper.findStudentsByName     : ==>  Preparing: select * from student where student_name = ?
+2023-05-06T20:56:06.453+09:00 DEBUG 1411 --- [    Test worker] h.s.r.AdminMapper.findStudentsByName     : ==> Parameters: 강희남(String)
+2023-05-06T20:56:06.470+09:00 TRACE 1411 --- [    Test worker] h.s.r.AdminMapper.findStudentsByName     : <==    Columns: student_idx, major_idx, lecturer_idx, student_id, student_pwd, student_name, student_year, student_sex, student_state
+2023-05-06T20:56:06.470+09:00 TRACE 1411 --- [    Test worker] h.s.r.AdminMapper.findStudentsByName     : <==        Row: 7, 1, 2, 2016049907, pwd, 강희남, 4, male, 재학
+2023-05-06T20:56:06.471+09:00 DEBUG 1411 --- [    Test worker] h.s.r.AdminMapper.findStudentsByName     : <==      Total: 1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

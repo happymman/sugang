@@ -35,16 +35,22 @@ public class ClassDto { //DTO : DB에서 가져올, DB에 전달할 필요 있�
 
     public ClassDto(){}
 
-    public ClassDto(Integer courseIdx, Integer classNo, Integer classRegister, Integer classMax, Integer classOpened, String classBegin, String classEnd, Integer roomIdx, Integer lecturerIdx) {
-        this.courseIdx = courseIdx;
-        this.classNo = classNo;
-        this.classRegister = classRegister;
-        this.classMax = classMax;
-        this.classOpened = classOpened;
-        this.classBegin = classBegin;
-        this.classEnd = classEnd;
+    public ClassDto(Integer classNo, Integer classRegister, Integer classMax, Integer classOpened, String classBegin, String classEnd, Integer courseIdx, String courseId, String courseName, Integer courseCredit, Integer courseYear, Integer roomIdx, String roomBuildingName, Integer roomName, Integer lecturerIdx, String lecturerId, String lecturerName) {
+        this.classNo = classNo; //
+        this.classRegister = classRegister;//
+        this.classMax = classMax;//
+        this.classOpened = classOpened;//
+        this.classBegin = classBegin;//
+        this.classEnd = classEnd;//
+        this.courseIdx = courseIdx;//
+        this.courseId = courseId;//
+        this.courseName = courseName;//
+        this.courseCredit = courseCredit;//
+        this.courseYear = courseYear;//
         this.roomIdx = roomIdx;
-        this.lecturerIdx = lecturerIdx;
+        this.roomBuildingName = roomBuildingName;//
+        this.roomName = roomName;//
+        this.lecturerName = lecturerName;//
     }
 
 }

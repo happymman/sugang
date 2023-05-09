@@ -2,15 +2,18 @@ package happyman.sugang.repository;
 
 import happyman.sugang.domain.AdminDto;
 import happyman.sugang.domain.ClassDto;
+import happyman.sugang.domain.StudentDto;
 import happyman.sugang.repository.AdminRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+//@Transactional
 @SpringBootTest
 class AdminRepositoryTest {
 
@@ -31,62 +34,72 @@ class AdminRepositoryTest {
 //    }
 
     @Test
-    void 관리자_생성() {
+    void 관리자_생성_탐색_삭제() {
         //given
-        AdminDto admin = new AdminDto("id", "pwd");
+        AdminDto admin1 = new AdminDto("id1", "pwd1");
+        AdminDto admin2 = new AdminDto("id2", "pwd2");
 
         //when
-        adminRepository.createAdmin(admin);
+        AdminDto savedAdmin1 = adminRepository.createAdmin(admin1);
+        AdminDto savedAdmin2 = adminRepository.createAdmin(admin2);
 
         //then
-        AdminDto findAdmin = adminRepository.findAdminById(admin.getAdminId()).get();
-        assertThat(findAdmin).isEqualTo(admin);
+        AdminDto findAdmin1 = adminRepository.findAdminByIdx(admin1.getAdminIdx()).get();
+        AdminDto findAdmin2 = adminRepository.findAdminById(admin2.getAdminId()).get();
+
+        assertThat(findAdmin1).isEqualTo(savedAdmin1);
+        assertThat(findAdmin2).isEqualTo(savedAdmin2);
+        adminTest(admin1, admin2);
+
+        adminRepository.deleteAdmin(admin2.getAdminIdx());
+
+        adminTest(admin1);
     }
+    void adminTest(AdminDto... admins){
+        List<AdminDto> result = adminRepository.findAdmins();
+        assertThat(result).containsExactly(admins); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
+    }
+
+//    @Test -> 보류(이유는 5.6(토) 작업일지)
+//    void 수업_생성_탐색_삭제() {
+//        //given
+//        ClassDto class1 = new ClassDto(12750, 0,40,2022,"월 15시30분","월 17시30분",23,"GEN3052", "환경공학", 3,2,3,"IT / BT", 1,2, "2001001002", "조용식");
+//        ClassDto class2 = new ClassDto(12751, 0,40,2022,"화 15시30분","화 17시30분",23,"GEN3052", "환경공학", 3,2,4,"IT / BT", 1,3, "2001001003", "조병완");
+//
+//        //when
+//        adminRepository.createClass(class1);
+//        adminRepository.createClass(class2);
+//
+//        //then
+//        classtest("환경공학", null, class1, class2);
+//        classtest(null, "GEN3052", class1, class2);
+//
+//        adminRepository.deleteClass(class2.getClassIdx());
+//
+//        classtest("환경공학", null, class1);
+//        classtest(null, "GEN3052", class1);
+//    }
+//    void classtest(String courseName, String courseId, ClassDto... classes){
+//        List<ClassDto> result = adminRepository.findClassesByNameAndCourseId(courseName, courseId);
+//        assertThat(result).containsExactly(classes); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
+//    }
 
     @Test
-    void 수업_개설() {
+    void 학생_등록() { //해당 테스트까지만 완성후, 쿼리만 따로 검증(5.6(토) 작업일지 909)
         //given
-        ClassDto classDto1 = new ClassDto(1, 12750, 0,40,2022,"월 15시30분","월 17시30분", 109, 123);
-        ClassDto classDto2 = new ClassDto(1, 12751, 0,40,2022,"화 15시30분","화 17시30분", 110, 124);
+        StudentDto student = new StudentDto(1,2, "2016049907","pwd", "강희남", 4, "male", "재학");
 
         //when
-        adminRepository.createClass(classDto1);
-        adminRepository.createClass(classDto2);
+        StudentDto savedStudent = adminRepository.createStudent(student);
 
         //then
-        test("환경공학", null, classDto1, classDto2);
-        test(null, "CIE3022", classDto1, classDto2);
-    }
-    void test(String courseName, String courseId, ClassDto... classes){
-        List<ClassDto> result = adminRepository.findClassesByNameAndCourseId(courseName, courseId);
-        assertThat(result).containsExactly(classes); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
+        studentTest(student.getStudentName(), savedStudent);
     }
 
-//    @Test
-//    void 강사_등록() {
-//        //given
-//        Course course = new Course("CIE3022", "환경공학", 3,3);
-//
-//        //when
-//        Course createdCourse = adminRepository.createCourse(course);
-//
-//        //then
-//        Course findCourse = adminRepository.findCourseByName("환경공학").get();
-//        assertThat(findCourse).isEqualTo(createdCourse);
-//    }
-
-//    @Test
-//    void 학생_회원가입() {
-//        //given
-//        Student student = new Student(2016049907, "2", 2,"강희남", "male", 4, "재학");
-//
-//        //when
-//        User savedStudent = homeRepository.createStudent(student);
-//
-//        //then
-//        User findStudent = homeRepository.findStudent(student.getId()).get();
-//        assertThat(findStudent).isEqualTo(savedStudent); //isEqualTo(객체) : 객체 print값이 동일한지 검사
-//    }
+    void studentTest(String name, StudentDto... students){
+        List<StudentDto> result = adminRepository.findStudentsByName(name);
+        assertThat(result).containsExactly(students); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
+    }
 }
 
 
