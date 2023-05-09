@@ -30,23 +30,23 @@ public class MybatisAdminRepository implements AdminRepository {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public Optional<AdminDto> findAdminById(String id) {
+    public Optional<AdminEntity> findAdminById(String id) {
         return adminMapper.findAdminById(id);
     }
 
     @Override
-    public AdminDto createAdmin(AdminDto admin) {
+    public AdminEntity createAdmin(AdminEntity admin) {
         adminMapper.createAdmin(admin);
         return admin;
     }
 
     @Override
-    public List<AdminDto> findAdmins() {
+    public List<AdminEntity> findAdmins() {
         return adminMapper.findAdmins();
     }
 
     @Override
-    public Optional<AdminDto> findAdminByIdx(Integer idx) {
+    public Optional<AdminEntity> findAdminByIdx(Integer idx) {
         return adminMapper.findAdminByIdx(idx);
     }
 
@@ -61,9 +61,9 @@ public class MybatisAdminRepository implements AdminRepository {
     }
 
     @Override
-    public ClassDto createClass(ClassDto classDto) {
-        adminMapper.createClass(classDto);
-        return classDto;
+    public ClassEntity createClass(ClassEntity classEntity) {
+        adminMapper.createClass(classEntity);
+        return classEntity;
     }
 
     @Override
@@ -72,18 +72,18 @@ public class MybatisAdminRepository implements AdminRepository {
     }
 
     @Override
-    public List<ClassDto> findClassesByNameAndCourseId(String name, String courseId){
+    public List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId){
         return adminMapper.findClassesByNameAndCourseId(name, courseId);
     }
 
     @Override
-    public StudentDto createStudent(StudentDto student) {
+    public StudentEntity createStudent(StudentEntity student) {
         adminMapper.createStudent(student);
         return student;
     }
 
     @Override
-    public List<StudentDto> findStudentsByName(String name) {
+    public List<StudentEntity> findStudentsByName(String name) {
         return adminMapper.findStudentsByName(name);
     }
 
@@ -93,12 +93,12 @@ public class MybatisAdminRepository implements AdminRepository {
     }
 
     @Override
-    public Optional<LecturerDto> findStudentLecturer(Integer studentIdx) {
+    public Optional<LecturerEntity> findStudentLecturer(Integer studentIdx) {
         return adminMapper.findStudentLecturer(studentIdx);
     }
 
     @Override
-    public List<StudentDto> findStudentRegistrations(Integer idx) {
+    public List<ClassEntity> findStudentRegistrations(Integer idx) {
         return adminMapper.findStudentRegistrations(idx);
     }
 }

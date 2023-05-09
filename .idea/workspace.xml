@@ -5,34 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a944df3a-a4f8-418f-a0ac-29c905d5ac16" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/AdminEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/ClassEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/LecturerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/StudentEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/ClassDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/ClassDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/LecturerDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/LecturerDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/StudentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/domain/StudentDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/repository/AdminRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/repository/AdminRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/happyman.sugang.repository.AdminRepositoryTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/happyman.sugang.repository.AdminRepositoryTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/happyman.sugang.repository.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/happyman.sugang.repository.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-happyman.sugang.repository.AdminRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-happyman.sugang.repository.AdminRepositoryTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminDto.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisConfig.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/AdminRepositoryTest.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/AdminRepositoryTest.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/AdminDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/AdminDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/AdminVo.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/ClassDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/ClassDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/LecturerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/LecturerDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/domain/StudentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisAdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisAdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/AdminMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/StudentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/happyman/sugang/repository/AdminRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/happyman/sugang/repository/AdminRepositoryTest.java" afterDir="false" />
@@ -77,8 +65,8 @@
       <list>
         <option value="Interface" />
         <option value="Tag Library Descriptor" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -438,7 +426,7 @@
       <workItem from="1683089628744" duration="45582000" />
       <workItem from="1683274077553" duration="9974000" />
       <workItem from="1683350407517" duration="17870000" />
-      <workItem from="1683533486520" duration="3264000" />
+      <workItem from="1683533486520" duration="10273000" />
     </task>
     <servers />
   </component>
@@ -466,7 +454,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/happyman/sugang/repository/AdminRepositoryTest.java</url>
-          <line>38</line>
+          <line>35</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

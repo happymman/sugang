@@ -16,24 +16,24 @@ public interface AdminMapper { //매퍼.xml의 sql을 실행하고 결과를 ret
 //    Optional<Course> findCourseByName(String name);
 
 //////////////////////////////////////////////////////////////////
-    Optional<AdminDto> findAdminById(String id);
+    Optional<AdminEntity> findAdminById(String id);
 
-    void createAdmin(AdminDto admin);
+    void createAdmin(AdminEntity admin);
 
-    List<AdminDto> findAdmins();
-    Optional<AdminDto> findAdminByIdx(Integer idx);
+    List<AdminEntity> findAdmins();
+    Optional<AdminEntity> findAdminByIdx(Integer idx);
     void deleteAdmin(Integer idx);
     Integer getRoomOccupancy(Integer idx);
 
-    void createClass(ClassDto classDto);
+    void createClass(ClassEntity classEntity);
     void deleteClass(Integer idx);
 
-    List<ClassDto> findClassesByNameAndCourseId(String name, String courseId);
+    List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);
 
-    void createStudent(StudentDto student);
-    List<StudentDto> findStudentsByName(String name);
+    void createStudent(StudentEntity student);
+    List<StudentEntity> findStudentsByName(String name);
     void updateStudentStatus(Integer idx, String status);
-    Optional<LecturerDto> findStudentLecturer(Integer studentIdx);
+    Optional<LecturerEntity> findStudentLecturer(Integer studentIdx);
 
-    List<StudentDto> findStudentRegistrations(Integer idx);
+    List<ClassEntity> findStudentRegistrations(Integer idx);
 }

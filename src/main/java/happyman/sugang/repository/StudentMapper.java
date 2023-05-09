@@ -1,6 +1,6 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.ClassDto;
+import happyman.sugang.domain.ClassEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -18,14 +18,14 @@ public interface StudentMapper {
     Integer getStudentCredit(Integer idx);
 //  List<String> getTimeOfTimetable(Integer idx); -> 보류
 
-    List<ClassDto> findClassesByNameAndCourseId(String name, String courseId);
+    List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);
 
     Integer getClassRegisterMax(Integer idx);
     void updateClassRegister(Integer idx, Integer updateParam);
 
-    List<ClassDto> findRegistrations(Integer idx);
+    List<ClassEntity> findRegistrations(Integer idx);
     void deleteRegistration(Integer studentIdx, Integer classIdx);
 
-    List<ClassDto> getClassOfTimetable(Integer idx);
+    List<ClassEntity> getClassOfTimetable(Integer idx);
 
 }

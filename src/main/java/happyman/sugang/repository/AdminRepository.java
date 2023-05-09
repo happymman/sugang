@@ -31,23 +31,23 @@ public interface AdminRepository {
 //  - 학생 전담강사 조회(findStudentLecturer)
 //  - 학생 시간표 조회(findStudentTimetable)
 
-    Optional<AdminDto> findAdminById(String id);
+    Optional<AdminEntity> findAdminById(String id);
 
-    AdminDto createAdmin(AdminDto admin);
+    AdminEntity createAdmin(AdminEntity admin);
 
-    List<AdminDto> findAdmins();
-    Optional<AdminDto> findAdminByIdx(Integer idx);
+    List<AdminEntity> findAdmins();
+    Optional<AdminEntity> findAdminByIdx(Integer idx);
     void deleteAdmin(Integer idx);
     Integer getRoomOccupancy(Integer idx);
 
-    ClassDto createClass(ClassDto classDto);
+    ClassEntity createClass(ClassEntity classEntity);
     void deleteClass(Integer idx);
-    List<ClassDto> findClassesByNameAndCourseId(String name, String courseId);
+    List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);
 
-    StudentDto createStudent(StudentDto student);
-    List<StudentDto> findStudentsByName(String name);
+    StudentEntity createStudent(StudentEntity student);
+    List<StudentEntity> findStudentsByName(String name);
     void updateStudentStatus(Integer studentIdx, String status);
-    Optional<LecturerDto> findStudentLecturer(Integer studentIdx);
+    Optional<LecturerEntity> findStudentLecturer(Integer studentIdx);
 
-    List<StudentDto> findStudentRegistrations(Integer idx);
+    List<ClassEntity> findStudentRegistrations(Integer idx);
 }

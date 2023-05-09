@@ -1,6 +1,6 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.ClassDto;
+import happyman.sugang.domain.ClassEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +23,7 @@ public class MybatisStudentRepository implements StudentRepository {
     }
 
     @Override
-    public List<ClassDto> findClassesByNameAndCourseId(String name, String courseId) {
+    public List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId) {
         return studentMapper.findClassesByNameAndCourseId(name, courseId);
     }
 
@@ -38,7 +38,7 @@ public class MybatisStudentRepository implements StudentRepository {
     }
 
     @Override
-    public List<ClassDto> findRegistrations(Integer idx) {
+    public List<ClassEntity> findRegistrations(Integer idx) {
         return studentMapper.findRegistrations(idx);
     }
 
@@ -48,7 +48,7 @@ public class MybatisStudentRepository implements StudentRepository {
     }
 
     @Override
-    public List<ClassDto> getClassOfTimetable(Integer idx) {
+    public List<ClassEntity> getClassOfTimetable(Integer idx) {
         return studentMapper.getClassOfTimetable(idx);
     }
 

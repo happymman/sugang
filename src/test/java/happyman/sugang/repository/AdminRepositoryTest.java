@@ -1,13 +1,10 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.AdminDto;
-import happyman.sugang.domain.ClassDto;
-import happyman.sugang.domain.StudentDto;
-import happyman.sugang.repository.AdminRepository;
+import happyman.sugang.domain.AdminEntity;
+import happyman.sugang.domain.StudentEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,16 +33,16 @@ class AdminRepositoryTest {
     @Test
     void 관리자_생성_탐색_삭제() {
         //given
-        AdminDto admin1 = new AdminDto("id1", "pwd1");
-        AdminDto admin2 = new AdminDto("id2", "pwd2");
+        AdminEntity admin1 = new AdminEntity("id1", "pwd1");
+        AdminEntity admin2 = new AdminEntity("id2", "pwd2");
 
         //when
-        AdminDto savedAdmin1 = adminRepository.createAdmin(admin1);
-        AdminDto savedAdmin2 = adminRepository.createAdmin(admin2);
+        AdminEntity savedAdmin1 = adminRepository.createAdmin(admin1);
+        AdminEntity savedAdmin2 = adminRepository.createAdmin(admin2);
 
         //then
-        AdminDto findAdmin1 = adminRepository.findAdminByIdx(admin1.getAdminIdx()).get();
-        AdminDto findAdmin2 = adminRepository.findAdminById(admin2.getAdminId()).get();
+        AdminEntity findAdmin1 = adminRepository.findAdminByIdx(admin1.getAdminIdx()).get();
+        AdminEntity findAdmin2 = adminRepository.findAdminById(admin2.getAdminId()).get();
 
         assertThat(findAdmin1).isEqualTo(savedAdmin1);
         assertThat(findAdmin2).isEqualTo(savedAdmin2);
@@ -55,8 +52,8 @@ class AdminRepositoryTest {
 
         adminTest(admin1);
     }
-    void adminTest(AdminDto... admins){
-        List<AdminDto> result = adminRepository.findAdmins();
+    void adminTest(AdminEntity... admins){
+        List<AdminEntity> result = adminRepository.findAdmins();
         assertThat(result).containsExactly(admins); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
     }
 
@@ -87,17 +84,17 @@ class AdminRepositoryTest {
     @Test
     void 학생_등록() { //해당 테스트까지만 완성후, 쿼리만 따로 검증(5.6(토) 작업일지 909)
         //given
-        StudentDto student = new StudentDto(1,2, "2016049907","pwd", "강희남", 4, "male", "재학");
+        StudentEntity student = new StudentEntity(1,2, "2016049907","pwd", "강희남", 4, "male", "재학");
 
         //when
-        StudentDto savedStudent = adminRepository.createStudent(student);
+        StudentEntity savedStudent = adminRepository.createStudent(student);
 
         //then
         studentTest(student.getStudentName(), savedStudent);
     }
 
-    void studentTest(String name, StudentDto... students){
-        List<StudentDto> result = adminRepository.findStudentsByName(name);
+    void studentTest(String name, StudentEntity... students){
+        List<StudentEntity> result = adminRepository.findStudentsByName(name);
         assertThat(result).containsExactly(students); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
     }
 }
