@@ -6,17 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AdminService {
-//    AdminDto saveAdmin(AdminEntity admin); //registerAdmin으로 변경
-//
-//    Optional<AdminDto> findAdmin(Integer id);
-//
-//    StudentEntity saveStudent(StudentEntity student);//registerStudent로 변경
-//
-//    //학생 복수 조회
-//    Optional<StudentEntity> findStudent(Integer id);
-
     //login 로그인
-    AdminDto login(String adminId);
+    Integer login(String adminId, String adminPwd);
 
     //registerAdmin 다른 관리자 등록
     void registerAdmin(AdminDto admin);

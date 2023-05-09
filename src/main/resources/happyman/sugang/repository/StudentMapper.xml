@@ -3,6 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="happyman.sugang.repository.StudentMapper">
 
+    <select id="findStudentById" resultType="StudentEntity">
+        select *
+        from student
+        where student_id = #{id};
+    </select>
+
     <select id="findCourseNotAllowed" resultType="Integer">
         select co.course_idx
         from course co

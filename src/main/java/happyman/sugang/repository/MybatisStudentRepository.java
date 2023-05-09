@@ -1,16 +1,21 @@
 package happyman.sugang.repository;
 
 import happyman.sugang.domain.ClassEntity;
+import happyman.sugang.domain.StudentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
 @RequiredArgsConstructor
 public class MybatisStudentRepository implements StudentRepository {
     private final StudentMapper studentMapper;
+
+    @Override
+    public Optional<StudentDto> findStudentById(String id){ return studentMapper.findStudentById(id);}
 
     @Override
     public Set<Integer> findCourseNotAllowed(Integer idx) {
