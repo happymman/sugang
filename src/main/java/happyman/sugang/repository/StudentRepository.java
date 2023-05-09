@@ -2,6 +2,7 @@ package happyman.sugang.repository;
 
 import happyman.sugang.domain.ClassEntity;
 import happyman.sugang.domain.StudentDto;
+import happyman.sugang.domain.StudentEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +25,7 @@ public interface StudentRepository {
 
 //    - 시간표 조회(getClassOfTimetable)
 
-    Optional<StudentDto> findStudentById(String id);
+    Optional<StudentEntity> findStudentById(String id);
     Set<Integer> findCourseNotAllowed(Integer idx);
     Integer getStudentCredit(Integer idx);
 //  List<String> getTimeOfTimetable(Integer idx); -> 보류

@@ -2,6 +2,7 @@ package happyman.sugang.repository;
 
 import happyman.sugang.domain.ClassEntity;
 import happyman.sugang.domain.StudentDto;
+import happyman.sugang.domain.StudentEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ public class MybatisStudentRepository implements StudentRepository {
     private final StudentMapper studentMapper;
 
     @Override
-    public Optional<StudentDto> findStudentById(String id){ return studentMapper.findStudentById(id);}
+    public Optional<StudentEntity> findStudentById(String id){ return studentMapper.findStudentById(id);}
 
     @Override
     public Set<Integer> findCourseNotAllowed(Integer idx) {
