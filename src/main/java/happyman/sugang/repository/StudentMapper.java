@@ -18,8 +18,10 @@ public interface StudentMapper {
 
     List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);
 
-    Integer getClassRegisterMax(Integer idx);
+    Optional<ClassEntity> getClassRegisterMax(Integer idx);
     void updateClassRegister(Integer idx, Integer updateParam);
+
+    void createRegistration(Integer studentIdx, Integer classIdx);
 
     List<ClassEntity> findRegistrations(Integer idx);
     void deleteRegistration(Integer studentIdx, Integer classIdx);

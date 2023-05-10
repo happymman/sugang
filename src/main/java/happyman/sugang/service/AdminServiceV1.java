@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static happyman.sugang.service.Utility.ClassEntity2Dto;
+
 @RequiredArgsConstructor
 @Service
 public class AdminServiceV1 implements AdminService{
@@ -18,10 +20,10 @@ public class AdminServiceV1 implements AdminService{
     @Override
     public Integer login(String adminId, String adminPwd) {
         AdminEntity findAdmin = adminRepository.findAdminById(adminId).get();
-        if(findAdmin.getAdminPwd().equals(adminPwd)){
-            return findAdmin.getAdminIdx();
+        if(!findAdmin.getAdminPwd().equals(adminPwd)){
+            return null;
         }
-        return null;
+        return findAdmin.getAdminIdx();
     }
 
     @Override
@@ -72,9 +74,7 @@ public class AdminServiceV1 implements AdminService{
     @Override
     public List<ClassDto> showClasses(String name, String courseId) {
         List<ClassEntity> entities = adminRepository.findClassesByNameAndCourseId(name, courseId);
-        return entities.stream()
-                .map(entity -> new ClassDto(entity.getClassNo(), entity.getClassRegister(), entity.getClassMax(), entity.getClassOpened(), entity.getClassBegin(), entity.getClassEnd(), entity.getCourseIdx(), entity.getCourseId(), entity.getCourseName(), entity.getCourseCredit(), entity.getCourseYear(), entity.getRoomIdx(), entity.getRoomBuildingName(), entity.getRoomName(), entity.getClassIdx(), entity.getLecturerId(), entity.getLecturerName()))
-                .collect(Collectors.toList());
+        return ClassEntity2Dto(entities);
     }
 
     @Override
@@ -115,9 +115,6 @@ public class AdminServiceV1 implements AdminService{
     @Override
     public List<ClassDto> showStudentRegistrations(Integer idx) {
         List<ClassEntity> entities = adminRepository.findStudentRegistrations(idx);
-        return entities.stream()
-                .map(entity -> new ClassDto(entity.getClassNo(), entity.getClassRegister(), entity.getClassMax(), entity.getClassOpened(), entity.getClassBegin(), entity.getClassEnd(), entity.getCourseIdx(), entity.getCourseId(), entity.getCourseName(), entity.getCourseCredit(), entity.getCourseYear(), entity.getRoomIdx(), entity.getRoomBuildingName(), entity.getRoomName(), entity.getClassIdx(), entity.getLecturerId(), entity.getLecturerName()))
-                .collect(Collectors.toList());
-
+        return ClassEntity2Dto(entities);
     }
 }

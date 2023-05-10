@@ -18,9 +18,10 @@ public interface StudentRepository {
 //    - 수업 복수조회 by이름, 학수번호(findClassesByNameAndCourseId)
 //    - 수업 등록인원, 정원 조회(getClassRegisterMax) - 필요 : 수강신청 → 나중 : lock 활용
 //    - 수업 정원변경(+1)(updateClassRegister) - 필요 : 수강신청
+//    - 등록 추가(createRegistration) - 필요 : 수강신청
 
 //    - 신청내역 복수조회(findRegistrations)
-//    - 수강 취소(deleteRegistration) - 필요 : 수강취소
+//    - 등록 취소(deleteRegistration) - 필요 : 수강취소
 //    * 수업 정원변경(-1)(updateClassRegister) - 필요 : 수강취소
 
 //    - 시간표 조회(getClassOfTimetable)
@@ -32,9 +33,10 @@ public interface StudentRepository {
 
     List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);
 
-    Integer getClassRegisterMax(Integer idx);
+    Optional<ClassEntity> getClassRegisterMax(Integer idx);
     void updateClassRegister(Integer idx, Integer updateParam);
 
+    void createRegistration(Integer studentIdx, Integer classIdx);
     List<ClassEntity> findRegistrations(Integer idx);
     void deleteRegistration(Integer studentIdx, Integer classIdx);
 
@@ -43,6 +45,6 @@ public interface StudentRepository {
 
 //    Admin createAdmin(Admin user);
 //    Optional<Admin> findAdmin(Integer id);
-//
+
 //    Student createStudent(Student student);
 //    Optional<Student> findStudent(Integer id);

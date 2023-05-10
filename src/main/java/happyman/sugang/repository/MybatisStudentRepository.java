@@ -34,13 +34,18 @@ public class MybatisStudentRepository implements StudentRepository {
     }
 
     @Override
-    public Integer getClassRegisterMax(Integer idx) {
+    public Optional<ClassEntity> getClassRegisterMax(Integer idx) {
         return studentMapper.getClassRegisterMax(idx);
     }
 
     @Override
     public void updateClassRegister(Integer idx, Integer updateParam) {
         studentMapper.updateClassRegister(idx, updateParam);
+    }
+
+    @Override
+    public void createRegistration(Integer studentIdx, Integer classIdx) {
+        studentMapper.createRegistration(studentIdx, classIdx);
     }
 
     @Override
