@@ -1,10 +1,7 @@
 package happyman.sugang.service;//package happyman.sugang.service;
 
 
-import happyman.sugang.domain.AdminDto;
-import happyman.sugang.domain.ClassDto;
-import happyman.sugang.domain.LecturerDto;
-import happyman.sugang.domain.StudentDto;
+import happyman.sugang.domain.*;
 import happyman.sugang.repository.AdminRepository;
 import happyman.sugang.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +12,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class StudentServiceV1 implements StudentService{
-    private final StudentRepository sstudentRepository;
+    private final StudentRepository studentRepository;
 
     @Override
     public Integer login(String studentId, String studentPwd) {
+        StudentEntity findStudent = studentRepository.findStudentById(studentId).get();
+        if(findStudent.getStudentPwd().equals(studentPwd)){
+            return findStudent.getStudentIdx();
+        }
         return null;
     }
 

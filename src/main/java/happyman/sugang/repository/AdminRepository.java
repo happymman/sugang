@@ -36,8 +36,9 @@ public interface AdminRepository {
     Integer getRoomOccupancy(Integer idx);
 
     ClassEntity createClass(ClassEntity classEntity);
-    void deleteClass(Integer idx);
     List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);
+    void deleteClass(Integer idx);
+
 
     StudentEntity createStudent(StudentEntity student);
     List<StudentEntity> findStudentsByName(String name);
