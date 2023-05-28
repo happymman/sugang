@@ -29,7 +29,9 @@ public class AdminServiceV1 implements AdminService{
     @Override
     public void registerAdmin(String adminId, String adminPwd) {
         AdminEntity admin = new AdminEntity(adminId, adminPwd);
+        //아이디 중복인 경우를 체크필요
         adminRepository.createAdmin(admin);
+
     }
 
     @Override
@@ -56,14 +58,17 @@ public class AdminServiceV1 implements AdminService{
     @Override
     public void withdrawAdmin(Integer idx) {
         adminRepository.deleteAdmin(idx);
+        //경우의수1. 해당 idx와 일치하는 admin이 없다.
+        //경우의수2. 성공적으로 삭제했다.
     }
 
     @Override
     public void openClass(ClassDto classDto) {
-        if(isRoomEnough(classDto.getClassMax(), classDto.getRoomIdx())){
-            ClassEntity entity = new ClassEntity(classDto.getClassNo(), classDto.getClassRegister(), classDto.getClassMax(), classDto.getClassOpened(), classDto.getClassBegin(), classDto.getClassEnd(), classDto.getCourseIdx(), classDto.getCourseId(), classDto.getCourseName(), classDto.getCourseCredit(), classDto.getCourseYear(), classDto.getRoomIdx(), classDto.getRoomBuildingName(), classDto.getRoomName(), classDto.getLecturerIdx(), classDto.getLecturerId(), classDto.getLecturerName());
-            adminRepository.createClass(entity);
-        }
+        //room수용 가능 검사
+        if(!isRoomEnough(classDto.getClassMax(), classDto.getRoomIdx())) return;
+
+        ClassEntity entity = new ClassEntity(classDto.getClassNo(), classDto.getClassRegister(), classDto.getClassMax(), classDto.getClassOpened(), classDto.getClassBegin(), classDto.getClassEnd(), classDto.getCourseIdx(), classDto.getCourseId(), classDto.getCourseName(), classDto.getCourseCredit(), classDto.getCourseYear(), classDto.getRoomIdx(), classDto.getRoomBuildingName(), classDto.getRoomName(), classDto.getLecturerIdx(), classDto.getLecturerId(), classDto.getLecturerName());
+        adminRepository.createClass(entity);
     }
 
     @Override
@@ -79,6 +84,7 @@ public class AdminServiceV1 implements AdminService{
 
     @Override
     public void closeClass(Integer idx) {
+        //경우의수1. 해당 idx와 일치하는 admin이 없다.
         adminRepository.deleteClass(idx);
     }
 
@@ -89,7 +95,7 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public List<StudentDto> showStudedents(String name) {
+    public List<StudentDto> findStudents(String name) {
         List<StudentEntity> entities = adminRepository.findStudentsByName(name);
         return entities.stream()
                 .map(entity -> new StudentDto(entity.getMajorIdx(), entity.getLecturerIdx(), entity.getStudentId(), entity.getStudentPwd(), entity.getStudentName(), entity.getStudentYear(), entity.getStudentSex(), entity.getStudentState()))
@@ -102,7 +108,7 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public Optional<LecturerDto> showStudentLecturer(Integer studentIdx) {
+    public Optional<LecturerDto> findStudentLecturer(Integer studentIdx) {
         Optional<LecturerEntity> optionalEntity = adminRepository.findStudentLecturer(studentIdx);
 
         if(optionalEntity.isPresent()){
@@ -113,7 +119,7 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public List<ClassDto> showStudentRegistrations(Integer idx) {
+    public List<ClassDto> findStudentRegistrations(Integer idx) {
         List<ClassEntity> entities = adminRepository.findStudentRegistrations(idx);
         return ClassEntity2Dto(entities);
     }

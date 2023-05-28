@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static happyman.sugang.service.Utility.ClassEntity2Dto;
+import static happyman.sugang.service.Utility.StudentEntity2Dto;
 
 @RequiredArgsConstructor
 @Service
@@ -37,7 +38,7 @@ public class StudentServiceV1 implements StudentService{
         studentInfo.put("credit", credit); // 임시로 set에 저장 - 이유 : 자료형
 
         //재수강 불가 목록
-        studentInfo.put("courseNotAllowd", studentRepository.findCourseNotAllowed(findStudent.getStudentIdx()));
+        studentInfo.put("courseNotAllowed", studentRepository.findCourseNotAllowed(findStudent.getStudentIdx()));
 
         //신청 목록 class_idx
         List<ClassEntity> entities = studentRepository.findRegistrations(findStudent.getStudentIdx());
@@ -116,5 +117,9 @@ public class StudentServiceV1 implements StudentService{
         return ClassEntity2Dto(entities);
     }
 
-
+    @Override
+    public Optional<StudentDto> findStudentByIdx(Integer idx){
+        StudentEntity entity = studentRepository.findStudentByIdx(idx).get();
+        return Optional.of(StudentEntity2Dto(entity));
+    }
 }

@@ -28,6 +28,8 @@ public interface StudentMapper {
 
     List<ClassEntity> getClassOfTimetable(Integer idx);
 
+    Optional<StudentEntity> findStudentByIdx(Integer idx);
+
 }
 
 //    void createAdmin(Admin admin); //매퍼인터페이스의 insert메써드는 return형이 void여야한다.(Serializable하게 해서 mapper메써드

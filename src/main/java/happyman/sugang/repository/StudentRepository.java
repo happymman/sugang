@@ -41,6 +41,8 @@ public interface StudentRepository {
     void deleteRegistration(Integer studentIdx, Integer classIdx);
 
     List<ClassEntity> getClassOfTimetable(Integer idx);
+
+    Optional<StudentEntity> findStudentByIdx(Integer idx);
 }
 
 //    Admin createAdmin(Admin user);

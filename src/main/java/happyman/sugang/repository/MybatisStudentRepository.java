@@ -63,6 +63,9 @@ public class MybatisStudentRepository implements StudentRepository {
         return studentMapper.getClassOfTimetable(idx);
     }
 
+    @Override
+    public Optional<StudentEntity> findStudentByIdx(Integer idx){ return studentMapper.findStudentByIdx(idx);}
+
 ////    @Override
 ////    public Admin createAdmin(Admin admin) {
 ////        studentMapper.createAdmin(admin);

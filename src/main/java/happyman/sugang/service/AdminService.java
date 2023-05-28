@@ -34,11 +34,11 @@ public interface AdminService {
     //registerStudent() 학생 등록
     void registerStudent(StudentDto student);
     //showStudedents() 학생 복수조회
-    List<StudentDto> showStudedents(String name);
+    List<StudentDto> findStudents(String name);
     //modifyStudentStatus() 학생 학적변경
     void modifyStudentStatus(Integer idx, String status);
     //showStudentLecturer() 학생 전담강사 조회
-    Optional<LecturerDto> showStudentLecturer(Integer idx);
+    Optional<LecturerDto> findStudentLecturer(Integer idx);
     //showStudentRegistrations() 학생 신청내역 조회
-    List<ClassDto> showStudentRegistrations(Integer idx);
+    List<ClassDto> findStudentRegistrations(Integer idx);
 }

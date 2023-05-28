@@ -4,10 +4,7 @@ import happyman.sugang.domain.AdminDto;
 import happyman.sugang.domain.ClassDto;
 import happyman.sugang.domain.StudentDto;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public interface StudentService {
     Map<String, Set<Integer>> login(String studentId, String studentPwd);
@@ -20,6 +17,8 @@ public interface StudentService {
     void cancelClass(Integer studentIdx, Integer classIdx);
 
     List<ClassDto> showTimetable(Integer idx);
+
+    Optional<StudentDto> findStudentByIdx(Integer idx);
 }
 
 //    Admin saveAdmin(Admin admin);

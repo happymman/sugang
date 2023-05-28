@@ -91,4 +91,10 @@
             and cl.class_begin is not null
             and cl.class_end is not null
     </select>
+
+    <select id="findStudentByIdx" resultType="StudentEntity">
+        select *
+        from student
+        where student_idx = #{idx};
+    </select>
 </mapper>
