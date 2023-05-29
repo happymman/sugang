@@ -7,16 +7,17 @@
     <list default="true" id="a944df3a-a4f8-418f-a0ac-29c905d5ac16" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisStudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminServiceV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentServiceV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/StudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/adminAdmins.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminAdmins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/adminClassses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminClassses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/adminStudents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminStudents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/studentRegistrations.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentClasses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/studentShowClasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentRegistrations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/studentTimeTables.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentTimeTable.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +106,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="happyman.sugang.repository" />
@@ -421,7 +425,8 @@
       <workItem from="1683274077553" duration="9974000" />
       <workItem from="1683350407517" duration="17870000" />
       <workItem from="1683533486520" duration="37586000" />
-      <workItem from="1685165851294" duration="14705000" />
+      <workItem from="1685165851294" duration="24514000" />
+      <workItem from="1685328096749" duration="10818000" />
     </task>
     <servers />
   </component>

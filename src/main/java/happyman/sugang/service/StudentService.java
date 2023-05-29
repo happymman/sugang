@@ -1,20 +1,19 @@
 package happyman.sugang.service;
 
-import happyman.sugang.domain.AdminDto;
 import happyman.sugang.domain.ClassDto;
 import happyman.sugang.domain.StudentDto;
 
 import java.util.*;
 
 public interface StudentService {
-    Map<String, Set<Integer>> login(String studentId, String studentPwd);
+    Map<String, Object> login(String studentId, String studentPwd);
 
     List<ClassDto> showClasses(String name, String courseId);
-    Integer applyClass(Integer studentIdx, Integer classIdx, Integer studentCredit, Integer classCredit);
+    Integer applyClass(Set<Integer> registrationsCourseIdx, Set<Integer> coursesNotAllowed, Integer courseIdx, Integer studentCredit, Integer classCredit, Integer studentIdx, Integer classIdx);
 
     List<ClassDto> showRegistrations(Integer idx);
 
-    void cancelClass(Integer studentIdx, Integer classIdx);
+    void cancelRegistration(Integer studentIdx, Integer classIdx);
 
     List<ClassDto> showTimetable(Integer idx);
 

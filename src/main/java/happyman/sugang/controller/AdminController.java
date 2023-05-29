@@ -20,26 +20,23 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-
     // 로그인 여부확인(by Session 정상 저장 확인)
     @GetMapping("/login")
     public String checkLogin(HttpSession session) { // 로그인 페이지
-        Long id = (Long) session.getAttribute("userId");
-        if (id != null) { // 로그인된 상태
+        Integer idx = (Integer) session.getAttribute("adminIdx");
+        if (idx != null) { // 로그인된 상태
             return "redirect:/";
         }
         return "login"; // 로그인되지 않은 상태
     }
 
-    //Post /login
-    //login() :
     @PostMapping("/login")
     public String login(String adminId, String adminPwd, HttpSession session ){
         Integer adminIdx = adminService.login(adminId, adminPwd);
         if(adminIdx == null){
             return "redirect:/login";
         }else{
-            session.setAttribute("userIdx", adminIdx);
+            session.setAttribute("adminIdx", adminIdx);
             session.setAttribute("userType", "admin");
             return "redirect:/"; //바로 home으로 이동하지 않고 /로 이동하는 이유 : 추가적으로 /에서 할 작업O, 그것과 분리하여 메써드 역할을 분명하게 하기 위함.
         }
