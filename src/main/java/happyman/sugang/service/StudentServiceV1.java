@@ -2,7 +2,6 @@ package happyman.sugang.service;//package happyman.sugang.service;
 
 
 import happyman.sugang.domain.*;
-import happyman.sugang.repository.AdminRepository;
 import happyman.sugang.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

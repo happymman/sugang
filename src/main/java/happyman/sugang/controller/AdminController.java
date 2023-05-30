@@ -37,7 +37,6 @@ public class AdminController {
             return "redirect:/login";
         }else{
             session.setAttribute("adminIdx", adminIdx);
-            session.setAttribute("userType", "admin");
             return "redirect:/"; //바로 home으로 이동하지 않고 /로 이동하는 이유 : 추가적으로 /에서 할 작업O, 그것과 분리하여 메써드 역할을 분명하게 하기 위함.
         }
     }

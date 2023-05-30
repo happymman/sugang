@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
@@ -19,23 +18,24 @@ public class HomeController {
     @Autowired
     private StudentService studentService;
 
-    //상황 : 처음 사이트접속, 로그인 관련 상황 변동시(로그인, 로그인 실패, 로그아웃 / 탈퇴)
+    //상황 : 처음 사이트접속, 로그인 관련 상황 변동(로그인, 로그인 실패, 로그아웃 / 탈퇴)
     // 1.home화면 2.login화면으로 이동
     @GetMapping("/")
     public String home(HttpSession session, Model model) {
-        Integer idx = (Integer) session.getAttribute("userIdx");
-        String userType = (String) session.getAttribute("userType");
-        if (idx != null) { // 로그인된 상태
-            if(userType.equals("student")){
-                StudentDto studentDto = studentService.findStudentByIdx(idx).get();
+        Integer studentIdx = (Integer) session.getAttribute("studentIdx");
+        Integer adminIdx = (Integer) session.getAttribute("adminIdx");
+
+        if (studentIdx != null || adminIdx != null) { // 로그인된 상태
+            if(studentIdx != null){
+                StudentDto studentDto = studentService.findStudentByIdx(studentIdx).get();
                 model.addAttribute("user", studentDto);
                 return "home";
 
-            }else if(userType.equals("admin")){
-                AdminDto adminDto = adminService.findAdminByIdx(idx).get();
+            }else if(adminIdx != null){
+                AdminDto adminDto = adminService.findAdminByIdx(adminIdx).get();
                 model.addAttribute("user", adminDto);
                 return "home";            }
         }
-        return "redirect:/login";
+        return "login";
     }
 }

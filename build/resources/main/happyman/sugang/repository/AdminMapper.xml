@@ -2,28 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="happyman.sugang.repository.AdminMapper">
-<!--    <insert id="createCourse" keyProperty="course_id">-->
-<!--        insert into course (course_id, course_name, credit, year)-->
-<!--                values (#{courseId}, #{courseName}, #{credit}, #{year})-->
-<!--    </insert> -> 삭제 -->
-
-<!--    <select id="findCourseByName" resultType="Course">-->
-<!--        select course_id, course_name, credit, year-->
-<!--        from course-->
-<!--        where course_name like #{name}-->
-<!--    </select> -> 삭제 -->
-
-<!--    <insert id="saveStudent" keyProperty="student_id">-->
-<!--        insert into student (student_id, password, major_id, student_name, sex, year, state)-->
-<!--                values (#{id}, #{password}, #{majorId}, #{studentName}, #{sex}, #{year}, #{state})-->
-<!--    </insert>-->
-
-<!--    <select id="findStudent" resultType="Student">-->
-<!--        select student_id as id, password, major_id, student_name, sex, year, state-->
-<!--        from student-->
-<!--        where student_id = #{id}-->
-<!--    </select>-->
-    <select id="findAdminById" resultType="AdminDto">
+    <select id="findAdminById" resultType="AdminEntity">
         select *
         from admin
         where admin_id = #{name}
@@ -34,12 +13,12 @@
                 values (#{adminId}, #{adminPwd})
     </insert>
 
-    <select id="findAdmins" resultType="AdminDto">
+    <select id="findAdmins" resultType="AdminEntity">
         select *
         from admin
     </select>
 
-    <select id="findAdminByIdx" resultType="AdminDto">
+    <select id="findAdminByIdx" resultType="AdminEntity">
         select *
         from admin
         where admin_idx = #{idx}
@@ -50,7 +29,7 @@
     </delete>
 
     <select id="getRoomOccupancy" resultType="Integer">
-        select room_occupany
+        select room_occupancy
         from room
         where room_idx = #{idx}
     </select>
@@ -66,7 +45,7 @@
         where class_idx = #{idx}
     </delete>
 
-    <select id="findClassesByNameAndCourseId" resultType="ClassDto">
+    <select id="findClassesByNameAndCourseId" resultType="ClassEntity">
         select cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
         from course co
         join class cl on co.course_idx = cl.course_idx
@@ -87,7 +66,7 @@
                 values (#{majorIdx}, #{lecturerIdx}, #{studentId}, #{studentPwd}, #{studentName}, #{studentYear}, #{studentSex}, #{studentState})
     </insert>
 
-    <select id="findStudentsByName" resultType="StudentDto">
+    <select id="findStudentsByName" resultType="StudentEntity">
         select *
         from student
         where student_name = #{name}
@@ -99,7 +78,7 @@
         where student_idx = #{idx}
     </update>
 
-    <select id="findStudentLecturer" resultType="LecturerDto">
+    <select id="findStudentLecturer" resultType="LecturerEntity">
         select m.major_name, l.lecturer_name
         from student s
         join lecturer l on s.lecturer_idx = l.lecturer_idx
@@ -107,7 +86,7 @@
         where s.student_idx = #{idx}
     </select>
 
-    <select id="findStudentRegistrations" resultType="ClassDto">
+    <select id="findStudentRegistrations" resultType="ClassEntity">
         select co.course_id, co.course_name, co.course_credit, co.course_year, cl.class_idx, cl.class_no, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, r.room_idx, r.room_building_name, r.room_name, l.lecturer_idx, l.lecturer_name
         from course co
         join class cl on co.course_idx = cl.course_idx

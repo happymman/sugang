@@ -45,7 +45,6 @@ public class StudentController {
             return "redirect:/login";
         }else{
             session.setAttribute("studentIdx", studentIdx);
-            session.setAttribute("userType", "student");
 
             session.setAttribute("credit", studentCredit);
             session.setAttribute("coursesNotAllowed", studentCoursesNotAllowed);
