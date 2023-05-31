@@ -33,7 +33,7 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public String login(String studentId, String studentPwd, HttpSession session){
+    public String login(@RequestParam("userId")String studentId, @RequestParam("userPassword")String studentPwd, HttpSession session){
         Map<String, Object> studentMap = studentService.login(studentId, studentPwd);
 
         Integer studentIdx = (Integer) studentMap.get("idx");

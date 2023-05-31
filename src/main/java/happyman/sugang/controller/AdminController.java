@@ -31,7 +31,7 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-    public String login(String adminId, String adminPwd, HttpSession session ){
+    public String login(@RequestParam("userId") String adminId, @RequestParam("userPassword")String adminPwd, HttpSession session){
         Integer adminIdx = adminService.login(adminId, adminPwd);
         if(adminIdx == null){
             return "redirect:/login";
@@ -108,7 +108,7 @@ public class AdminController {
     }
 
     //학생 관리 페이지 이동
-    @GetMapping("/student")
+    @GetMapping("/studentPage")
     public String toStudentPage(){
         return "adminStudents";
     }

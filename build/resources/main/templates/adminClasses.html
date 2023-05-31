@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>수업 관리</title>
+</head>
+
+<style>
+    div.container {
+        width: 100%;
+        padding-top:20px;
+    }
+    div.left {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        /*background: #8977ad;*/
+    }
+    div.right {
+        width: 50%;
+        float: right;
+        box-sizing: border-box;
+        /*background: #ece6cc;*/
+    }
+
+    input {
+        width: 80%;
+        padding: 10px 20px;
+        margin: 5px 5px 5px 5px;
+        box-sizing: border-box; }
+</style>
+
+<body>
+<div class="container">
+    <h1 style="test-align: center;">수업 관리</h1>
+
+    <div class="left">
+        <form action="/admin/classes" method="get" >
+            <h2 style="test-align: center;">수업 검색</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="과목이름" name="courseName" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학수번호" name="courseId" maxlength="20">
+            </div>
+            <input type="submit" class="btn btn-primary form-control" value="수업검색">
+        </form>
+    </div>
+    <div class="right">
+        <form action="/admin/classes" method="post" >
+            <h2 style="test-align: center;">수업 개설</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="ClassNo" name="classNo" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="CourseId" name="courseId" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" name="name" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="MajorId" name="majorId" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Year" name="year" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Credit" name="credit" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="LecturerId" name="lecturerId" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="PersonMax" name="personMax" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Opened" name="opened" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="RoomId" name="roomId" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="period ex : 2" name="period" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="begin ex : 수 5시30분" name="begin" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="end ex : 수 7시" name="end" maxlength="20">
+            </div>
+            <input type="submit" class="btn btn-primary form-control" value="설강하기">
+        </form>
+
+        <form action="/admin/classes" method="delete">
+            <h2 style="test-align: center;">수업 폐강</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="classIdx" name="classIdx" maxlength="20">
+                <input type="submit" class="btn btn-primary form-control" value="폐강하기">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
