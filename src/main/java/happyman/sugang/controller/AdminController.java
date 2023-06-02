@@ -62,7 +62,7 @@ public class AdminController {
     public String showAdmins(Model model){
         List<AdminDto> adminList = adminService.findAdmins();
         model.addAttribute("adminList", adminList);
-        return "redirect:/adminPage"; //이게 맞나?
+        return "adminAdmins";
     }
 
     //관리자 등록
@@ -70,14 +70,14 @@ public class AdminController {
     public String registerAdmin(String adminId, String adminPwd){
         //입력 유효성 검사
         adminService.registerAdmin(adminId, adminPwd);
-        return "rediret:/admin/adminPage";
+        return "adminAdmins";
     }
 
     //관리자 탈퇴
     @DeleteMapping("/admins/{admin_idx}")
     public String withdrawAdmin(Integer adminIdx){
         adminService.withdrawAdmin(adminIdx);
-        return "redirect:/admin/adminPage";
+        return "adminAdmins";
     }
 
     //class 관리 페이지 이동
@@ -90,21 +90,21 @@ public class AdminController {
     public String showClasses(Model model, String name, String courseId){
         List<ClassDto> classList = adminService.showClasses(name, courseId);
         model.addAttribute("classList", classList);
-        return "redirect:/admin/classPage";
+        return "adminClasses";
     }
 
     //수업 개설 메써드
     @PostMapping("/classes")
     public String openClass(ClassDto classDto){
         adminService.openClass(classDto);
-        return "redirect:/admin/classPage";
+        return "adminClasses";
     }
 
     //수업 폐강 메써드
     @DeleteMapping("/classes")
     public String closeClass(Integer classIdx){
         adminService.closeClass(classIdx);
-        return "redirect:/admin/classPage";
+        return "adminClasses";
     }
 
     //학생 관리 페이지 이동
@@ -118,7 +118,7 @@ public class AdminController {
     @PostMapping("/students")
     public String registerStudent(StudentDto student){
         adminService.registerStudent(student);
-        return "redirect:/admin/studentPage";
+        return "adminStudents";
     }
 
     //학생 복수 조회
@@ -126,14 +126,14 @@ public class AdminController {
     public String showStudents(Model model, String name){
         List<StudentDto> studentList = adminService.findStudents(name);
         model.addAttribute("studentList", studentList);
-        return "redirect:/admin/studentPage";
+        return "adminStudents";
     }
 
     //학생 학적변경
     @PatchMapping("/students/status")
     public String modifyStudentStatus(Integer idx, String status){
         adminService.modifyStudentStatus(idx, status);
-        return "redirect:/admin/studentPage";
+        return "adminStudents";
     }
 
     //학생 전담교강사 조회

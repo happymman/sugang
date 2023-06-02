@@ -39,7 +39,7 @@ public class ClassDto {
         this.classNo = classNo; //
         this.classRegister = classRegister;//
         this.classMax = classMax;//
-        this.classOpened = classOpened;//
+        this.classOpened = classOpened;// 추후 검색시간의 년도에 따라서 보여주고 안보여주고를 결정할 수 있는 척도로서 사용
         this.classBegin = classBegin;//
         this.classEnd = classEnd;//
         this.courseIdx = courseIdx;//
