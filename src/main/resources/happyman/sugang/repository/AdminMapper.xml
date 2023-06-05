@@ -62,8 +62,8 @@
     </select>
 
     <insert id="createStudent" useGeneratedKeys="true" keyProperty="studentIdx">
-        insert into student (major_idx, lecturer_idx, student_id, student_pwd, student_name, student_year, student_sex, student_state)
-                values (#{majorIdx}, #{lecturerIdx}, #{studentId}, #{studentPwd}, #{studentName}, #{studentYear}, #{studentSex}, #{studentState})
+        insert into student (major_idx, lecturer_idx, student_id, student_pwd, student_name, student_year, student_sex, student_status)
+                values (#{majorIdx}, #{lecturerIdx}, #{studentId}, #{studentPwd}, #{studentName}, #{studentYear}, #{studentSex}, #{studentStatus})
     </insert>
 
     <select id="findStudentsByName" resultType="StudentEntity">
@@ -74,7 +74,7 @@
 
     <update id="updateStudentStatus">
         update student
-        set student_state = #{state}
+        set student_status = #{status}
         where student_idx = #{idx}
     </update>
 
@@ -94,6 +94,6 @@
         join room r on cl.room_idx = r.room_idx
         join registration rg on cl.class_idx = rg.class_idx
         join student s on rg.student_idx = s.student_idx
-        where S.student_name = #{idx}
+        where S.student_idx = #{idx}
     </select>
 </mapper>

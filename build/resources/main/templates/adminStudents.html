@@ -4,7 +4,159 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<style>
 
+    .table {
+        border-collapse: collapse;
+        border:1px solid #ddd;
+    }
+    .table th {
+        color: #168;
+        background: #f0f6f9;
+        text-align: center;
+    }
+    .table th, .table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    .table th:first-child, .table td:first-child {
+        border-left: 0;
+    }
+    .table th:last-child, .table td:last-child {
+        border-right: 0;
+    }
+    .table caption{caption-side: bottom; display: none;}
+
+    .form-group input{
+        width : 240px;
+        padding: 10px 20px;
+        margin: 5px 5px;
+    }
+
+</style>
+<body>
+    <h1> 학생 관리</h1>
+    <div>
+        <h2> 학생 조회 </h2>
+            <form action="/admin/students" method="get" >
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="학생이름" name="studentName" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary form-control" value="검색">
+                </div>
+            </form>
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>고유번호</th>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이름</th>
+                <th>학년</th>
+                <th>성별</th>
+                <th>상태</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student, i : ${studentList}">
+                <td th:text="${i.index + 1}"></td>
+                <td th:text="${student.studentIdx}"></td>
+                <td th:text="${student.studentId}"></td>
+                <td th:text="${student.studentPwd}"></td>
+                <td th:text="${student.studentName}"></td>
+                <td th:text="${student.studentYear}"></td>
+                <td th:text="${student.studentSex}"></td>
+                <td th:text="${student.studentStatus}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2> 학생 상태 변경</h2>
+        <form action="/admin/students/status" method="post" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 고유번호" name="studentIdx" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="상태" name="studentStatus" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary form-control" value="변경">
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2> 학생 교강사 조회</h2>
+        <form action="/admin/students/lecturer" method="get" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 고유번호" name="studentIdx" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary form-control" value="조회">
+            </div>
+        </form>
+        <table class="table" th:if="${studentLecturer} !=null">
+            <thead>
+            <tr>
+                <th>소속전공</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${studentLecturer.majorName}"></td>
+                <td th:text="${studentLecturer.lecturerName}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2> 학생 신청내역 조회</h2>
+        <form action="/admin/students/registrations" method="get" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 고유번호" name="studentIdx" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary form-control" value="조회">
+            </div>
+        </form>
+        <div>
+            <div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>수업번호</th>
+                        <th>학수번호</th>
+                        <th>교과목명</th>
+                        <th>교강사이름</th>
+                        <th>수강학점</th>
+                        <th>수업시간</th>
+                        <th>신청인원</th>
+                        <th>수강정원</th>
+                        <th>강의실</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="registration, i : ${registrationList}">
+                        <td th:text="${i.index + 1}"></td>
+                        <td th:text="${registration.classNo}"></td>
+                        <td th:text="${registration.courseId}"></td>
+                        <td th:text="${registration.courseName}"></td>
+                        <td th:text="${registration.lecturerName}"></td>
+                        <td th:text="${registration.courseCredit}"></td>
+                        <td th:text="${registration.classBegin} + ' ~ ' + ${registration.classEnd}"></td>
+                        <td th:text="${registration.classRegister}"></td>
+                        <td th:text="${registration.classMax}"></td>
+                        <td th:text="${registration.roomBuildingName} + ' ' + ${registration.roomName} + '호'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -67,7 +67,7 @@ public class AdminController {
 
     //관리자 등록
     @PostMapping("/admins")
-    public String registerAdmin(String adminId, String adminPwd){
+    public String registerAdmin(@RequestParam("adminId")String adminId, @RequestParam("adminPwd")String adminPwd){
         //입력 유효성 검사
         adminService.registerAdmin(adminId, adminPwd);
         return "adminAdmins";
@@ -87,7 +87,7 @@ public class AdminController {
     }
 
     @GetMapping("/classes")
-    public String showClasses(Model model, String name, String courseId){
+    public String showClasses(Model model, @RequestParam("className")String name, @RequestParam("courseId")String courseId){
         List<ClassDto> classList = adminService.showClasses(name, courseId);
         model.addAttribute("classList", classList);
         return "adminClasses";
@@ -123,32 +123,33 @@ public class AdminController {
 
     //학생 복수 조회
     @GetMapping("/students")
-    public String showStudents(Model model, String name){
-        List<StudentDto> studentList = adminService.findStudents(name);
+    public String showStudents(Model model, @RequestParam("studentName") String studentName){
+        List<StudentDto> studentList = adminService.findStudents(studentName);
         model.addAttribute("studentList", studentList);
+
         return "adminStudents";
     }
 
     //학생 학적변경
-    @PatchMapping("/students/status")
-    public String modifyStudentStatus(Integer idx, String status){
+    @PostMapping("/students/status")
+    public String modifyStudentStatus(@RequestParam("studentIdx") Integer idx, @RequestParam("studentStatus") String status){
         adminService.modifyStudentStatus(idx, status);
         return "adminStudents";
     }
 
     //학생 전담교강사 조회
     @GetMapping("/students/lecturer")
-    public String showStudentLecturer(Model model, Integer studentIdx){
+    public String showStudentLecturer(Model model, @RequestParam("studentIdx")Integer studentIdx){
         LecturerDto studentLecturer = adminService.findStudentLecturer(studentIdx).get();
         model.addAttribute("studentLecturer", studentLecturer);
-        return "redirect:/admin/studentPage";
+        return "adminStudents";
     }
 
     //학생 시간표 조회
-    @GetMapping("/students/timetable")
-    public String showStudentTimetable(Model model, Integer studentIdx){
+    @GetMapping("/students/registrations")
+    public String showStudentRegistrationList(Model model, @RequestParam("studentIdx")Integer studentIdx){
         List<ClassDto> registrationList = adminService.findStudentRegistrations(studentIdx);
         model.addAttribute("registrationList", registrationList);
-        return "redirect:/admin/studentPage";
+        return "adminStudents";
     }
 }

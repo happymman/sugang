@@ -16,6 +16,6 @@ public class Utility {
     }
 
     static StudentDto StudentEntity2Dto(StudentEntity entity) {
-        return new StudentDto(entity.getMajorIdx(), entity.getLecturerIdx(), entity.getStudentId(), entity.getStudentPwd(), entity.getStudentName(), entity.getStudentYear(), entity.getStudentSex(), entity.getStudentState());
+        return new StudentDto(entity.getMajorIdx(), entity.getLecturerIdx(), entity.getStudentId(), entity.getStudentPwd(), entity.getStudentName(), entity.getStudentYear(), entity.getStudentSex(), entity.getStudentStatus());
     }
 }

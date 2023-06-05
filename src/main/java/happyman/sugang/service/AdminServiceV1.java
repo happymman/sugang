@@ -90,7 +90,7 @@ public class AdminServiceV1 implements AdminService{
 
     @Override
     public void registerStudent(StudentDto student) {
-        StudentEntity admin = new StudentEntity(student.getMajorIdx(), student.getLecturerIdx(), student.getStudentId(), student.getStudentPwd(), student.getStudentName(), student.getStudentYear(), student.getStudentSex(), student.getStudentState());
+        StudentEntity admin = new StudentEntity(student.getMajorIdx(), student.getLecturerIdx(), student.getStudentId(), student.getStudentPwd(), student.getStudentName(), student.getStudentYear(), student.getStudentSex(), student.getStudentStatus());
         adminRepository.createStudent(admin);
     }
 
@@ -98,7 +98,7 @@ public class AdminServiceV1 implements AdminService{
     public List<StudentDto> findStudents(String name) {
         List<StudentEntity> entities = adminRepository.findStudentsByName(name);
         return entities.stream()
-                .map(entity -> new StudentDto(entity.getMajorIdx(), entity.getLecturerIdx(), entity.getStudentId(), entity.getStudentPwd(), entity.getStudentName(), entity.getStudentYear(), entity.getStudentSex(), entity.getStudentState()))
+                .map(entity -> new StudentDto(entity.getMajorIdx(), entity.getLecturerIdx(), entity.getStudentIdx(), entity.getStudentId(), entity.getStudentPwd(), entity.getStudentName(), entity.getStudentYear(), entity.getStudentSex(), entity.getStudentStatus()))
                 .collect(Collectors.toList());
     }
 

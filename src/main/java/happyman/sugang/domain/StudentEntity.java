@@ -19,11 +19,11 @@ public class StudentEntity {
     private String studentName;
     private Integer studentYear;
     private String studentSex;
-    private String studentState;
+    private String studentStatus;
 
     public StudentEntity(){}
 
-    public StudentEntity(Integer majorIdx, Integer lecturerIdx, String studentId, String studentPwd, String studentName, Integer studentYear, String studentSex, String studentState) {
+    public StudentEntity(Integer majorIdx, Integer lecturerIdx, String studentId, String studentPwd, String studentName, Integer studentYear, String studentSex, String studentStatus) {
         this.majorIdx = majorIdx;
         this.lecturerIdx = lecturerIdx;
         this.studentId = studentId;
@@ -31,6 +31,6 @@ public class StudentEntity {
         this.studentName = studentName;
         this.studentYear = studentYear;
         this.studentSex = studentSex;
-        this.studentState = studentState;
+        this.studentStatus = studentStatus;
     }
 }
