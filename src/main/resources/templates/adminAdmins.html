@@ -40,9 +40,36 @@
         outline: none;
         box-sizing: border-box;
     }
+
+    .form-group input{
+        width : 240px;
+        padding: 10px 20px;
+        margin: 5px 5px;
+    }
+
+    input.close {
+        width: 48px;
+        height:32px;
+        outline: none;
+        box-sizing: border-box;
+    }
 </style>
 
 <body>
+<div class="container">
+    <form action="/admin/admins" method="post" >
+        <h2 style="test-align: center;">관리자 등록</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="관리자 아이디" name="adminId" maxlength="20">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="관리자 비밀번호" name="adminIdx" maxlength="20">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="form-control" value="등록하기">
+        </div>
+    </form>
+
     <h2 style="test-align: center;">관리자 목록</h2>
     <form action="/admin/admins" method="get" >
         <input type="submit" class="btn btn-primary form-control" value="관리자 조회">
