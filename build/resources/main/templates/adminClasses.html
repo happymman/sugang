@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:href="@{/css/common-template.css}"
-          href="css/common-template.css" rel="stylesheet">
+<!--    <link th:href="@{/css/common-template.css}"-->
+<!--          href="css/common-template.css" rel="stylesheet">-->
     <title>수업 관리</title>
 </head>
 <style>
@@ -57,43 +57,31 @@
         <form action="/admin/classes" method="post" >
             <h2 style="test-align: center;">수업 개설</h2>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="ClassNo" name="classNo" maxlength="20">
+                <input type="text" class="form-control" placeholder="과목 고유번호" name="courseIdx" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="CourseId" name="courseId" maxlength="20">
+                <input type="text" class="form-control" placeholder="강의실 고유번호" name="roomIdx" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name" name="name" maxlength="20">
+                <input type="text" class="form-control" placeholder="교강사 고유번호" name="lecturerIdx" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="MajorId" name="majorId" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 번호" name="classNo" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Year" name="year" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 신청인원" name="classRegister" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Credit" name="credit" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 최대인원" name="classMax" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="LecturerId" name="lecturerId" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 설강년도" name="classOpened" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="PersonMax" name="personMax" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 시작시간 ex : 수 5시30분" name="classBegin" maxlength="20">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Opened" name="opened" maxlength="20">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="RoomId" name="roomId" maxlength="20">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="period ex : 2" name="period" maxlength="20">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="begin ex : 수 5시30분" name="begin" maxlength="20">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="end ex : 수 7시" name="end" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 종료시간 ex : 수 7시" name="classEnd" maxlength="20">
             </div>
             <div class="form-group">
                 <input type="submit" class="form-control" value="설강하기">

@@ -87,7 +87,7 @@ public class AdminController {
     }
 
     @GetMapping("/classes")
-    public String showClasses(Model model, @RequestParam("className")String name, @RequestParam("courseId")String courseId){
+    public String showClasses(Model model, @RequestParam("courseName")String name, @RequestParam("courseId")String courseId){
         List<ClassDto> classList = adminService.showClasses(name, courseId);
         model.addAttribute("classList", classList);
         return "adminClasses";

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static happyman.sugang.service.Utility.ClassEntity2Dto;
+import static happyman.sugang.service.Utility.ClassEntitiesDtos;
 import static happyman.sugang.service.Utility.StudentEntity2Dto;
 
 @RequiredArgsConstructor
@@ -64,7 +64,7 @@ public class StudentServiceV1 implements StudentService{
     @Override
     public List<ClassDto> showClasses(String name, String courseId) {
         List<ClassEntity> entities = studentRepository.findClassesByNameAndCourseId(name, courseId);
-        return ClassEntity2Dto(entities);
+        return ClassEntitiesDtos(entities);
     }
 
     // 수강신청
@@ -111,7 +111,7 @@ public class StudentServiceV1 implements StudentService{
     @Override
     public List<ClassDto> showRegistrations(Integer idx) {
         List<ClassEntity> entities = studentRepository.findRegistrations(idx);
-        return ClassEntity2Dto(entities);
+        return ClassEntitiesDtos(entities);
     }
 
     //cancelRegistration 수강취소
@@ -131,7 +131,7 @@ public class StudentServiceV1 implements StudentService{
     @Override
     public List<ClassDto> showTimetable(Integer idx) {
         List<ClassEntity> entities = studentRepository.getClassOfTimetable(idx);
-        return ClassEntity2Dto(entities);
+        return ClassEntitiesDtos(entities);
     }
 
     @Override

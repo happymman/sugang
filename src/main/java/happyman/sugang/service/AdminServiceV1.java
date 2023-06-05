@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static happyman.sugang.service.Utility.ClassEntity2Dto;
+import static happyman.sugang.service.Utility.ClassDto2Entity;
+import static happyman.sugang.service.Utility.ClassEntitiesDtos;
 
 @RequiredArgsConstructor
 @Service
@@ -67,19 +68,19 @@ public class AdminServiceV1 implements AdminService{
         //room수용 가능 검사
         if(!isRoomEnough(classDto.getClassMax(), classDto.getRoomIdx())) return;
 
-        ClassEntity entity = new ClassEntity(classDto.getClassNo(), classDto.getClassRegister(), classDto.getClassMax(), classDto.getClassOpened(), classDto.getClassBegin(), classDto.getClassEnd(), classDto.getCourseIdx(), classDto.getCourseId(), classDto.getCourseName(), classDto.getCourseCredit(), classDto.getCourseYear(), classDto.getRoomIdx(), classDto.getRoomBuildingName(), classDto.getRoomName(), classDto.getLecturerIdx(), classDto.getLecturerId(), classDto.getLecturerName());
+        ClassEntity entity = ClassDto2Entity(classDto);
         adminRepository.createClass(entity);
     }
 
     @Override
     public boolean isRoomEnough(Integer classMax, Integer roomIdx) {
-        return adminRepository.getRoomOccupancy(roomIdx) <= classMax;
+        return adminRepository.getRoomOccupancy(roomIdx) >= classMax;
     }
 
     @Override
     public List<ClassDto> showClasses(String name, String courseId) {
         List<ClassEntity> entities = adminRepository.findClassesByNameAndCourseId(name, courseId);
-        return ClassEntity2Dto(entities);
+        return ClassEntitiesDtos(entities);
     }
 
     @Override
@@ -121,6 +122,6 @@ public class AdminServiceV1 implements AdminService{
     @Override
     public List<ClassDto> findStudentRegistrations(Integer idx) {
         List<ClassEntity> entities = adminRepository.findStudentRegistrations(idx);
-        return ClassEntity2Dto(entities);
+        return ClassEntitiesDtos(entities);
     }
 }

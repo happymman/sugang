@@ -35,22 +35,17 @@ public class ClassEntity { //DTO : DB에서 가져올, DB에 전달할 필요 �
 
     public ClassEntity(){}
 
-    public ClassEntity(Integer classNo, Integer classRegister, Integer classMax, Integer classOpened, String classBegin, String classEnd, Integer courseIdx, String courseId, String courseName, Integer courseCredit, Integer courseYear, Integer roomIdx, String roomBuildingName, Integer roomName, Integer lecturerIdx, String lecturerId, String lecturerName) {
+    //class table
+    public ClassEntity(Integer courseIdx, Integer roomIdx, Integer lecturerIdx, Integer classNo, Integer classRegister, Integer classMax,Integer classOpened, String classBegin,String classEnd) {
+        this.courseIdx = courseIdx;//
+        this.roomIdx = roomIdx;
+        this.lecturerIdx = lecturerIdx;//
         this.classNo = classNo; //
         this.classRegister = classRegister;//
         this.classMax = classMax;//
-        this.classOpened = classOpened;//
+        this.classOpened = classOpened;// 추후 검색시간의 년도에 따라서 보여주고 안보여주고를 결정할 수 있는 척도로서 사용
         this.classBegin = classBegin;//
         this.classEnd = classEnd;//
-        this.courseIdx = courseIdx;//
-        this.courseId = courseId;//
-        this.courseName = courseName;//
-        this.courseCredit = courseCredit;//
-        this.courseYear = courseYear;//
-        this.roomIdx = roomIdx;
-        this.roomBuildingName = roomBuildingName;//
-        this.roomName = roomName;//
-        this.lecturerName = lecturerName;//
     }
 
 }
