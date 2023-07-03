@@ -3,87 +3,52 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <link th:href="@{/css/common-template.css}"-->
-<!--          href="css/common-template.css" rel="stylesheet">-->
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="css/bootstrap.min.css" rel="stylesheet">
+<!--    <link th:href="@{/css/template.css}"-->
+<!--          href="css/template.css" rel="stylesheet">-->
     <title>수업 관리</title>
 </head>
-<style>
-    div.container {
-        width: 100%;
-        padding-top:20px;
-    }
-
-    .table {
-        border-collapse: collapse;
-        border:1px solid #ddd;
-    }
-    .table th {
-        color: #168;
-        background: #f0f6f9;
-        text-align: center;
-    }
-    .table th, .table td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-    .table th:first-child, .table td:first-child {
-        border-left: 0;
-    }
-    .table th:last-child, .table td:last-child {
-        border-right: 0;
-    }
-    .table caption{caption-side: bottom; display: none;}
-
-    .form-group input{
-        width : 240px;
-        padding: 10px 20px;
-        margin: 5px 5px;
-    }
-
-    input.close {
-        width: 48px;
-        height:32px;
-        outline: none;
-        box-sizing: border-box;
-    }
-</style>
 
 <body>
 <div class="container">
-    <h1 style="test-align: center;">수업 관리</h1>
+    <div class="py-3 text-center">
+        <h1 style="test-align: center;">수업 관리</h1>
+    </div>
 
-    <div class="container">
+    <div class="container py-3">
         <form action="/admin/classes" method="post" >
-            <h2 style="test-align: center;">수업 개설</h2>
-            <div class="form-group">
+            <div class="py-1">
+                <h2 style="test-align: center;">수업 개설</h2>
+            </div>
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="과목 고유번호" name="courseIdx" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="강의실 고유번호" name="roomIdx" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="교강사 고유번호" name="lecturerIdx" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 번호" name="classNo" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 신청인원" name="classRegister" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 최대인원" name="classMax" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 설강년도" name="classOpened" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 시작시간 ex : 수 5시30분" name="classBegin" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 종료시간 ex : 수 7시" name="classEnd" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="submit" class="form-control" value="설강하기">
             </div>
 
@@ -91,19 +56,18 @@
 
     </div>
 
-    <div class="container">
+    <div class="container py-3">
         <form action="/admin/classes" method="get" >
             <h2 style="test-align: center;">수업 검색, 폐강</h2>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="과목이름" name="courseName" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="학수번호" name="courseId" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="submit" class="btn btn-primary form-control" value="수업검색">
             </div>
-
         </form>
 
         <div>
@@ -128,11 +92,12 @@
                     <tr th:each="class, i : ${classList}">
                         <td th:text="${i.index + 1}"></td>
                         <td>
-                            <form method="delete" action="/classes">
-                                <input type="hidden" name="studentId" th:value="${class.classIdx}" />
-                                <input class="close" type="submit" value="폐강" />
+                            <form method="post" th:action="@{|/admin/classes/${class.classIdx}|}">
+                                <input type="hidden" name="classIdx" th:value="${class.classIdx}" />
+                                <input type="submit" class="close" value="폐강" />
                             </form>
                         </td>
+                        <td th:text="${class.classIdx}"></td>
                         <td th:text="${class.classNo}"></td>
                         <td th:text="${class.courseId}"></td>
                         <td th:text="${class.courseName}"></td>

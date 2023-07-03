@@ -39,9 +39,10 @@
             <tr th:each="class, i : ${classList}">
                 <td th:text="${i.index + 1}"></td>
                 <td>
-                    <form method="delete" action="/classes">
-                        <input type="hidden" name="studentId" th:value="${class.classIdx}" />
-                        <input type="submit" value="폐강" />
+                    <form method="post" action="/student/registrations">
+                        <input type="hidden" name="classIdx" th:value="${class.classIdx}" />
+                        #studentIdx까지 같이 보내야함
+                        <input type="submit" value="신청" />
                     </form>
                 </td>
                 <td>

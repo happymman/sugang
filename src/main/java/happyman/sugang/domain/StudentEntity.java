@@ -23,6 +23,7 @@ public class StudentEntity {
 
     public StudentEntity(){}
 
+    //
     public StudentEntity(Integer majorIdx, Integer lecturerIdx, String studentId, String studentPwd, String studentName, Integer studentYear, String studentSex, String studentStatus) {
         this.majorIdx = majorIdx;
         this.lecturerIdx = lecturerIdx;

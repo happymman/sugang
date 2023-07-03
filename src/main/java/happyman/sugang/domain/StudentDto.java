@@ -19,6 +19,10 @@ public class StudentDto {
     private String studentSex;
     private String studentStatus;
 
+    public StudentDto(){
+
+    }
+
     //학생등록시 사용(studentIdx가 자동으로 등록되는)
     public StudentDto(Integer majorIdx, Integer lecturerIdx, String studentId, String studentPwd, String studentName, Integer studentYear, String studentSex, String studentStatus) {
         this.majorIdx = majorIdx;

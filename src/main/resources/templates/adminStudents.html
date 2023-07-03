@@ -75,6 +75,38 @@
         </table>
     </div>
     <div>
+        <h2> 학생 등록</h2>
+        <form action="/admin/students" method="post" >
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="전공 고유번호" name="majorIdx" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="교강사 고유번호" name="lecturerIdx" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 ID" name="studentId" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 비밀번호" name="studentPwd" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 이름" name="studentName" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 학년" name="studentYear" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 성별" name="studentSex" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="학생 학적" name="studentStatus" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary form-control" value="등록">
+            </div>
+        </form>
+    </div>
+    <div>
         <h2> 학생 상태 변경</h2>
         <form action="/admin/students/status" method="post" >
             <div class="form-group">

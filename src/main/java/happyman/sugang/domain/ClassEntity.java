@@ -36,7 +36,8 @@ public class ClassEntity { //DTO : DB에서 가져올, DB에 전달할 필요 �
     public ClassEntity(){}
 
     //class table
-    public ClassEntity(Integer courseIdx, Integer roomIdx, Integer lecturerIdx, Integer classNo, Integer classRegister, Integer classMax,Integer classOpened, String classBegin,String classEnd) {
+    public ClassEntity(Integer classIdx, Integer courseIdx, Integer roomIdx, Integer lecturerIdx, Integer classNo, Integer classRegister, Integer classMax,Integer classOpened, String classBegin,String classEnd) {
+        this.classIdx = classIdx;
         this.courseIdx = courseIdx;//
         this.roomIdx = roomIdx;
         this.lecturerIdx = lecturerIdx;//

@@ -85,7 +85,7 @@ public class AdminServiceV1 implements AdminService{
 
     @Override
     public void closeClass(Integer idx) {
-        //경우의수1. 해당 idx와 일치하는 admin이 없다.
+        //경우의수1. 해당 idx와 일치하는 admin이 없다. -> 검색에 의해 조회된 수업만 가능하도록 수정해서 발생X
         adminRepository.deleteClass(idx);
     }
 

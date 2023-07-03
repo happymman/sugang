@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
 	implementation 'org.springframework.session:spring-session-core'
 
+//	implementation 'org.springframework.boot:spring-boot-devtools:3.0.4'
 	//H2 데이터베이스
 	runtimeOnly 'com.h2database:h2'
 
@@ -37,6 +38,8 @@ dependencies {
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 tasks.named('test') {

@@ -36,7 +36,8 @@ public class ClassDto {
     public ClassDto(){}
 
     //class관련 - 수업 정보 가져올때
-    public ClassDto(Integer classNo, Integer classRegister, Integer classMax, Integer classOpened, String classBegin, String classEnd, Integer courseIdx, String courseId, String courseName, Integer courseCredit, Integer courseYear, Integer roomIdx, String roomBuildingName, Integer roomName, Integer lecturerIdx, String lecturerId, String lecturerName) {
+    public ClassDto(Integer classIdx, Integer classNo, Integer classRegister, Integer classMax, Integer classOpened, String classBegin, String classEnd, Integer courseIdx, String courseId, String courseName, Integer courseCredit, Integer courseYear, Integer roomIdx, String roomBuildingName, Integer roomName, Integer lecturerIdx, String lecturerId, String lecturerName) {
+        this.classIdx = classIdx; //필요상황 : 수업폐강 / 수강신청
         this.classNo = classNo; //
         this.classRegister = classRegister;//
         this.classMax = classMax;//

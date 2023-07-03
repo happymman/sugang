@@ -74,7 +74,7 @@ public class AdminController {
     }
 
     //관리자 탈퇴
-    @DeleteMapping("/admins/{admin_idx}")
+    @PostMapping("/admins/{adminIdx}")
     public String withdrawAdmin(Integer adminIdx){
         adminService.withdrawAdmin(adminIdx);
         return "adminAdmins";
@@ -101,8 +101,8 @@ public class AdminController {
     }
 
     //수업 폐강 메써드
-    @DeleteMapping("/classes")
-    public String closeClass(Integer classIdx){
+    @PostMapping("/classes/{classIdx}")
+    public String closeClass(@PathVariable Integer classIdx){
         adminService.closeClass(classIdx);
         return "adminClasses";
     }
