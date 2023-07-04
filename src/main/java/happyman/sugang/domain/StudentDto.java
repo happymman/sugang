@@ -20,7 +20,6 @@ public class StudentDto {
     private String studentStatus;
 
     public StudentDto(){
-
     }
 
     //학생등록시 사용(studentIdx가 자동으로 등록되는)

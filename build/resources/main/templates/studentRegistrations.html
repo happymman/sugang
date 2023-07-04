@@ -2,9 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>신청 내역</title>
 </head>
 <body>
-
+<div>
+    <h2 style="test-align: center;">신청 내역</h2>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align: center;"></th>
+            <th style="text-align: center;"></th>
+            <th style="text-align: center;"></th>
+            <th style="text-align: center;">수업번호</th>
+            <th style="text-align: center;">학수번호</th>
+            <th style="text-align: center;">교과목명</th>
+            <th style="text-align: center;">교강사이름</th>
+            <th style="text-align: center;">수강학점</th>
+            <th style="text-align: center;">수업시간</th>
+            <th style="text-align: center;">신청인원</th>
+            <th style="text-align: center;">수강정원</th>
+            <th style="text-align: center;">강의실</th>
+            <th style="text-align: center;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="registration, i : ${registrationList}">
+            <td th:text="${i.index + 1}"></td>
+            <td>
+                <form method="post" th:action="@{|/student/registrations/${registration.classIdx}|}">
+                    <input type="hidden" name="classIdx" th:value="${registration.classIdx}" />
+                    <input type="submit" value="취소" />
+                </form>
+            </td>
+            <td th:text="${registration.classNo}"></td>
+            <td th:text="${registration.courseId}"></td>
+            <td th:text="${registration.courseName}"></td>
+            <td th:text="${registration.lecturerName}"></td>
+            <td th:text="${registration.courseCredit}"></td>
+            <td th:text="${registration.classBegin} + ' ~ ' + ${registration.classEnd}"></td>
+            <td th:text="${registration.classRegister}"></td>
+            <td th:text="${registration.classMax}"></td>
+            <td th:text="${registration.roomBuildingName} + ' ' + ${registration.roomName} + '호'"></td>
+            <td>
+                <input type="checkbox" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

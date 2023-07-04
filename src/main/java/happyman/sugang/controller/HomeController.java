@@ -5,11 +5,13 @@ import happyman.sugang.domain.StudentDto;
 import happyman.sugang.service.AdminService;
 import happyman.sugang.service.StudentService;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+@Slf4j
 @Controller
 public class HomeController {
 
@@ -23,7 +25,10 @@ public class HomeController {
     @GetMapping("/")
     public String home(HttpSession session, Model model) {
         Integer studentIdx = (Integer) session.getAttribute("studentIdx");
+        log.info("studentIdx = {}", studentIdx);
+
         Integer adminIdx = (Integer) session.getAttribute("adminIdx");
+        log.info("adminIdx = {}", adminIdx);
 
         if (studentIdx != null || adminIdx != null) { // 로그인된 상태
             if(studentIdx != null){

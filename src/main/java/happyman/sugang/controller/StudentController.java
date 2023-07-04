@@ -35,6 +35,7 @@ public class StudentController {
     @PostMapping("/login")
     public String login(@RequestParam("userId")String studentId, @RequestParam("userPassword")String studentPwd, HttpSession session){
         Map<String, Object> studentMap = studentService.login(studentId, studentPwd);
+        log.info("result of login() : {}", studentMap);
 
         Integer studentIdx = (Integer) studentMap.get("idx");
         Integer studentCredit = (Integer) studentMap.get("credit");
@@ -50,6 +51,8 @@ public class StudentController {
             session.setAttribute("coursesNotAllowed", studentCoursesNotAllowed);
             session.setAttribute("registrationsClassIdx", studentRegistrationsClassIdx);
             session.setAttribute("registrationsCourseIdx", studentRegistrationsCourseIdx);
+
+
             return "redirect:/"; //바로 home으로 이동하지 않고 /로 이동하는 이유 : 추가적으로 /에서 할 작업O, 그것과 분리하여 메써드 역할을 분명하게 하기 위함.
         }
     }
@@ -76,29 +79,30 @@ public class StudentController {
 
         List<ClassDto> classList = studentService.showClasses(className, courseId);
         model.addAttribute("classList", classList);
-        return "redirect:/classPage"; //return "studentClasses"랑 어떤 차이가 있는지 실행가능한 상태일때 탐구
+        return "studentClasses"; //return "studentClasses"랑 어떤 차이가 있는지 실행가능한 상태일때 탐구
     }
 
     //수강신청
     @PostMapping("/registrations")
-    public String applyClass(HttpSession session, Integer classIdx, Integer classCredit, Integer courseIdx){
-        Set<Integer> registrationsCourseIdx = (Set<Integer>) session.getAttribute("");
+    public String applyClass(HttpSession session, Integer classIdx, Integer courseCredit, Integer courseIdx){
+        Set<Integer> registrationsCourseIdx = (Set<Integer>) session.getAttribute("registrationsCourseIdx");
 
-        Set<Integer> coursesNotAllowed = (Set<Integer>) session.getAttribute("");
+        Set<Integer> coursesNotAllowed = (Set<Integer>) session.getAttribute("coursesNotAllowed");
 
         Integer studentIdx = (Integer) session.getAttribute("studentIdx");
 
         Integer studentCredit = (Integer) session.getAttribute("credit");
+        log.info("studentCredit : {}", studentCredit);
 
-        Integer result = studentService.applyClass(registrationsCourseIdx,  coursesNotAllowed,  courseIdx,  studentCredit, classCredit, studentIdx, classIdx);
+        Integer result = studentService.applyClass(registrationsCourseIdx,  coursesNotAllowed,  courseIdx,  studentCredit, courseCredit, studentIdx, classIdx);
         //보류 : 메써드 실행 결과에 따른 응답처리
-        return "redirect:/classPage";
+        return "redirect:/student/classPage";
     }
 
     //신청내역 페이지 이동
     @GetMapping("/registrationPage")
     public String toRegistrationsPage(HttpSession session, Model model){
-        return "redirect:/registrations";
+        return "redirect:/student/registrations";
     }
 
     //신청내역 확인
@@ -111,11 +115,11 @@ public class StudentController {
     }
 
     //수강취소
-    @DeleteMapping ("/registrations")
-    public String cancelRegistration(HttpSession session, Integer classIdx){
+    @PostMapping ("/registrations/{classIdx}")
+    public String cancelRegistration(HttpSession session, @PathVariable Integer classIdx){
         Integer studentIdx = (Integer) session.getAttribute("studentIdx");
         studentService.cancelRegistration(studentIdx, classIdx);
-        return "redirect:/registrations";
+        return "redirect:/student/registrations";
     }
 
     //시간표 페이지 이동

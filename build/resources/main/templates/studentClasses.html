@@ -7,7 +7,7 @@
 <body>
 <div>
     <div>
-        <form action="/admin/classes" method="get" >
+        <form action="/student/classes" method="get" >
             <h2 style="test-align: center;">수업 검색</h2>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="과목이름" name="courseName" maxlength="20">
@@ -41,12 +41,9 @@
                 <td>
                     <form method="post" action="/student/registrations">
                         <input type="hidden" name="classIdx" th:value="${class.classIdx}" />
-                        #studentIdx까지 같이 보내야함
+                        <input type="hidden" name="courseCredit" th:value="${class.courseCredit}" />
                         <input type="submit" value="신청" />
                     </form>
-                </td>
-                <td>
-                    <input type="submit" value="폐강" />
                 </td>
                 <td th:text="${class.classNo}"></td>
                 <td th:text="${class.courseId}"></td>

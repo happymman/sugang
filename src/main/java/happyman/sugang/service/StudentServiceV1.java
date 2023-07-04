@@ -4,6 +4,7 @@ package happyman.sugang.service;//package happyman.sugang.service;
 import happyman.sugang.domain.*;
 import happyman.sugang.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -14,6 +15,7 @@ import static happyman.sugang.service.Utility.StudentEntity2Dto;
 
 @RequiredArgsConstructor
 @Service
+@Slf4j
 public class StudentServiceV1 implements StudentService{
     private final StudentRepository studentRepository;
 
@@ -42,16 +44,20 @@ public class StudentServiceV1 implements StudentService{
 
         //신청 목록 class_idx - 목적 : in수업 검색시, 기신청 수업은 '신청'버튼 비활성화
         List<ClassEntity> entities = studentRepository.findRegistrations(findStudent.getStudentIdx());
+        log.info("result of findRegistration service method ={}", entities);
+
         Set<Integer> classIdxSet = entities.stream()
                 .map(ClassEntity::getClassIdx)
                 .collect(Collectors.toSet());
         studentInfo.put("registrationsClassIdx", classIdxSet);
+        log.info("registrationsClassIdx ={}", classIdxSet);
 
         //신청 목록 course_idx - 목적 : when수강신청, 같은 과목 다른 수업 신청 불가 로직 구현
         Set<Integer> courseIdxSet = entities.stream()
                 .map(ClassEntity::getCourseIdx)
                 .collect(Collectors.toSet());
         studentInfo.put("registrationsCourseIdx", courseIdxSet);
+        log.info("registrationsCourseIdx ={}", courseIdxSet);
 
         //현재 학생 시간표
         //studentRepository.getTimeOfTimetable(findStudent.getStudentIdx(); -> 보류
