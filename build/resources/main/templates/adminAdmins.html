@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Admin 관련</title>
 </head>
 <!--<style>-->
@@ -69,20 +69,6 @@
 </div>
 
 <div class="container">
-    <form action="/admin/admins/{adminIdx}" method="post" >
-        <div class="py-3">
-            <h2>관리자 삭제</h2>
-        </div>
-        <div class="form-group py-1">
-            <input type="text" class="form-control" placeholder="관리자 Idx" name="adminIdx" maxlength="20">
-        </div>
-        <div class="form-group py-1">
-            <input type="submit" class="form-control" value="삭제하기">
-        </div>
-    </form>
-</div>
-
-<div class="container">
     <div class="py-3">
         <h2>관리자 목록</h2>
     </div>
@@ -105,7 +91,7 @@
         <tr th:each="admin, i : ${adminList}">
             <td th:text="${i.index + 1}"></td>
             <td>
-                <form method="delete" action="/admin/admins">
+                <form method="post" th:action="@{|/admin/admins/${admin.adminIdx}|}">
                     <input type="hidden" name="adminIdx" th:value="${admin.adminIdx}" />
                     <input type="submit" value="삭제" />
                 </form>

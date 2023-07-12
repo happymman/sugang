@@ -1,7 +1,7 @@
 package happyman.sugang.controller;
 
-import happyman.sugang.domain.AdminDto;
-import happyman.sugang.domain.StudentDto;
+import happyman.sugang.dto.AdminDto;
+import happyman.sugang.dto.StudentDto;
 import happyman.sugang.service.AdminService;
 import happyman.sugang.service.StudentService;
 import jakarta.servlet.http.HttpSession;

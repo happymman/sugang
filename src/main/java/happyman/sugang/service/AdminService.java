@@ -1,6 +1,9 @@
 package happyman.sugang.service;
 
-import happyman.sugang.domain.*;
+import happyman.sugang.dto.AdminDto;
+import happyman.sugang.dto.ClassDto;
+import happyman.sugang.dto.LecturerDto;
+import happyman.sugang.dto.StudentDto;
 
 import java.util.List;
 import java.util.Optional;

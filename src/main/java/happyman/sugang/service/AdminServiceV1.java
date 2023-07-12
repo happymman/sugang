@@ -2,6 +2,10 @@ package happyman.sugang.service;
 
 
 import happyman.sugang.domain.*;
+import happyman.sugang.dto.AdminDto;
+import happyman.sugang.dto.ClassDto;
+import happyman.sugang.dto.LecturerDto;
+import happyman.sugang.dto.StudentDto;
 import happyman.sugang.repository.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

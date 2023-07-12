@@ -1,7 +1,6 @@
 package happyman.sugang.repository;
 
 import happyman.sugang.domain.ClassEntity;
-import happyman.sugang.domain.StudentDto;
 import happyman.sugang.domain.StudentEntity;
 import org.apache.ibatis.annotations.Mapper;
 

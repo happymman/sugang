@@ -1,20 +1,22 @@
 package happyman.sugang.controller;
 
-import happyman.sugang.domain.AdminDto;
-import happyman.sugang.domain.ClassDto;
-import happyman.sugang.domain.LecturerDto;
-import happyman.sugang.domain.StudentDto;
+import happyman.sugang.dto.*;
 import happyman.sugang.service.AdminService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
+@Slf4j
 public class AdminController {
 
     @Autowired
@@ -31,10 +33,15 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("userId") String adminId, @RequestParam("userPassword")String adminPwd, HttpSession session){
+    public String login(@Valid @ModelAttribute LoginDto loginDto, HttpSession session){
+
+        String adminId = loginDto.getUserId();
+        String adminPwd = loginDto.getUserPwd();
+
         Integer adminIdx = adminService.login(adminId, adminPwd);
+
         if(adminIdx == null){
-            return "redirect:/login";
+            return "redirect:/admin/login";
         }else{
             session.setAttribute("adminIdx", adminIdx);
             return "redirect:/"; //바로 home으로 이동하지 않고 /로 이동하는 이유 : 추가적으로 /에서 할 작업O, 그것과 분리하여 메써드 역할을 분명하게 하기 위함.
@@ -61,23 +68,34 @@ public class AdminController {
     @GetMapping("/admins")
     public String showAdmins(Model model){
         List<AdminDto> adminList = adminService.findAdmins();
+
         model.addAttribute("adminList", adminList);
         return "adminAdmins";
     }
 
     //관리자 등록
     @PostMapping("/admins")
-    public String registerAdmin(@RequestParam("adminId")String adminId, @RequestParam("adminPwd")String adminPwd){
-        //입력 유효성 검사
-        adminService.registerAdmin(adminId, adminPwd);
-        return "adminAdmins";
+    public String registerAdmin(@Valid @ModelAttribute AdminDto adminDto, Model model, RedirectAttributes redirectAttributes){
+        //입력 유효성 검사에 대한 예외 처리 추가 필요
+        adminService.registerAdmin(adminDto.getAdminId(), adminDto.getAdminPwd());
+
+        List<AdminDto> adminList = (List<AdminDto>) model.getAttribute("adminList");
+//        redirectAttributes.addAttribute("adminList", adminList);
+
+        log.info("{}",model.getAttribute("adminDto"));
+        log.info("{}", redirectAttributes.getAttribute("adminList"));
+
+        return "redirect:/admin/admins";
     }
 
-    //관리자 탈퇴
+    //관리자 삭제
     @PostMapping("/admins/{adminIdx}")
-    public String withdrawAdmin(Integer adminIdx){
+    public String withdrawAdmin(Integer adminIdx, Model model, RedirectAttributes redirectAttributes){
         adminService.withdrawAdmin(adminIdx);
-        return "adminAdmins";
+
+        List<AdminDto> adminList = (List<AdminDto>) model.getAttribute("adminList");
+        redirectAttributes.addAttribute("adminList", adminList);
+        return "redirect:/admin/admins";
     }
 
     //class 관리 페이지 이동
@@ -87,8 +105,9 @@ public class AdminController {
     }
 
     @GetMapping("/classes")
-    public String showClasses(Model model, @RequestParam("courseName")String name, @RequestParam("courseId")String courseId){
-        List<ClassDto> classList = adminService.showClasses(name, courseId);
+    public String showClasses(Model model, @RequestParam String courseName, @RequestParam String courseId){
+
+        List<ClassDto> classList = adminService.showClasses(courseName, courseId);
         model.addAttribute("classList", classList);
         return "adminClasses";
     }

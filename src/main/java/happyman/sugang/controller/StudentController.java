@@ -1,10 +1,9 @@
 package happyman.sugang.controller;
 
-import happyman.sugang.domain.ClassDto;
+import happyman.sugang.dto.ClassDto;
 import happyman.sugang.service.StudentService;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,7 +50,6 @@ public class StudentController {
             session.setAttribute("coursesNotAllowed", studentCoursesNotAllowed);
             session.setAttribute("registrationsClassIdx", studentRegistrationsClassIdx);
             session.setAttribute("registrationsCourseIdx", studentRegistrationsCourseIdx);
-
 
             return "redirect:/"; //바로 home으로 이동하지 않고 /로 이동하는 이유 : 추가적으로 /에서 할 작업O, 그것과 분리하여 메써드 역할을 분명하게 하기 위함.
         }

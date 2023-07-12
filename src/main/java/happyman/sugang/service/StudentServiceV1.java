@@ -2,6 +2,8 @@ package happyman.sugang.service;//package happyman.sugang.service;
 
 
 import happyman.sugang.domain.*;
+import happyman.sugang.dto.ClassDto;
+import happyman.sugang.dto.StudentDto;
 import happyman.sugang.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

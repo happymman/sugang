@@ -1,8 +1,10 @@
-package happyman.sugang.domain;
+package happyman.sugang.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+//@Builder
 public class ClassDto {
 
     //class table

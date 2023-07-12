@@ -45,6 +45,7 @@
         where class_idx = #{idx}
     </delete>
 
+    
     <select id="findClassesByNameAndCourseId" resultType="ClassEntity">
         select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
         from course co
