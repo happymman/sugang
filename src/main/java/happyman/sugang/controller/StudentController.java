@@ -32,7 +32,7 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("userId")String studentId, @RequestParam("userPassword")String studentPwd, HttpSession session){
+    public String login(@RequestParam("userId")String studentId, @RequestParam("userPwd")String studentPwd, HttpSession session){
         Map<String, Object> studentMap = studentService.login(studentId, studentPwd);
         log.info("result of login() : {}", studentMap);
 
@@ -75,7 +75,7 @@ public class StudentController {
     @GetMapping("/classes")
     public String showClasses(Model model, @RequestParam(required = false) String className, @RequestParam(required = false) String courseId){
 
-        List<ClassDto> classList = studentService.showClasses(className, courseId);
+        List<ClassDto.Info> classList = studentService.showClasses(className, courseId);
         model.addAttribute("classList", classList);
         return "studentClasses"; //return "studentClasses"랑 어떤 차이가 있는지 실행가능한 상태일때 탐구
     }
@@ -107,7 +107,7 @@ public class StudentController {
     @GetMapping("/registrations")
     public String showRegistrations(HttpSession session, Model model){
         Integer studentIdx = (Integer) session.getAttribute("studentIdx");
-        List<ClassDto> registrationList = studentService.showRegistrations(studentIdx);
+        List<ClassDto.Info> registrationList = studentService.showRegistrations(studentIdx);
         model.addAttribute("registrationList", registrationList);
         return "studentRegistrations";
     }
@@ -118,20 +118,5 @@ public class StudentController {
         Integer studentIdx = (Integer) session.getAttribute("studentIdx");
         studentService.cancelRegistration(studentIdx, classIdx);
         return "redirect:/student/registrations";
-    }
-
-    //시간표 페이지 이동
-    @GetMapping("/timeTablePage")
-    public String toTimeTablePage(){
-        return "redirect:/timetables";
-    }
-
-    //학생 시간표 조회
-    @GetMapping("/timetables")
-    public String showTimeTable(HttpSession session, Model model){
-        Integer studentIdx = (Integer) session.getAttribute("studentIdx");
-        List<ClassDto> timeTable = studentService.showTimetable(studentIdx);
-        model.addAttribute("timeTable", timeTable);
-        return "studentRegistrations";
     }
 }

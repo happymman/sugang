@@ -47,8 +47,3 @@ public interface AdminRepository {
 
     List<ClassEntity> findStudentRegistrations(Integer idx);
 }
-
-//    List<ClassDto> findClasses(String name, String courseId); -> 삭제
-
-//    Course createCourse(Course course); -> 삭제
-//    Optional<Course> findCourseByName(String name); -> 삭제

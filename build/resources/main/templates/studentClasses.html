@@ -6,22 +6,30 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
-<div>
-    <div>
+<div class="container">
+    <div class="py-3 text-center">
+        <h1 style="test-align: center;">수강 편람</h1>
+    </div>
+
+    <div class="container py-3">
         <form action="/student/classes" method="get" >
-            <h2 style="test-align: center;">수업 검색</h2>
-            <div class="form-group">
+            <div class="py-1">
+                <h2 style="test-align: center;">수업 검색</h2>
+            </div>
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="과목이름" name="courseName" maxlength="20">
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="학수번호" name="courseId" maxlength="20">
             </div>
-            <input type="submit" class="btn btn-primary form-control" value="수업검색">
+            <div class="form-group py-1">
+                <input type="submit" class="btn btn-primary form-control" value="수업검색">
+            </div>
         </form>
-        <table>
+
+        <table class="table">
             <thead>
             <tr>
-                <th style="text-align: center;"></th>
                 <th style="text-align: center;"></th>
                 <th style="text-align: center;"></th>
                 <th style="text-align: center;">수업번호</th>
@@ -55,9 +63,6 @@
                 <td th:text="${class.classRegister}"></td>
                 <td th:text="${class.classMax}"></td>
                 <td th:text="${class.roomBuildingName} + ' ' + ${class.roomName} + '호'"></td>
-                <td>
-                    <input type="checkbox" />
-                </td>
             </tr>
             </tbody>
         </table>

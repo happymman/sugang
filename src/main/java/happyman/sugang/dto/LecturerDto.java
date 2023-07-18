@@ -1,18 +1,19 @@
 package happyman.sugang.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-//@Builder
 public class LecturerDto {
-    private String lecturerName;
-    private String majorName;
 
-    public LecturerDto(){}
-    public LecturerDto(String lecturerName, String majorName) {
-        this.lecturerName = lecturerName;
-        this.majorName = majorName;
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    public static class Info{
+        private String lecturerName;
+        private String majorName;
     }
+
 
 }

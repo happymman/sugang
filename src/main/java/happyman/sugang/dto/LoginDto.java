@@ -13,5 +13,4 @@ public class LoginDto {
     @NotBlank
     private String userPwd;
 
-//    public loginDto(){};
 }

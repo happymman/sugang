@@ -1,7 +1,11 @@
 package happyman.sugang.repository;
 
-import happyman.sugang.domain.*;
+import happyman.sugang.domain.AdminEntity;
+import happyman.sugang.domain.ClassEntity;
+import happyman.sugang.domain.LecturerEntity;
+import happyman.sugang.domain.StudentEntity;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,6 +13,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
+@Slf4j
 public class MybatisAdminRepository implements AdminRepository {
     private final AdminMapper adminMapper;
 
@@ -42,7 +47,9 @@ public class MybatisAdminRepository implements AdminRepository {
 
     @Override
     public List<AdminEntity> findAdmins() {
-        return adminMapper.findAdmins();
+        List<AdminEntity> admins = adminMapper.findAdmins();
+        log.info("findAdmins Mapper method result = {}", admins);
+        return admins;
     }
 
     @Override
@@ -73,7 +80,9 @@ public class MybatisAdminRepository implements AdminRepository {
 
     @Override
     public List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId){
-        return adminMapper.findClassesByNameAndCourseId(name, courseId);
+        List<ClassEntity> entityList = adminMapper.findClassesByNameAndCourseId(name, courseId);
+        log.info("findClassDtoList {}", entityList);
+        return entityList;
     }
 
     @Override
@@ -94,7 +103,9 @@ public class MybatisAdminRepository implements AdminRepository {
 
     @Override
     public Optional<LecturerEntity> findStudentLecturer(Integer studentIdx) {
-        return adminMapper.findStudentLecturer(studentIdx);
+        Optional<LecturerEntity> lecturerEntity = adminMapper.findStudentLecturer(studentIdx);
+        log.info("findStudentLecturer Mapper result = {}", lecturerEntity);
+        return lecturerEntity;
     }
 
     @Override

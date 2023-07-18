@@ -15,7 +15,6 @@
 
     <button type="button" class="navyBtn" onclick="location.href='/student/classPage'">수강 편람</button>
     <button type="button" class="navyBtn" onclick="location.href='/student/registrationPage'">신청 내역</button>
-    <button type="button" class="navyBtn" onclick="location.href='/student/timetablePage'">시간표</button>
 </div>
 <div th:if="${session.adminIdx != null}">
     <form action="/admin/logout" method="POST">

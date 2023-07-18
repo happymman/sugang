@@ -1,19 +1,25 @@
 package happyman.sugang.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class StudentEntity {
+
+    private Integer studentIdx;
 
     //major table
     private Integer majorIdx;
+    private MajorEntity MajorEntity;
 
     //lecturer table
     private Integer lecturerIdx;
-
-    //student table
-    private Integer studentIdx;
+    private LecturerEntity LecturerEntity;
     private String studentId;
     private String studentPwd;
     private String studentName;
@@ -21,9 +27,6 @@ public class StudentEntity {
     private String studentSex;
     private String studentStatus;
 
-    public StudentEntity(){}
-
-    //
     public StudentEntity(Integer majorIdx, Integer lecturerIdx, String studentId, String studentPwd, String studentName, Integer studentYear, String studentSex, String studentStatus) {
         this.majorIdx = majorIdx;
         this.lecturerIdx = lecturerIdx;

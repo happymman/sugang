@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="happyman.sugang.repository.AdminMapper">
+
     <select id="findAdminById" resultType="AdminEntity">
         select *
         from admin
@@ -45,11 +46,34 @@
         where class_idx = #{idx}
     </delete>
 
-    <resultMap id="class" type="ClassEntity">
-        <id property="" column=""/>
+    <resultMap id="findClassMap" type="ClassEntity">
+        <id property="classIdx" column="class_idx"/>
+        <id property="classNo" column="class_no"/>
+        <id property="classRegister" column="class_register"/>
+        <id property="classMax" column="class_max"/>
+        <id property="classOpened" column="class_opened"/>
+        <id property="classBegin" column="class_begin"/>
+        <id property="classEnd" column="class_end"/>
+        <association property="courseEntity" javaType="CourseEntity">
+            <id property="courseIdx" column="course_idx"/>
+            <result property="courseId" column="course_id"/>
+            <result property="courseName" column="course_name"/>
+            <result property="courseCredit" column="course_credit"/>
+            <result property="courseYear" column="course_year"/>
+        </association>
+        <association property="roomEntity" javaType="RoomEntity">
+            <id property="roomIdx" column="room_idx"/>
+            <result property="roomBuildingName" column="room_building_name"/>
+            <result property="roomName" column="room_name"/>
+        </association>
+        <association property="lecturerEntity" javaType="LecturerEntity">
+            <id property="lecturerIdx" column="lecturer_idx"/>
+            <result property="lecturerName" column="lecturer_name"/>
+            <association property="majorEntity" javaType="MajorEntity" />
+        </association>
     </resultMap>
-    
-    <select id="findClassesByNameAndCourseId" resultType="ClassEntity">
+
+    <select id="findClassesByNameAndCourseId" resultMap="findClassMap">
         select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
         from course co
         join class cl on co.course_idx = cl.course_idx
@@ -82,22 +106,31 @@
         where student_idx = #{idx}
     </update>
 
-    <select id="findStudentLecturer" resultType="LecturerEntity">
+    <select id="findStudentLecturer" resultMap="findLecturerMap">
         select m.major_name, l.lecturer_name
         from student s
-        join lecturer l on s.lecturer_idx = l.lecturer_idx
-        join major m on l.major_idx = m.major_idx
+                 join lecturer l on s.lecturer_idx = l.lecturer_idx
+                 join major m on l.major_idx = m.major_idx
         where s.student_idx = #{idx}
     </select>
 
-    <select id="findStudentRegistrations" resultType="ClassEntity">
-        select co.course_id, co.course_name, co.course_credit, co.course_year, cl.class_idx, cl.class_no, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, r.room_idx, r.room_building_name, r.room_name, l.lecturer_idx, l.lecturer_name
+    <resultMap id="findLecturerMap" type="LecturerEntity">
+        <id property="lecturerIdx" column="lecturer_idx"/>
+        <result property="lecturerName" column="lecturer_name"/>
+        <association property="majorEntity" javaType="MajorEntity">
+            <id property="majorIdx" column="major_idx"/>
+            <result property="majorName" column="major_name"/>
+        </association>
+    </resultMap>
+
+    <select id="findStudentRegistrations" resultMap="findClassMap">
+        select co.course_id, co.course_name, co.course_credit, co.course_year, cl.class_idx, cl.class_no, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, r.room_building_name, r.room_name, l.lecturer_name
         from course co
-        join class cl on co.course_idx = cl.course_idx
-        join lecturer l on cl.lecturer_idx = l.lecturer_idx
-        join room r on cl.room_idx = r.room_idx
-        join registration rg on cl.class_idx = rg.class_idx
-        join student s on rg.student_idx = s.student_idx
+                 join class cl on co.course_idx = cl.course_idx
+                 join lecturer l on cl.lecturer_idx = l.lecturer_idx
+                 join room r on cl.room_idx = r.room_idx
+                 join registration rg on cl.class_idx = rg.class_idx
+                 join student s on rg.student_idx = s.student_idx
         where S.student_idx = #{idx}
     </select>
 </mapper>

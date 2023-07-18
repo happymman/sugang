@@ -6,12 +6,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
-<div>
-    <h2 style="test-align: center;">신청 내역</h2>
-    <table>
+<div class="container">
+    <div class="py-3 text-center">
+        <h1 style="test-align: center;">신청 내역</h1>
+    </div>
+    <table class="table">
         <thead>
         <tr>
-            <th style="text-align: center;"></th>
             <th style="text-align: center;"></th>
             <th style="text-align: center;"></th>
             <th style="text-align: center;">수업번호</th>
@@ -44,9 +45,6 @@
             <td th:text="${registration.classRegister}"></td>
             <td th:text="${registration.classMax}"></td>
             <td th:text="${registration.roomBuildingName} + ' ' + ${registration.roomName} + '호'"></td>
-            <td>
-                <input type="checkbox" />
-            </td>
         </tr>
         </tbody>
     </table>

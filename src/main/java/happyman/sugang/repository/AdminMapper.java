@@ -26,13 +26,5 @@ public interface AdminMapper { //매퍼.xml의 sql을 실행하고 결과를 ret
     List<StudentEntity> findStudentsByName(String name);
     void updateStudentStatus(Integer idx, String status);
     Optional<LecturerEntity> findStudentLecturer(Integer studentIdx);
-
     List<ClassEntity> findStudentRegistrations(Integer idx);
 }
-
-
-//    Optional<Student> findStudent(Integer id);
-//    List<ClassDto> findClasses(@Param("name") String name, @Param("courseId") String courseId);
-//
-//    void createCourse(Course course); //매퍼인터페이스의 insert메써드는 return형이 void여야한다.
-//    Optional<Course> findCourseByName(String name);

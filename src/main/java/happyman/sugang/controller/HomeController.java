@@ -32,13 +32,13 @@ public class HomeController {
 
         if (studentIdx != null || adminIdx != null) { // 로그인된 상태
             if(studentIdx != null){
-                StudentDto studentDto = studentService.findStudentByIdx(studentIdx).get();
+                StudentDto.Info studentDto = studentService.findStudentByIdx(studentIdx);
                 model.addAttribute("user", studentDto);
                 return "home";
 
             }else if(adminIdx != null){
-                AdminDto adminDto = adminService.findAdminByIdx(adminIdx).get();
-                model.addAttribute("user", adminDto);
+                AdminDto.Info findAdmin = adminService.findAdminByIdx(adminIdx);
+                model.addAttribute("user", findAdmin);
                 return "home";            }
         }
         return "login";

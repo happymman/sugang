@@ -1,22 +1,26 @@
 package happyman.sugang.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
-//@Builder
 public class AdminDto {
-    private Integer adminIdx;
-    @NotBlank
-    private String adminId;
-    @NotBlank
-    private String adminPwd;
 
-    public AdminDto(Integer adminIdx, String adminId, String adminPwd) {
-        this.adminIdx = adminIdx;
-        this.adminId = adminId;
-        this.adminPwd = adminPwd;
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    public static class Info{
+        private Integer adminIdx;
+        private String adminId;
+        private String adminPwd;
     }
+
+    @Getter
+    @Setter
+    public static class Request{
+        @NotBlank
+        private String adminId;
+        @NotBlank
+        private String adminPwd;
+    }
+
 }

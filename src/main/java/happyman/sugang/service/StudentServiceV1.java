@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static happyman.sugang.service.Utility.ClassEntitiesDtos;
+import static happyman.sugang.service.Utility.ClassEntities2Dtos;
 import static happyman.sugang.service.Utility.StudentEntity2Dto;
 
 @RequiredArgsConstructor
@@ -40,23 +40,26 @@ public class StudentServiceV1 implements StudentService{
 
         //현재 학생 신청학점
         studentInfo.put("credit", studentRepository.getStudentCredit(findStudent.getStudentIdx())); // 임시로 set에 저장 - 이유 : 자료형
+        log.info("put credit success");
+
 
         //재수강 불가 목록
         studentInfo.put("coursesNotAllowed", studentRepository.findCourseNotAllowed(findStudent.getStudentIdx()));
+        log.info("put coursesNotAllowed success");
 
         //신청 목록 class_idx - 목적 : in수업 검색시, 기신청 수업은 '신청'버튼 비활성화
-        List<ClassEntity> entities = studentRepository.findRegistrations(findStudent.getStudentIdx());
-        log.info("result of findRegistration service method ={}", entities);
+        List<ClassDto.Info> classes = ClassEntities2Dtos(studentRepository.findRegistrations(findStudent.getStudentIdx()));
+        log.info("result of findRegistration service method ={}", classes);
 
-        Set<Integer> classIdxSet = entities.stream()
-                .map(ClassEntity::getClassIdx)
+        Set<Integer> classIdxSet = classes.stream()
+                .map(ClassDto.Info::getClassIdx)
                 .collect(Collectors.toSet());
         studentInfo.put("registrationsClassIdx", classIdxSet);
         log.info("registrationsClassIdx ={}", classIdxSet);
 
         //신청 목록 course_idx - 목적 : when수강신청, 같은 과목 다른 수업 신청 불가 로직 구현
-        Set<Integer> courseIdxSet = entities.stream()
-                .map(ClassEntity::getCourseIdx)
+        Set<Integer> courseIdxSet = classes.stream()
+                .map(ClassDto.Info::getCourseIdx)
                 .collect(Collectors.toSet());
         studentInfo.put("registrationsCourseIdx", courseIdxSet);
         log.info("registrationsCourseIdx ={}", courseIdxSet);
@@ -70,9 +73,9 @@ public class StudentServiceV1 implements StudentService{
 //    - showRegistrations() 실행후 신청목록 class_idx Set<Integer>을 Controller전달 &model에 저장
 //    - 이유 : 이미 신청한 수업은 신청버튼 비활성화될 수 있도록
     @Override
-    public List<ClassDto> showClasses(String name, String courseId) {
+    public List<ClassDto.Info> showClasses(String name, String courseId) {
         List<ClassEntity> entities = studentRepository.findClassesByNameAndCourseId(name, courseId);
-        return ClassEntitiesDtos(entities);
+        return ClassEntities2Dtos(entities);
     }
 
     // 수강신청
@@ -117,9 +120,9 @@ public class StudentServiceV1 implements StudentService{
 
     //showRegistrations 신청내역
     @Override
-    public List<ClassDto> showRegistrations(Integer idx) {
+    public List<ClassDto.Info> showRegistrations(Integer idx) {
         List<ClassEntity> entities = studentRepository.findRegistrations(idx);
-        return ClassEntitiesDtos(entities);
+        return ClassEntities2Dtos(entities);
     }
 
     //cancelRegistration 수강취소
@@ -134,17 +137,14 @@ public class StudentServiceV1 implements StudentService{
         studentRepository.updateClassRegister(classIdx, -1);
     }
 
-    //showTimetable 시간표 조회
-//    - 신청내역 복수조회 이후 e러닝 제외해서 표시(-> class_begin == null인 class)
     @Override
-    public List<ClassDto> showTimetable(Integer idx) {
-        List<ClassEntity> entities = studentRepository.getClassOfTimetable(idx);
-        return ClassEntitiesDtos(entities);
-    }
+    public StudentDto.Info findStudentByIdx(Integer idx){
+        Optional<StudentEntity> optionalEntity = studentRepository.findStudentByIdx(idx);
 
-    @Override
-    public Optional<StudentDto> findStudentByIdx(Integer idx){
-        StudentEntity entity = studentRepository.findStudentByIdx(idx).get();
-        return Optional.of(StudentEntity2Dto(entity));
+        if(optionalEntity.isPresent()){
+            StudentDto.Info student = StudentEntity2Dto(optionalEntity);
+            return student;
+        }
+        return null; //추후 예외처리
     }
 }

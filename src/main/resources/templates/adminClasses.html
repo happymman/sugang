@@ -4,8 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<!--    <link th:href="@{/css/template.css}"-->
-<!--          href="css/template.css" rel="stylesheet">-->
     <title>수업 관리</title>
 </head>
 
@@ -21,13 +19,13 @@
                 <h2 style="test-align: center;">수업 개설</h2>
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="과목 고유번호" name="courseIdx" maxlength="20">
+                <input type="text" class="form-control" placeholder="과목 고유번호 ex : 23" name="courseIdx" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="강의실 고유번호" name="roomIdx" maxlength="20">
+                <input type="text" class="form-control" placeholder="강의실 고유번호 ex : 164" name="roomIdx" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="교강사 고유번호" name="lecturerIdx" maxlength="20">
+                <input type="text" class="form-control" placeholder="교강사 고유번호 ex : 24" name="lecturerIdx" maxlength="20">
             </div>
             <div class="form-group py-1">
                 <input type="text" class="form-control" placeholder="수업 번호" name="classNo" maxlength="20">
@@ -76,6 +74,7 @@
                     <tr>
                         <th></th>
                         <th></th>
+                        <th>수업 고유번호</th>
                         <th>수업번호</th>
                         <th>학수번호</th>
                         <th>교과목명</th>

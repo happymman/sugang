@@ -1,8 +1,6 @@
 package happyman.sugang.repository;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import happyman.sugang.dto.AdminDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

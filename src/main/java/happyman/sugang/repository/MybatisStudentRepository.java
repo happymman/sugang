@@ -2,6 +2,7 @@ package happyman.sugang.repository;
 
 import happyman.sugang.domain.ClassEntity;
 import happyman.sugang.domain.StudentEntity;
+import happyman.sugang.dto.ClassDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -58,33 +59,7 @@ public class MybatisStudentRepository implements StudentRepository {
     }
 
     @Override
-    public List<ClassEntity> getClassOfTimetable(Integer idx) {
-        return studentMapper.getClassOfTimetable(idx);
-    }
-
-    @Override
     public Optional<StudentEntity> findStudentByIdx(Integer idx){ return studentMapper.findStudentByIdx(idx);}
 
-////    @Override
-////    public Admin createAdmin(Admin admin) {
-////        studentMapper.createAdmin(admin);
-////        return admin;
-////    }
-//
-//    @Override
-//    public Optional<Admin> findAdmin(Integer id) {
-//        return studentMapper.findAdmin(id);
-//    }
-//
-////    @Override
-////    public Student createStudent(Student student) {
-////        studentMapper.createStudent(student);
-////        return student;
-////    }
-//
-//    @Override
-//    public Optional<Student> findStudent(Integer id) {
-//        return studentMapper.findStudent(id);
-//    }
 
 }

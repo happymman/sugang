@@ -2,23 +2,21 @@ package happyman.sugang.service;
 
 
 import happyman.sugang.domain.*;
-import happyman.sugang.dto.AdminDto;
-import happyman.sugang.dto.ClassDto;
-import happyman.sugang.dto.LecturerDto;
-import happyman.sugang.dto.StudentDto;
+import happyman.sugang.dto.*;
 import happyman.sugang.repository.AdminRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static happyman.sugang.service.Utility.ClassDto2Entity;
-import static happyman.sugang.service.Utility.ClassEntitiesDtos;
+import static happyman.sugang.service.Utility.*;
 
 @RequiredArgsConstructor
 @Service
+@Slf4j
 public class AdminServiceV1 implements AdminService{
     private final AdminRepository adminRepository;
 
@@ -40,25 +38,23 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public List<AdminDto> findAdmins() {
+    public List<AdminDto.Info> findAdmins() {
         List<AdminEntity> entities = adminRepository.findAdmins();
-        return entities.stream()
-                .map(entity -> new AdminDto(entity.getAdminIdx(), entity.getAdminId(), entity.getAdminPwd()))
-                .collect(Collectors.toList());
+
+        log.info("findAdmins Repo method result = {}", entities);
+        return AdminEntities2Dtos(entities);
     }
 
     @Override
-    public Optional<AdminDto> findAdminByIdx(Integer idx) {
+    public AdminDto.Info findAdminByIdx(Integer idx) {
         Optional<AdminEntity> optionalEntity = adminRepository.findAdminByIdx(idx);
 
         if(optionalEntity.isPresent()){
-            AdminEntity entity = optionalEntity.get();
-            return Optional.of(new AdminDto(entity.getAdminIdx(), entity.getAdminId(), entity.getAdminPwd()));
+            AdminDto.Info admin = AdminEntity2Dto(optionalEntity);
+            return admin;
         }
-        return Optional.empty();
+        return null; //추후 예외처리
     }
-
-
 
     @Override
     public void withdrawAdmin(Integer idx) {
@@ -68,11 +64,11 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public void openClass(ClassDto classDto) {
+    public void openClass(ClassDto.Request request) {
         //room수용 가능 검사
-        if(!isRoomEnough(classDto.getClassMax(), classDto.getRoomIdx())) return;
+        if(!isRoomEnough(request.getClassMax(), request.getRoomIdx())) return;
 
-        ClassEntity entity = ClassDto2Entity(classDto);
+        ClassEntity entity = ClassDto2Entity(request);
         adminRepository.createClass(entity);
     }
 
@@ -82,9 +78,9 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public List<ClassDto> showClasses(String name, String courseId) {
+    public List<ClassDto.Info> showClasses(String name, String courseId) {
         List<ClassEntity> entities = adminRepository.findClassesByNameAndCourseId(name, courseId);
-        return ClassEntitiesDtos(entities);
+        return ClassEntities2Dtos(entities);
     }
 
     @Override
@@ -94,17 +90,15 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public void registerStudent(StudentDto student) {
-        StudentEntity admin = new StudentEntity(student.getMajorIdx(), student.getLecturerIdx(), student.getStudentId(), student.getStudentPwd(), student.getStudentName(), student.getStudentYear(), student.getStudentSex(), student.getStudentStatus());
-        adminRepository.createStudent(admin);
+    public void registerStudent(StudentDto.Request request) {
+        StudentEntity student = StudentDto2Entity(request);
+        adminRepository.createStudent(student);
     }
 
     @Override
-    public List<StudentDto> findStudents(String name) {
+    public List<StudentDto.Info> findStudents(String name) {
         List<StudentEntity> entities = adminRepository.findStudentsByName(name);
-        return entities.stream()
-                .map(entity -> new StudentDto(entity.getMajorIdx(), entity.getLecturerIdx(), entity.getStudentIdx(), entity.getStudentId(), entity.getStudentPwd(), entity.getStudentName(), entity.getStudentYear(), entity.getStudentSex(), entity.getStudentStatus()))
-                .collect(Collectors.toList());
+        return StudentEntities2Dtos(entities);
     }
 
     @Override
@@ -113,19 +107,20 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public Optional<LecturerDto> findStudentLecturer(Integer studentIdx) {
+    public LecturerDto.Info findStudentLecturer(Integer studentIdx) {
         Optional<LecturerEntity> optionalEntity = adminRepository.findStudentLecturer(studentIdx);
+        log.info("findStudentLecturer Repo method result = {}", optionalEntity);
 
         if(optionalEntity.isPresent()){
-            LecturerEntity entity = optionalEntity.get();
-            return Optional.of(new LecturerDto(entity.getLecturerName(), entity.getMajorName()));
+            LecturerDto.Info lecturer = LecturerEntity2Dto(optionalEntity);
+            return lecturer;
         }
-        return Optional.empty();
+        return null; //추후 예외처리
     }
 
     @Override
-    public List<ClassDto> findStudentRegistrations(Integer idx) {
+    public List<ClassDto.Info> findStudentRegistrations(Integer idx) {
         List<ClassEntity> entities = adminRepository.findStudentRegistrations(idx);
-        return ClassEntitiesDtos(entities);
+        return ClassEntities2Dtos(entities);
     }
 }
