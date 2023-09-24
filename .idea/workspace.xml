@@ -4,93 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a944df3a-a4f8-418f-a0ac-29c905d5ac16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/SessionHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/AdminDto$Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/AdminDto$Info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/AdminDto$Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/AdminDto$Request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/AdminDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/AdminDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto$Info$InfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto$Info$InfoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto$Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto$Info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto$Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/ClassDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/LecturerDto$Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/LecturerDto$Info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/LecturerDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/LecturerDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/LoginDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/LoginDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto$Info$InfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto$Info$InfoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto$Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto$Info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto$Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto$Request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/dto/StudentDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/exception/DuplicatedIdException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/exception/DuplicatedIdException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/exception/ErrorCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/exception/ErrorCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/exception/ExceptionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/exception/ExceptionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/AdminMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/AdminRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/AdminRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisAdminRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisAdminRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisStudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/MybatisStudentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/repository/StudentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/AdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/AdminServiceV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/AdminServiceV1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/StudentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/StudentServiceV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/StudentServiceV1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/happyman/sugang/service/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/repository/AdminRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/happyman/sugang/repository/AdminRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/happyman/sugang/repository/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/template.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/adminAdmins.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/adminAdmins.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/adminClasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/adminClasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/studentClasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/studentClasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/studentRegistrations.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/studentRegistrations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomeController.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MybatisConfig.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SugangApplication.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/AdminDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/AdminDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/ClassDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/ClassDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/LoginDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/LoginDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/dto/StudentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/exception/DuplicatedIdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/exception/DuplicatedIdException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/exception/ExceptionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/exception/ExceptionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/AdminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisAdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisAdminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/MybatisStudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/repository/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/AdminServiceV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/StudentServiceV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/happyman/sugang/service/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/happyman/sugang/repository/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminAdmins.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminAdmins.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminClasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminClasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentClasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentClasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/studentRegistrations.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/studentRegistrations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/happyman/sugang/repository/AdminRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/happyman/sugang/repository/AdminRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
-    </list>
+    <list default="true" id="a944df3a-a4f8-418f-a0ac-29c905d5ac16" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -587,7 +501,7 @@
       <workItem from="1695284421171" duration="1825000" />
       <workItem from="1695360962252" duration="5898000" />
       <workItem from="1695371164335" duration="30297000" />
-      <workItem from="1695471533321" duration="3442000" />
+      <workItem from="1695471533321" duration="4024000" />
     </task>
     <servers />
   </component>
