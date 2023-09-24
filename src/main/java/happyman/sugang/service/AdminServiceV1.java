@@ -3,6 +3,7 @@ package happyman.sugang.service;
 
 import happyman.sugang.domain.*;
 import happyman.sugang.dto.*;
+import happyman.sugang.exception.DuplicatedIdException;
 import happyman.sugang.repository.AdminRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static happyman.sugang.service.Utility.*;
 
@@ -30,16 +30,22 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public void registerAdmin(String adminId, String adminPwd) {
+    public AdminDto.Info registerAdmin(String adminId, String adminPwd) {
         AdminEntity admin = new AdminEntity(adminId, adminPwd);
-        //아이디 중복인 경우를 체크필요
-        adminRepository.createAdmin(admin);
-
+        //아이디 중복검사
+        if(isIdDuplicated(adminId)) throw new DuplicatedIdException();
+        return AdminEntity2Dto(adminRepository.createAdmin(admin));
     }
 
+    public boolean isIdDuplicated(String adminId) {
+        Optional<AdminEntity> findAdmin = adminRepository.findAdminById(adminId);
+        return findAdmin.isPresent() ? true : false;
+    }
+
+
     @Override
-    public List<AdminDto.Info> findAdmins() {
-        List<AdminEntity> entities = adminRepository.findAdmins();
+    public List<AdminDto.Info> findAllAdmins() {
+        List<AdminEntity> entities = adminRepository.findAllAdmins();
 
         log.info("findAdmins Repo method result = {}", entities);
         return AdminEntities2Dtos(entities);
@@ -64,7 +70,7 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public void openClass(ClassDto.Request request) {
+    public void openClass(ClassDto.registerRequest request) {
         //room수용 가능 검사
         if(!isRoomEnough(request.getClassMax(), request.getRoomIdx())) return;
 
@@ -78,8 +84,8 @@ public class AdminServiceV1 implements AdminService{
     }
 
     @Override
-    public List<ClassDto.Info> showClasses(String name, String courseId) {
-        List<ClassEntity> entities = adminRepository.findClassesByNameAndCourseId(name, courseId);
+    public List<ClassDto.Info> showClasses(String courseName, String courseId) {
+        List<ClassEntity> entities = adminRepository.findClassesByNameAndCourseId(courseName, courseId);
         return ClassEntities2Dtos(entities);
     }
 

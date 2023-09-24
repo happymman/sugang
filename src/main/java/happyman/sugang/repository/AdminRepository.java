@@ -28,9 +28,9 @@ public interface AdminRepository {
 
     Optional<AdminEntity> findAdminById(String id);
 
-    AdminEntity createAdmin(AdminEntity admin);
+    Optional<AdminEntity> createAdmin(AdminEntity admin);
 
-    List<AdminEntity> findAdmins();
+    List<AdminEntity> findAllAdmins();
     Optional<AdminEntity> findAdminByIdx(Integer idx);
     void deleteAdmin(Integer idx);
     Integer getRoomOccupancy(Integer idx);

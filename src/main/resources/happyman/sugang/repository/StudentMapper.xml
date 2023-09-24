@@ -61,7 +61,7 @@
     </select>
 
     <select id="getStudentCredit" resultType="Integer">
-        select sum(co.course_credit)
+        select COALESCE(sum(co.course_credit),0)
         from registration r
                  join class cl on r.class_idx = cl.class_idx
                  join course co on cl.course_idx = co.course_idx
@@ -69,7 +69,7 @@
     </select>
 
     <select id="findClassesByNameAndCourseId" resultMap="ClassMap">
-        select cl.class_idx, cl.class_no, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
+        select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
         from course co
         join class cl on co.course_idx = cl.course_idx
         join lecturer l on cl.lecturer_idx = l.lecturer_idx
@@ -117,20 +117,6 @@
         where r.student_idx = #{studentIdx}
             and r.class_idx = #{classIdx}
     </delete>
-
-
-    <select id="getClassOfTimetable" resultMap="ClassMap">
-        select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
-        from course co
-                 join class cl on co.course_idx = cl.course_idx
-                 join lecturer l on cl.lecturer_idx = l.lecturer_idx
-                 join room r on cl.room_idx = r.room_idx
-                 join registration rg on cl.class_idx = rg.class_idx
-                 join student s on rg.student_idx = s.student_idx
-        where S.student_idx = #{idx}
-            and cl.class_begin is not null
-            and cl.class_end is not null
-    </select>
 
     <select id="findStudentByIdx" resultMap="StudentMap">
         select *

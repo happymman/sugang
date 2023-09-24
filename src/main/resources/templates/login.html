@@ -10,9 +10,9 @@
 <div class="container">
     <div class="col-lg-4">
         <div class="jumbotron" style="padding-top: 20px;">
-            <form method="post" action="/admin/login">
+            <form id = login>
                 <input type="radio" name="userType" value="admin" checked="checked"> 관리자
-                <input type="radio" name="userType" value="student" onclick="updateFormAction('/student/login')"> 학생
+                <input type="radio" name="userType" value="student"> 학생
 
                 <div class="form-group">
                     <input type="text" class="form-control" id="userId" placeholder="아이디" name="userId" maxlength="20">
@@ -25,9 +25,36 @@
             </form>
 
             <script>
-                function updateFormAction(action) {
-                    document.querySelector("form").action = action;
-                }
+
+                document.getElementById("login").addEventListener("submit", function(event) {
+                    event.preventDefault(); //기본 폼태그 방식 disable
+
+                    const userType = document.querySelector('input[name="userType"]:checked').value;
+                    const userId = document.getElementById("userId").value;
+                    const userPwd = document.getElementById("userPwd").value;
+
+                    const formData = {
+                        userId: userId,
+                        userPwd: userPwd
+                    };
+
+                    fetch("/"+userType+"/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => {
+                        if(response.ok){
+                            window.location.href = "/";
+                        }else if(response.status === 400) {
+                            response.text().then(errorMessage => {
+                                alert(errorMessage);
+                            });
+                        }
+                    })
+                });
             </script>
         </div>
     </div>

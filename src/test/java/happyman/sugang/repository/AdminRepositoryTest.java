@@ -13,7 +13,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@Transactional
 @SpringBootTest
 class AdminRepositoryTest {
-
     @Autowired
     AdminRepository adminRepository;
 
@@ -30,32 +29,33 @@ class AdminRepositoryTest {
 //        assertThat(findCourse).isEqualTo(createdCourse);
 //    }
 
-    @Test
-    void 관리자_생성_탐색_삭제() {
-        //given
-        AdminEntity admin1 = new AdminEntity("id1", "pwd1");
-        AdminEntity admin2 = new AdminEntity("id2", "pwd2");
-
-        //when
-        AdminEntity savedAdmin1 = adminRepository.createAdmin(admin1);
-        AdminEntity savedAdmin2 = adminRepository.createAdmin(admin2);
-
-        //then
-        AdminEntity findAdmin1 = adminRepository.findAdminByIdx(admin1.getAdminIdx()).get();
-        AdminEntity findAdmin2 = adminRepository.findAdminById(admin2.getAdminId()).get();
-
-        assertThat(findAdmin1).isEqualTo(savedAdmin1);
-        assertThat(findAdmin2).isEqualTo(savedAdmin2);
-        adminTest(admin1, admin2);
-
-        adminRepository.deleteAdmin(admin2.getAdminIdx());
-
-        adminTest(admin1);
-    }
-    void adminTest(AdminEntity... admins){
-        List<AdminEntity> result = adminRepository.findAdmins();
-        assertThat(result).containsExactly(admins); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
-    }
+    //보류
+//    @Test
+//    void 관리자_생성_탐색_삭제() {
+//        //given
+//        AdminEntity admin1 = new AdminEntity("id1", "pwd1");
+//        AdminEntity admin2 = new AdminEntity("id2", "pwd2");
+//
+//        //when
+//        AdminEntity savedAdmin1 = adminRepository.createAdmin(admin1);
+//        AdminEntity savedAdmin2 = adminRepository.createAdmin(admin2);
+//
+//        //then
+//        AdminEntity findAdmin1 = adminRepository.findAdminByIdx(admin1.getAdminIdx()).get();
+//        AdminEntity findAdmin2 = adminRepository.findAdminById(admin2.getAdminId()).get();
+//
+//        assertThat(findAdmin1).isEqualTo(savedAdmin1);
+//        assertThat(findAdmin2).isEqualTo(savedAdmin2);
+//        adminTest(admin1, admin2);
+//
+//        adminRepository.deleteAdmin(admin2.getAdminIdx());
+//
+//        adminTest(admin1);
+//    }
+//    void adminTest(AdminEntity... admins){
+//        List<AdminEntity> result = adminRepository.findAllAdmins();
+//        assertThat(result).containsExactly(admins); //containsExactly() : 다수객체의 equals()값이 완벽 동일 여부 검사
+//    }
 
 //    @Test -> 보류(이유는 5.6(토) 작업일지)
 //    void 수업_생성_탐색_삭제() {

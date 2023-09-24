@@ -2,7 +2,6 @@ package happyman.sugang.repository;
 
 import happyman.sugang.domain.ClassEntity;
 import happyman.sugang.domain.StudentEntity;
-import happyman.sugang.dto.ClassDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +23,7 @@ public interface StudentRepository {
 //    * 수업 정원변경(-1)(updateClassRegister) - 필요 : 수강취소
 
     Optional<StudentEntity> findStudentById(String id);
-    Set<Integer> findCourseNotAllowed(Integer idx);
+    Set<Integer> findCoursesNotAllowedForRetake(Integer idx);
     Integer getStudentCredit(Integer idx);
 
     List<ClassEntity> findClassesByNameAndCourseId(String name, String courseId);

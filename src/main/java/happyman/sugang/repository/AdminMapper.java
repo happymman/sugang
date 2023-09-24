@@ -12,7 +12,7 @@ public interface AdminMapper { //매퍼.xml의 sql을 실행하고 결과를 ret
 
     void createAdmin(AdminEntity admin);
 
-    List<AdminEntity> findAdmins();
+    List<AdminEntity> findAllAdmins();
     Optional<AdminEntity> findAdminByIdx(Integer idx);
     void deleteAdmin(Integer idx);
     Integer getRoomOccupancy(Integer idx);

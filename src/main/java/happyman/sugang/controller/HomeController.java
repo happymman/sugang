@@ -39,6 +39,7 @@ public class HomeController {
             }else if(adminIdx != null){
                 AdminDto.Info findAdmin = adminService.findAdminByIdx(adminIdx);
                 model.addAttribute("user", findAdmin);
+                System.out.println("model addAttibute completed");
                 return "home";            }
         }
         return "login";

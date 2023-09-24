@@ -1,5 +1,4 @@
 package happyman.sugang.dto;
-
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 

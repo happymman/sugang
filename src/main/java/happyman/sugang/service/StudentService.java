@@ -9,11 +9,11 @@ public interface StudentService {
     Map<String, Object> login(String studentId, String studentPwd);
 
     List<ClassDto.Info> showClasses(String name, String courseId);
-    Integer applyClass(Set<Integer> registrationsCourseIdx, Set<Integer> coursesNotAllowed, Integer courseIdx, Integer studentCredit, Integer classCredit, Integer studentIdx, Integer classIdx);
+    Integer applyClass(Integer studentIdx, Integer studentCredit, Set<Integer> coursesAlreadyEnrolled, Set<Integer> coursesNotAllowedForRetake,  Integer classIdx, Integer classCredit, Integer courseIdx);
 
     List<ClassDto.Info> showRegistrations(Integer idx);
 
-    void cancelRegistration(Integer studentIdx, Integer classIdx);
+    Integer cancelRegistration(Integer studentIdx, Integer classIdx);
 
     StudentDto.Info findStudentByIdx(Integer idx);
 }

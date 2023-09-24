@@ -17,37 +17,21 @@ import java.util.Optional;
 public class MybatisAdminRepository implements AdminRepository {
     private final AdminMapper adminMapper;
 
-//    @Override
-//    public List<ClassDto> findClasses(String name, String courseId) {
-//        return adminMapper.findClasses(name, courseId);
-//    }
-//
-//    @Override
-//    public Course createCourse(Course course) {
-//        adminMapper.createCourse(course);
-//        return course;
-//    }
-//
-//    @Override
-//    public Optional<Course> findCourseByName(String name) {
-//        return adminMapper.findCourseByName(name);
-//    }
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
     @Override
     public Optional<AdminEntity> findAdminById(String id) {
         return adminMapper.findAdminById(id);
     }
 
     @Override
-    public AdminEntity createAdmin(AdminEntity admin) {
+    public Optional<AdminEntity> createAdmin(AdminEntity admin) {
+        log.info("createAdmin repo method 실행");
         adminMapper.createAdmin(admin);
-        return admin;
+        return Optional.of(admin);
     }
 
     @Override
-    public List<AdminEntity> findAdmins() {
-        List<AdminEntity> admins = adminMapper.findAdmins();
+    public List<AdminEntity> findAllAdmins() {
+        List<AdminEntity> admins = adminMapper.findAllAdmins();
         log.info("findAdmins Mapper method result = {}", admins);
         return admins;
     }

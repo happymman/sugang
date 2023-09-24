@@ -45,11 +45,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="class, i : ${classList}">
+            <tr th:each="class, i : ${session['classesSearched']}">
                 <td th:text="${i.index + 1}"></td>
                 <td>
-                    <form method="post" action="/student/registrations">
+                    <form method="post" action="/student/registrations" th:style="${#sets.contains(session['classesAlreadyEnrolled'], class.classIdx)} ? 'visibility: hidden;' : ''">
                         <input type="hidden" name="classIdx" th:value="${class.classIdx}" />
+                        <input type="hidden" name="courseIdx" th:value="${class.courseIdx}" />
                         <input type="hidden" name="courseCredit" th:value="${class.courseCredit}" />
                         <input type="submit" value="신청" />
                     </form>

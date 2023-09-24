@@ -33,6 +33,8 @@
             <td>
                 <form method="post" th:action="@{|/student/registrations/${registration.classIdx}|}">
                     <input type="hidden" name="classIdx" th:value="${registration.classIdx}" />
+                    <input type="hidden" name="courseIdx" th:value="${registration.courseIdx}" />
+                    <input type="hidden" name="courseCredit" th:value="${registration.courseCredit}" />
                     <input type="submit" value="취소" />
                 </form>
             </td>

@@ -3,46 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="happyman.sugang.repository.StudentMapper">
 
-    <select id="findStudentById" resultMap="findStudentMap">
-        select *
-        from student
-        where student_id = #{id};
-    </select>
-
-    <select id="findCourseNotAllowed" resultType="Integer">
-        select co.course_idx
-        from course co
-        join grade g on co.course_idx = g.course_idx
-        join student s on g.student_idx = s.student_idx
-        where g.grade_grade >= 3.0
-            and s.student_idx = #{studentIdx}
-    </select>
-
-    <select id="getStudentCredit" resultType="Integer">
-        select sum(co.course_credit)
-        from registration r
-                 join class cl on r.class_idx = cl.class_idx
-                 join course co on cl.course_idx = co.course_idx
-        where r.student_idx = #{idx}
-    </select>
-
-    <select id="findClassesByNameAndCourseId" resultMap="findClassMap">
-        select cl.class_idx, cl.class_no, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
-        from course co
-        join class cl on co.course_idx = cl.course_idx
-        join lecturer l on cl.lecturer_idx = l.lecturer_idx
-        join room r on cl.room_idx = r.room_idx
-        <where>
-            <if test="name != null and name !=''">
-                and co.course_name like concat('%',#{name},'%')
-            </if>
-            <if test="courseId != null and courseId !=''">
-                and co.course_id like concat('%',#{courseId},'%')
-            </if>
-        </where>
-    </select>
-
-    <resultMap id="findClassMap" type="ClassEntity">
+    <resultMap id="ClassMap" type="ClassEntity">
         <id property="classIdx" column="class_idx"/>
         <id property="classNo" column="class_no"/>
         <id property="classRegister" column="class_register"/>
@@ -65,9 +26,63 @@
         <association property="lecturerEntity" javaType="LecturerEntity">
             <id property="lecturerIdx" column="lecturer_idx"/>
             <result property="lecturerName" column="lecturer_name"/>
-            <association property="majorEntity" javaType="MajorEntity" />
         </association>
     </resultMap>
+
+    <resultMap id="StudentMap" type="StudentEntity">
+        <id property="studentIdx" column="student_idx"/>
+        <id property="studentId" column="student_id"/>
+        <id property="studentPwd" column="student_pwd"/>
+        <id property="studentName" column="student_name"/>
+        <id property="studentYear" column="student_year"/>
+        <id property="studentSex" column="student_sex"/>
+        <id property="studentStatus" column="student_status"/>
+        <association property="majorEntity" javaType="MajorEntity">
+            <id property="majorIdx" column="major_idx"/>
+        </association>
+        <association property="lecturerEntity" javaType="LecturerEntity">
+            <id property="lecturerIdx" column="lecturer_idx"/>
+        </association>
+    </resultMap>
+
+    <select id="findStudentById" resultMap="StudentMap">
+        select *
+        from student
+        where student_id = #{id};
+    </select>
+
+    <select id="findCourseNotAllowed" resultType="Integer">
+        select co.course_idx
+        from course co
+        join grade g on co.course_idx = g.course_idx
+        join student s on g.student_idx = s.student_idx
+        where g.grade_grade >= 3.0
+            and s.student_idx = #{studentIdx}
+    </select>
+
+    <select id="getStudentCredit" resultType="Integer">
+        select COALESCE(sum(co.course_credit),0)
+        from registration r
+                 join class cl on r.class_idx = cl.class_idx
+                 join course co on cl.course_idx = co.course_idx
+        where r.student_idx = #{idx}
+    </select>
+
+    <select id="findClassesByNameAndCourseId" resultMap="ClassMap">
+        select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
+        from course co
+        join class cl on co.course_idx = cl.course_idx
+        join lecturer l on cl.lecturer_idx = l.lecturer_idx
+        join room r on cl.room_idx = r.room_idx
+        <where>
+            <if test="name != null and name !=''">
+                and co.course_name like concat('%',#{name},'%')
+            </if>
+            <if test="courseId != null and courseId !=''">
+                and co.course_id like concat('%',#{courseId},'%')
+            </if>
+        </where>
+    </select>
 
     <select id="getClassRegisterMax" resultType="ClassEntity">
         select class_register, class_max
@@ -85,7 +100,7 @@
         values (#{studentIdx}, #{classIdx})
     </insert>
 
-    <select id="findRegistrations" resultMap="findClassMap">
+    <select id="findRegistrations" resultMap="ClassMap">
         select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
         from course co
                  join class cl on co.course_idx = cl.course_idx
@@ -103,37 +118,7 @@
             and r.class_idx = #{classIdx}
     </delete>
 
-
-    <select id="getClassOfTimetable" resultMap="findClassMap">
-        select cl.class_idx, cl.class_no, co.course_idx, co.course_name, co.course_id, co.course_credit, co.course_year, cl.class_register, cl.class_max, cl.class_opened, cl.class_begin, cl.class_end, l.lecturer_name, r.room_building_name, r.room_name
-        from course co
-                 join class cl on co.course_idx = cl.course_idx
-                 join lecturer l on cl.lecturer_idx = l.lecturer_idx
-                 join room r on cl.room_idx = r.room_idx
-                 join registration rg on cl.class_idx = rg.class_idx
-                 join student s on rg.student_idx = s.student_idx
-        where S.student_idx = #{idx}
-            and cl.class_begin is not null
-            and cl.class_end is not null
-    </select>
-
-    <resultMap id="findStudentMap" type="StudentEntity">
-        <id property="studentIdx" column="student_idx"/>
-        <id property="studentId" column="student_id"/>
-        <id property="studentPwd" column="student_pwd"/>
-        <id property="studentName" column="student_name"/>
-        <id property="studentYear" column="student_year"/>
-        <id property="studentSex" column="student_sex"/>
-        <id property="studentStatus" column="student_status"/>
-        <association property="majorEntity" javaType="MajorEntity">
-            <id property="majorIdx" column="major_idx"/>
-        </association>
-        <association property="lecturerEntity" javaType="LecturerEntity">
-            <id property="lecturerIdx" column="lecturer_idx"/>
-        </association>
-    </resultMap>
-
-    <select id="findStudentByIdx" resultMap="findStudentMap">
+    <select id="findStudentByIdx" resultMap="StudentMap">
         select *
         from student
         where student_idx = #{idx};

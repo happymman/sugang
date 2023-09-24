@@ -8,54 +8,56 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
 @Slf4j
 public class AdminController {
-
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private SessionHelper sessionHelper;
 
     // 로그인 여부확인(by Session 정상 저장 확인)
     @GetMapping("/login")
     public String checkLogin(HttpSession session) { // 로그인 페이지
-        Integer idx = (Integer) session.getAttribute("adminIdx");
-        if (idx != null) { // 로그인된 상태
-            return "redirect:/";
-        }
-        return "login"; // 로그인되지 않은 상태
+        Optional<Integer> adminIdx = Optional.ofNullable((Integer) session.getAttribute("adminIdx"));
+
+        return adminIdx.map(idx->"redirect:/") // 로그인된 상태
+                .orElse("login"); // 로그인되지 않은 상태 -> 로그인 화면 이
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginDto loginDto, HttpSession session){
-
-        String adminId = loginDto.getUserId();
-        String adminPwd = loginDto.getUserPwd();
-
-        Integer adminIdx = adminService.login(adminId, adminPwd);
-
-        if(adminIdx == null){
-            return "redirect:/admin/login";
-        }else{
-            session.setAttribute("adminIdx", adminIdx);
-            return "redirect:/"; //바로 home으로 이동하지 않고 /로 이동하는 이유 : 추가적으로 /에서 할 작업O, 그것과 분리하여 메써드 역할을 분명하게 하기 위함.
+    public String login(@RequestBody @Valid LoginDto loginDto, HttpSession session, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            log.info("검증 오류 발생 errors={}", bindingResult);
         }
+
+        Optional<Integer> adminIdx = Optional.ofNullable(adminService.login(loginDto.getUserId(), loginDto.getUserPwd()));
+        sessionHelper.setAdminLoginSession(session, adminIdx);
+
+        return adminIdx.map(idx -> "redirect:/") //main화면 이동
+                .orElse("redirect:/admin/login"); //로그인여부 확인메써드로 리다이렉트 -> 로그인 화면이동
     }
+    
 
     @PostMapping("/logout")
     public String logout(HttpSession session) { // 로그아웃
         session.invalidate();
         return "redirect:/";
     }
-    //어차피 invalidate()이후 상황은 /이동 -> /login이동일텐데, 바로 /login 이동안하고 /로 rediirect하는 이유
-    //사용자 친화적 로직 추가 가능(ex : 로그아웃 확인 메세지 before 로그인 화면 이동전)
-    //오류 발생 방지 로직 추가 가능(ex : 트랜잭션 진행중 - @Transaction rollback 작업 포함, 보류중인 요청O - 완료까지 대기 로직)
-    //성능 향상 로직 추가 가능 (ex : 사용자 관련 캐시된 데이터 flush 작업) - Q.자세히는 나중에 알아보기
+    /*
+        어차피 invalidate()이후 상황은 /이동 -> /login이동일텐데, 바로 /login 이동안하고 /로 rediirect하는 이유
+        사용자 친화적 로직 추가 가능(ex : 로그아웃 확인 메세지 before 로그인 화면 이동전)
+        오류 발생 방지 로직 추가 가능(ex : 트랜잭션 진행중 - @Transaction rollback 작업 포함, 보류중인 요청O - 완료까지 대기 로직)
+        성능 향상 로직 추가 가능 (ex : 사용자 관련 캐시된 데이터 flush 작업) - Q.자세히는 나중에 알아보기
+    */
 
     //admin관리 페이지 이동
     @GetMapping("/adminPage")
@@ -65,36 +67,27 @@ public class AdminController {
 
     //관리자 복수조회
     @GetMapping("/admins")
-    public String showAdmins(Model model){
-        List<AdminDto.Info> adminList = adminService.findAdmins();
+    public String showAdmins(HttpSession session){
+        List<AdminDto.Info> adminList = adminService.findAllAdmins();
 
-        log.info("findAdmins Service method result = {}", adminList);
-
-        model.addAttribute("adminList", adminList);
-        return "adminAdmins";
+        //일회성으로 보여주지 않고, registerAdmin(), withdrawAdmin() 이후에도 지속적으로 보여줘야하는 정보이기때문에 세션저장
+        session.setAttribute("adminList", adminList);
+        return "redirect:/admin/adminPage";
     }
 
     //관리자 등록
     @PostMapping("/admins")
-    public String registerAdmin(@Valid @ModelAttribute AdminDto.Request requestDto, Model model, RedirectAttributes redirectAttributes){
-        //입력 유효성 검사에 대한 예외 처리 추가 필요
-        adminService.registerAdmin(requestDto.getAdminId(), requestDto.getAdminPwd());
-
-        List<AdminDto> adminList = (List<AdminDto>) model.getAttribute("adminList");
-
-        log.info("{}",model.getAttribute("adminDto"));
-        log.info("{}", redirectAttributes.getAttribute("adminList"));
-
-        return "redirect:/admin/admins";
+    public String registerAdmin(HttpSession session, @Valid @RequestBody AdminDto.Request requestDto){
+        AdminDto.Info admin = adminService.registerAdmin(requestDto.getAdminId(), requestDto.getAdminPwd());
+        sessionHelper.addToAdminList(session, admin); //검색된 adminList에 추가(in Session)
+        return "redirect:/admin/adminPage";
     }
 
     //관리자 삭제
     @PostMapping("/admins/{adminIdx}")
-    public String withdrawAdmin(Integer adminIdx, Model model, RedirectAttributes redirectAttributes){
+    public String withdrawAdmin(Integer adminIdx, HttpSession session){
         adminService.withdrawAdmin(adminIdx);
-
-        List<AdminDto> adminList = (List<AdminDto>) model.getAttribute("adminList");
-        redirectAttributes.addAttribute("adminList", adminList);
+        sessionHelper.removeFromAdminList(session, adminIdx); //검색된 adminList에서 제거(in Session)
         return "redirect:/admin/admins";
     }
 
@@ -105,16 +98,17 @@ public class AdminController {
     }
 
     @GetMapping("/classes")
-    public String showClasses(Model model, @RequestParam String courseName, @RequestParam String courseId){
+    public String showClasses(@RequestParam String courseName, @RequestParam String courseId, HttpSession session){
 
-        List<ClassDto.Info> classList = adminService.showClasses(courseName, courseId);
-        model.addAttribute("classList", classList);
-        return "adminClasses";
+        List<ClassDto.Info> classesSearched = adminService.showClasses(courseName, courseId);
+
+        session.setAttribute("classesSearched", classesSearched);
+        return "redirect:/admin/classPage";
     }
 
     //수업 개설 메써드
     @PostMapping("/classes")
-    public String openClass(ClassDto.Request classDto){
+    public String openClass(@Valid @RequestBody ClassDto.registerRequest classDto){
         adminService.openClass(classDto);
         return "adminClasses";
     }
@@ -131,7 +125,6 @@ public class AdminController {
     public String toStudentPage(){
         return "adminStudents";
     }
-
 
     //학생 등록
     @PostMapping("/students")
@@ -152,7 +145,6 @@ public class AdminController {
     //학생 학적변경
     @PostMapping("/students/status")
     public String modifyStudentStatus(@RequestParam("studentIdx") Integer idx, @RequestParam("studentStatus") String status){
-        log.info("param idx = {}, param = status = {}",idx, status);
         adminService.modifyStudentStatus(idx, status);
         return "adminStudents";
     }
@@ -161,14 +153,12 @@ public class AdminController {
     @GetMapping("/students/lecturer")
     public String showStudentLecturer(Model model, @RequestParam("studentIdx")Integer studentIdx){
         LecturerDto.Info studentLecturer = adminService.findStudentLecturer(studentIdx);
-        log.info("findStudentLecturer service method result = {}", studentLecturer);
 
         model.addAttribute("studentLecturer", studentLecturer);
-        log.info("model attribute = {}", model.getAttribute("studentLecturer"));
         return "adminStudents";
     }
 
-    //학생 시간표 조회
+    //학생 신청내역 조회
     @GetMapping("/students/registrations")
     public String showStudentRegistrationList(Model model, @RequestParam("studentIdx")Integer studentIdx){
         List<ClassDto.Info> registrationList = adminService.findStudentRegistrations(studentIdx);

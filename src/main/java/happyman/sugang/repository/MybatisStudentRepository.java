@@ -19,7 +19,7 @@ public class MybatisStudentRepository implements StudentRepository {
     public Optional<StudentEntity> findStudentById(String id){ return studentMapper.findStudentById(id);}
 
     @Override
-    public Set<Integer> findCourseNotAllowed(Integer idx) {
+    public Set<Integer> findCoursesNotAllowedForRetake(Integer idx) {
         return studentMapper.findCourseNotAllowed(idx);
     }
 

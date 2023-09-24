@@ -92,7 +92,7 @@ public class Utility {
         return student;
     }
 
-    static public ClassEntity ClassDto2Entity(ClassDto.Request request) {
+    static public ClassEntity ClassDto2Entity(ClassDto.registerRequest request) {
         ClassEntity classEntity = ClassEntity.builder()
 
                 .classNo(request.getClassNo())

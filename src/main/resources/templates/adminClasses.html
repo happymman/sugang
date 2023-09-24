@@ -14,36 +14,36 @@
     </div>
 
     <div class="container py-3">
-        <form action="/admin/classes" method="post" >
+        <form id="openClass">
             <div class="py-1">
                 <h2 style="test-align: center;">수업 개설</h2>
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="과목 고유번호 ex : 23" name="courseIdx" maxlength="20">
+                <input type="text" class="form-control" placeholder="과목 고유번호 ex : 23" id="courseIdx" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="강의실 고유번호 ex : 164" name="roomIdx" maxlength="20">
+                <input type="text" class="form-control" placeholder="강의실 고유번호 ex : 164" id="roomIdx" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="교강사 고유번호 ex : 24" name="lecturerIdx" maxlength="20">
+                <input type="text" class="form-control" placeholder="교강사 고유번호 ex : 24" id="lecturerIdx" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="수업 번호" name="classNo" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 번호" id="classNo" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="수업 신청인원" name="classRegister" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 신청인원" id="classRegister" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="수업 최대인원" name="classMax" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 최대인원" id="classMax" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="수업 설강년도" name="classOpened" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 설강년도" id="classOpened" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="수업 시작시간 ex : 수 5시30분" name="classBegin" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 시작시간 ex : 수 5시30분" id="classBegin" maxlength="20">
             </div>
             <div class="form-group py-1">
-                <input type="text" class="form-control" placeholder="수업 종료시간 ex : 수 7시" name="classEnd" maxlength="20">
+                <input type="text" class="form-control" placeholder="수업 종료시간 ex : 수 7시" id="classEnd" maxlength="20">
             </div>
             <div class="form-group py-1">
                 <input type="submit" class="form-control" value="설강하기">
@@ -87,7 +87,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="class, i : ${classList}">
+                    <tr th:each="class, i : ${session['classesSearched']}">
                         <td th:text="${i.index + 1}"></td>
                         <td>
                             <form method="post" th:action="@{|/admin/classes/${class.classIdx}|}">
@@ -112,7 +112,52 @@
         </div>
 
     </div>
+    <script>
 
+        // action="/admin/classes" method="post"
+        document.getElementById("openClass").addEventListener("submit", function(event) {
+            event.preventDefault(); //기본 폼태그 방식 disable
+
+            const courseIdx = document.getElementById("courseIdx").value;
+            const roomIdx = document.getElementById("roomIdx").value;
+            const lecturerIdx = document.getElementById("lecturerIdx").value;
+            const classNo = document.getElementById("classNo").value;
+            const classRegister = document.getElementById("classRegister").value;
+            const classMax = document.getElementById("classMax").value;
+            const classOpened = document.getElementById("classOpened").value;
+            const classBegin = document.getElementById("classBegin").value;
+            const classEnd = document.getElementById("classEnd").value;
+
+            const formData = {
+                courseIdx : courseIdx,
+                roomIdx : roomIdx,
+                lecturerIdx : lecturerIdx,
+                classNo : classNo,
+                classRegister : classRegister,
+                classMax : classMax,
+                classOpened : classOpened,
+                classBegin : classBegin,
+                classEnd :classEnd
+            };
+
+            fetch("/admin/classes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => {
+                    if (response.ok){
+                        alert("성공적으로 수업을 등록했습니다.");
+                    } else if (response.status === 409  || response.status === 400){
+                        response.text().then(errorMessage => {
+                            alert(errorMessage);
+                        });
+                    }
+                })
+        });
+    </script>
 </div>
 </body>
 </html>
